@@ -1,0 +1,6 @@
+framework module Pods_BuiltDiff_BuiltDiffUITests {
+  umbrella header "Pods-BuiltDiff-BuiltDiffUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
