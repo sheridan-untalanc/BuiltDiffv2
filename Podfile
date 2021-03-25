@@ -7,6 +7,7 @@ target 'BuiltDiff' do
 
   # Pods for BuiltDiff
   pod 'Firebase/Database'
+  pod 'Firebase/Auth'
 
   target 'BuiltDiffTests' do
     inherit! :search_paths
