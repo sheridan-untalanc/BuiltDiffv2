@@ -31,7 +31,10 @@ class RegisterViewController: UIViewController {
         
         guard let email = emailInput.text, !email.isEmpty,
               let password = passwordInput.text, !password.isEmpty else {
-            print("Missing field data")
+            
+            let alert = UIAlertController(title: "Error!", message: "One or more of the fields is empty.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
+            self.present(alert, animated: true, completion: nil)
             return
         }
         
