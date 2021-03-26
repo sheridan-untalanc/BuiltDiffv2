@@ -24,9 +24,7 @@ class RegisterViewController: UIViewController {
     @IBAction func onRegister(_ sender: Any) {
         if (passwordInput.text != passwordConfirmInput.text){
             let alert = UIAlertController(title: "Error!", message: "Passwords do not match", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
-            NSLog("The \"OK\" alert occured.")
-            }))
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
             self.present(alert, animated: true, completion: nil)
             return
         }
