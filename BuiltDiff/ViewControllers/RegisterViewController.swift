@@ -36,10 +36,24 @@ class RegisterViewController: UIViewController {
         }
         
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+            if(error != nil){
+                let errorMessage = error?.localizedDescription
+
+                let alert = UIAlertController(title: "Error creating a new account", message: errorMessage, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
+                self.present(alert, animated: true, completion: nil)
+                return
+            }
+            
             var ref: DatabaseReference!
             ref = Database.database().reference()
             
             ref.child("users/\(authResult!.user.uid)/email").setValue(email)
+            
+            let alert = UIAlertController(title: "Success!", message: "Your account has been created successfully.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
+            self.present(alert, animated: true, completion: nil)
+            return
         }
         
     }
