@@ -9,7 +9,8 @@ import UIKit
 import FirebaseAuth
 
 class ViewController: UIViewController {
-    @IBOutlet weak var usernameInput: UITextField!
+    
+    @IBOutlet weak var emailInput: UITextField!
     @IBOutlet weak var passwordInput: UITextField!
     
     override func viewDidLoad() {
@@ -18,9 +19,31 @@ class ViewController: UIViewController {
     }
 
     @IBAction func onLogin(_ sender: Any) {
-        guard let email = usernameInput.text, !email.isEmpty,
+        
+        guard let email = emailInput.text, !email.isEmpty,
               let password = passwordInput.text, !password.isEmpty else {
-            print("Missing field data")
+            
+            let alert = UIAlertController(title: "Error!", message: "One or more of the fields is empty.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
+        
+        Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+            if (error != nil){
+                let errorMessage = error?.localizedDescription
+
+                let alert = UIAlertController(title: "Login Error", message: errorMessage, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
+                self.present(alert, animated: true, completion: nil)
+                return
+            }
+            
+            let loginMessage = "User: " + (authResult?.user.email)!
+            
+            let alert = UIAlertController(title: "Login Success!", message: loginMessage, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
+            self.present(alert, animated: true, completion: nil)
             return
         }
         
