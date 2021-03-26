@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,7 @@
 		9A41528CE3708332ACD0C750 /* Pods_BuiltDiff.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9565645955B475D0C435CB5 /* Pods_BuiltDiff.framework */; };
 		B4C6DD5BE80EEF5E315D3ED4 /* Pods_BuiltDiffTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E89C583861952322F0ED190C /* Pods_BuiltDiffTests.framework */; };
 		D68CFF0E1B3977D9670545F6 /* Pods_BuiltDiff_WatchKit_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47AEB9041A8EE37DA881A894 /* Pods_BuiltDiff_WatchKit_App.framework */; };
+		EB205FB1260D3A4500C65260 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB205FB0260D3A4500C65260 /* RegisterViewController.swift */; };
 		EBBE90A42604E8EA00D8D4D2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EBBE90A32604E8E900D8D4D2 /* GoogleService-Info.plist */; };
 		EBDE95CC260292F800B9E544 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDE95CB260292F800B9E544 /* AppDelegate.swift */; };
 		EBDE95CE260292F800B9E544 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDE95CD260292F800B9E544 /* SceneDelegate.swift */; };
@@ -104,6 +105,7 @@
 		DE2F4C18025ADD69B10C7B59 /* Pods-BuiltDiffTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuiltDiffTests.debug.xcconfig"; path = "Target Support Files/Pods-BuiltDiffTests/Pods-BuiltDiffTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E89C583861952322F0ED190C /* Pods_BuiltDiffTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BuiltDiffTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9565645955B475D0C435CB5 /* Pods_BuiltDiff.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BuiltDiff.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB205FB0260D3A4500C65260 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		EBBE90A32604E8E900D8D4D2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EBDE95C8260292F800B9E544 /* BuiltDiff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BuiltDiff.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBDE95CB260292F800B9E544 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -191,7 +193,6 @@
 				DE2F4C18025ADD69B10C7B59 /* Pods-BuiltDiffTests.debug.xcconfig */,
 				95206ACA337A644C2F3C02F9 /* Pods-BuiltDiffTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -205,6 +206,15 @@
 				E89C583861952322F0ED190C /* Pods_BuiltDiffTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EB205FAA260D398900C65260 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				EBDE95CF260292F800B9E544 /* ViewController.swift */,
+				EB205FB0260D3A4500C65260 /* RegisterViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		EBDE95BF260292F800B9E544 = {
@@ -236,10 +246,10 @@
 		EBDE95CA260292F800B9E544 /* BuiltDiff */ = {
 			isa = PBXGroup;
 			children = (
+				EB205FAA260D398900C65260 /* ViewControllers */,
 				EBBE90A32604E8E900D8D4D2 /* GoogleService-Info.plist */,
 				EBDE95CB260292F800B9E544 /* AppDelegate.swift */,
 				EBDE95CD260292F800B9E544 /* SceneDelegate.swift */,
-				EBDE95CF260292F800B9E544 /* ViewController.swift */,
 				EBDE95D1260292F800B9E544 /* Main.storyboard */,
 				EBDE95D4260292F900B9E544 /* Assets.xcassets */,
 				EBDE95D6260292F900B9E544 /* LaunchScreen.storyboard */,
@@ -640,6 +650,7 @@
 				EBDE95D0260292F800B9E544 /* ViewController.swift in Sources */,
 				EBDE95CC260292F800B9E544 /* AppDelegate.swift in Sources */,
 				EBDE95CE260292F800B9E544 /* SceneDelegate.swift in Sources */,
+				EB205FB1260D3A4500C65260 /* RegisterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
