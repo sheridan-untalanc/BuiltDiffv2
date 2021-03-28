@@ -9,6 +9,15 @@
 /* Begin PBXBuildFile section */
 		0A1DEEF9B92B007492A089D7 /* Pods_BuiltDiff_BuiltDiffUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03618F9AC82138B5354529EB /* Pods_BuiltDiff_BuiltDiffUITests.framework */; };
 		642759965FC1DD2A1C804C95 /* Pods_BuiltDiff_WatchKit_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5195CF66888E0958331C7B6 /* Pods_BuiltDiff_WatchKit_Extension.framework */; };
+		75B4D149261014F200DF4932 /* Groups.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75B4D148261014F200DF4932 /* Groups.storyboard */; };
+		75B4D1512610151700DF4932 /* Exercise.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75B4D1502610151700DF4932 /* Exercise.storyboard */; };
+		75B4D1582610152600DF4932 /* Play.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75B4D1572610152600DF4932 /* Play.storyboard */; };
+		75B4D15F2610153200DF4932 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75B4D15E2610153200DF4932 /* Profile.storyboard */; };
+		75B4D1662610158D00DF4932 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B4D1652610158D00DF4932 /* MainMenuViewController.swift */; };
+		75B4D16D2610159A00DF4932 /* GroupsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B4D16C2610159A00DF4932 /* GroupsMainViewController.swift */; };
+		75B4D174261015AA00DF4932 /* PlayMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B4D173261015AA00DF4932 /* PlayMainViewController.swift */; };
+		75B4D17B261015B800DF4932 /* ProfileMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B4D17A261015B800DF4932 /* ProfileMainViewController.swift */; };
+		75B4D182261015CD00DF4932 /* ExerciseMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B4D181261015CD00DF4932 /* ExerciseMainViewController.swift */; };
 		9A41528CE3708332ACD0C750 /* Pods_BuiltDiff.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9565645955B475D0C435CB5 /* Pods_BuiltDiff.framework */; };
 		B4C6DD5BE80EEF5E315D3ED4 /* Pods_BuiltDiffTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E89C583861952322F0ED190C /* Pods_BuiltDiffTests.framework */; };
 		D68CFF0E1B3977D9670545F6 /* Pods_BuiltDiff_WatchKit_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47AEB9041A8EE37DA881A894 /* Pods_BuiltDiff_WatchKit_App.framework */; };
@@ -95,6 +104,15 @@
 		47AEB9041A8EE37DA881A894 /* Pods_BuiltDiff_WatchKit_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BuiltDiff_WatchKit_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CBE002738BED21CDC025C44 /* Pods-BuiltDiff.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuiltDiff.release.xcconfig"; path = "Target Support Files/Pods-BuiltDiff/Pods-BuiltDiff.release.xcconfig"; sourceTree = "<group>"; };
 		6AD612B7EDD71136CB94461D /* Pods-BuiltDiff WatchKit App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuiltDiff WatchKit App.release.xcconfig"; path = "Target Support Files/Pods-BuiltDiff WatchKit App/Pods-BuiltDiff WatchKit App.release.xcconfig"; sourceTree = "<group>"; };
+		75B4D148261014F200DF4932 /* Groups.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Groups.storyboard; sourceTree = "<group>"; };
+		75B4D1502610151700DF4932 /* Exercise.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Exercise.storyboard; sourceTree = "<group>"; };
+		75B4D1572610152600DF4932 /* Play.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Play.storyboard; sourceTree = "<group>"; };
+		75B4D15E2610153200DF4932 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		75B4D1652610158D00DF4932 /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
+		75B4D16C2610159A00DF4932 /* GroupsMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsMainViewController.swift; sourceTree = "<group>"; };
+		75B4D173261015AA00DF4932 /* PlayMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayMainViewController.swift; sourceTree = "<group>"; };
+		75B4D17A261015B800DF4932 /* ProfileMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMainViewController.swift; sourceTree = "<group>"; };
+		75B4D181261015CD00DF4932 /* ExerciseMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseMainViewController.swift; sourceTree = "<group>"; };
 		830E1E699DC89397F58DCF11 /* Pods-BuiltDiff.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuiltDiff.debug.xcconfig"; path = "Target Support Files/Pods-BuiltDiff/Pods-BuiltDiff.debug.xcconfig"; sourceTree = "<group>"; };
 		90C91FF8B391442488E36CAD /* Pods-BuiltDiff WatchKit Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuiltDiff WatchKit Extension.release.xcconfig"; path = "Target Support Files/Pods-BuiltDiff WatchKit Extension/Pods-BuiltDiff WatchKit Extension.release.xcconfig"; sourceTree = "<group>"; };
 		95206ACA337A644C2F3C02F9 /* Pods-BuiltDiffTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuiltDiffTests.release.xcconfig"; path = "Target Support Files/Pods-BuiltDiffTests/Pods-BuiltDiffTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -196,6 +214,19 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		75B4D14F261014FB00DF4932 /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
+				EBDE95D1260292F800B9E544 /* Main.storyboard */,
+				EBDE95D6260292F900B9E544 /* LaunchScreen.storyboard */,
+				75B4D148261014F200DF4932 /* Groups.storyboard */,
+				75B4D1502610151700DF4932 /* Exercise.storyboard */,
+				75B4D1572610152600DF4932 /* Play.storyboard */,
+				75B4D15E2610153200DF4932 /* Profile.storyboard */,
+			);
+			path = StoryBoards;
+			sourceTree = "<group>";
+		};
 		A17DB30EB90F07F8797F3293 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -211,8 +242,13 @@
 		EB205FAA260D398900C65260 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				75B4D16C2610159A00DF4932 /* GroupsMainViewController.swift */,
 				EBDE95CF260292F800B9E544 /* ViewController.swift */,
 				EB205FB0260D3A4500C65260 /* RegisterViewController.swift */,
+				75B4D1652610158D00DF4932 /* MainMenuViewController.swift */,
+				75B4D173261015AA00DF4932 /* PlayMainViewController.swift */,
+				75B4D17A261015B800DF4932 /* ProfileMainViewController.swift */,
+				75B4D181261015CD00DF4932 /* ExerciseMainViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -246,13 +282,12 @@
 		EBDE95CA260292F800B9E544 /* BuiltDiff */ = {
 			isa = PBXGroup;
 			children = (
+				75B4D14F261014FB00DF4932 /* StoryBoards */,
 				EB205FAA260D398900C65260 /* ViewControllers */,
 				EBBE90A32604E8E900D8D4D2 /* GoogleService-Info.plist */,
 				EBDE95CB260292F800B9E544 /* AppDelegate.swift */,
 				EBDE95CD260292F800B9E544 /* SceneDelegate.swift */,
-				EBDE95D1260292F800B9E544 /* Main.storyboard */,
 				EBDE95D4260292F900B9E544 /* Assets.xcassets */,
-				EBDE95D6260292F900B9E544 /* LaunchScreen.storyboard */,
 				EBDE95D9260292F900B9E544 /* Info.plist */,
 			);
 			path = BuiltDiff;
@@ -455,9 +490,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75B4D1512610151700DF4932 /* Exercise.storyboard in Resources */,
+				75B4D149261014F200DF4932 /* Groups.storyboard in Resources */,
+				75B4D15F2610153200DF4932 /* Profile.storyboard in Resources */,
 				EBDE95D8260292F900B9E544 /* LaunchScreen.storyboard in Resources */,
 				EBBE90A42604E8EA00D8D4D2 /* GoogleService-Info.plist in Resources */,
 				EBDE95D5260292F900B9E544 /* Assets.xcassets in Resources */,
+				75B4D1582610152600DF4932 /* Play.storyboard in Resources */,
 				EBDE95D3260292F800B9E544 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -648,9 +687,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBDE95D0260292F800B9E544 /* ViewController.swift in Sources */,
+				75B4D1662610158D00DF4932 /* MainMenuViewController.swift in Sources */,
 				EBDE95CC260292F800B9E544 /* AppDelegate.swift in Sources */,
 				EBDE95CE260292F800B9E544 /* SceneDelegate.swift in Sources */,
+				75B4D174261015AA00DF4932 /* PlayMainViewController.swift in Sources */,
+				75B4D182261015CD00DF4932 /* ExerciseMainViewController.swift in Sources */,
 				EB205FB1260D3A4500C65260 /* RegisterViewController.swift in Sources */,
+				75B4D16D2610159A00DF4932 /* GroupsMainViewController.swift in Sources */,
+				75B4D17B261015B800DF4932 /* ProfileMainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
