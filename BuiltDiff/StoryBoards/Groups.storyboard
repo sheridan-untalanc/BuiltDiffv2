@@ -170,6 +170,9 @@
                                     <color key="titleColor" systemColor="systemYellowColor"/>
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="onCreateGroup:" destination="NLA-ke-7LD" eventType="touchUpInside" id="r42-Wp-T4r"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Group Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vgg-Hh-Fdg">
                                 <rect key="frame" x="92" y="192" width="230" height="34"/>
@@ -215,6 +218,8 @@
                     </view>
                     <connections>
                         <outlet property="BackgroundBox" destination="I93-0t-cac" id="Mi8-Xk-jWR"/>
+                        <outlet property="groupNameInput" destination="vgg-Hh-Fdg" id="vuQ-vi-bDJ"/>
+                        <outlet property="imageView" destination="QaL-M9-JJM" id="4c7-cX-hIW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="olK-9V-svX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

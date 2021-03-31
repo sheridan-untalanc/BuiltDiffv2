@@ -6,10 +6,14 @@
 //
 
 import UIKit
+import FirebaseStorage
 
 class GroupsCreateViewController: UIViewController {
 
     @IBOutlet var BackgroundBox: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var groupNameInput: UITextField!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +22,42 @@ class GroupsCreateViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func onCreateGroup(_ sender: Any) {
+        guard let groupName = groupNameInput.text, !groupName.isEmpty else {
+            let alert = UIAlertController(title: "Error!", message: "One or more of the fields is empty.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
+        
+        guard let imageData = imageView.image?.jpegData(compressionQuality: 0.1) else {
+            print("Could not get image!")
+            return
+        }
+        
+        // Create a reference to the file you want to upload
+        let storageRef = Storage.storage().reference()
+        let imageRef = storageRef.child("images/\(groupName).jpg")
 
+        // Upload the file to the path "images/rivers.jpg"
+        let uploadTask = imageRef.putData(imageData, metadata: nil) { (metadata, error) in
+          guard let metadata = metadata else {
+            print("Uh-oh, an error occurred getting the metadata")
+            return
+          }
+          // Metadata contains file metadata such as size, content-type.
+          let size = metadata.size
+          // You can also access to download URL after upload.
+          imageRef.downloadURL { (url, error) in
+            guard let downloadURL = url else {
+                print("Uh-oh, an error occurred getting the download URL")
+              return
+            }
+          }
+        }
+        
+    }
+    
     /*
     // MARK: - Navigation
 
