@@ -208,8 +208,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vXU-Gh-p5R">
+                                <rect key="frame" x="180" y="309" width="55" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Confirm"/>
+                                <connections>
+                                    <action selector="chooseImageWithSender:" destination="NLA-ke-7LD" eventType="touchUpInside" id="Ngb-OB-3wA"/>
+                                </connections>
+                            </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SoccerTeam" translatesAutoresizingMaskIntoConstraints="NO" id="QaL-M9-JJM">
-                                <rect key="frame" x="87" y="326" width="240" height="128"/>
+                                <rect key="frame" x="87" y="347" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -218,6 +226,7 @@
                     </view>
                     <connections>
                         <outlet property="BackgroundBox" destination="I93-0t-cac" id="Mi8-Xk-jWR"/>
+                        <outlet property="ImageSelector" destination="Sbg-kL-KQc" id="HNg-rv-Eoo"/>
                         <outlet property="groupNameInput" destination="vgg-Hh-Fdg" id="vuQ-vi-bDJ"/>
                         <outlet property="imageView" destination="QaL-M9-JJM" id="4c7-cX-hIW"/>
                     </connections>
