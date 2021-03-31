@@ -13,9 +13,7 @@ class ProfileMainViewController: UIViewController {
     @IBOutlet weak var backgroundFill: UIImageView!
     @IBOutlet weak var profileName: UILabel!
     @IBOutlet weak var backgroundMedal: UIImageView!
-    @IBOutlet weak var medalPicture: UIImageView!
     @IBOutlet weak var exercisesBackground: UIImageView!
-    
     
     
     override func viewDidLoad() {
