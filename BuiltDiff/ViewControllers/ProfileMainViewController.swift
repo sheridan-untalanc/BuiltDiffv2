@@ -9,21 +9,23 @@ import UIKit
 
 class ProfileMainViewController: UIViewController {
 
+    @IBOutlet weak var profilePicture: UIImageView!
+    @IBOutlet weak var backgroundFill: UIImageView!
+    @IBOutlet weak var profileName: UILabel!
+    @IBOutlet weak var backgroundMedal: UIImageView!
+    @IBOutlet weak var medalPicture: UIImageView!
+    @IBOutlet weak var exercisesBackground: UIImageView!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        profilePicture.layer.cornerRadius = profilePicture.bounds.width/2
+        profilePicture.layer.masksToBounds = true
+        backgroundFill.layer.cornerRadius = backgroundFill.bounds.width/2
+        profilePicture.layer.masksToBounds = true
+        backgroundMedal.layer.cornerRadius = 30
+        exercisesBackground.layer.cornerRadius = 30
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
