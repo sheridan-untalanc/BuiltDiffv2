@@ -7,13 +7,15 @@
 
 import UIKit
 
-class ProfileMainViewController: UIViewController {
+class ProfileMainViewController: UIViewController, UIImagePickerControllerDelegate {
     
     @IBOutlet weak var profilePicture: UIImageView!
     @IBOutlet weak var backgroundFill: UIImageView!
     @IBOutlet weak var profileName: UILabel!
     @IBOutlet weak var backgroundMedal: UIImageView!
     @IBOutlet weak var exercisesBackground: UIImageView!
+    
+    var imagePicker = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,34 +26,22 @@ class ProfileMainViewController: UIViewController {
         profilePicture.layer.masksToBounds = true
         backgroundMedal.layer.cornerRadius = 30
         exercisesBackground.layer.cornerRadius = 30
+    }
+    
+    @IBAction func displayActionSheet(_ sender: Any) {
+        let optionMenu = UIAlertController(title: nil, message: "Choose Option", preferredStyle: .actionSheet)
+        let profilePictureAction = UIAlertAction(title: "Change Profile Picture", style: .default)
+        let customizeAvatarAction = UIAlertAction(title: "Customize Avatar", style: .default)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+                
+        optionMenu.addAction(profilePictureAction)
+        optionMenu.addAction(customizeAvatarAction)
+        optionMenu.addAction(cancelAction)
         
-        let gesture = UIGestureRecognizer(target: self, action: #selector(didTapChangeProfilePicture))
-        profilePicture.addGestureRecognizer(gesture)
-    }
-    
-    @objc private func didTapChangeProfilePicture(){
-        presentPhotoActionSheet()
-    }
-}
-
-extension ProfileMainViewController : UIImagePickerControllerDelegate{
-    
-    func presentPhotoActionSheet(){
-        let actionSheet = UIAlertController(title: "Profile Picture", message: "How would you like to select a picture?", preferredStyle: .actionSheet)
-        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        actionSheet.addAction(UIAlertAction(title: "Take Photo", style: .default, handler: { _ in
-            
-        }))
-        actionSheet.addAction(UIAlertAction(title: "Choose Photo", style: .default, handler: { _ in
-            
-        }))
+        self.present(optionMenu, animated: true, completion: nil)
         
-        present(actionSheet, animated: true)
-    }
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-    }
-    
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        if profilePictureAction.isEnabled == true{
+            
+        }
     }
 }

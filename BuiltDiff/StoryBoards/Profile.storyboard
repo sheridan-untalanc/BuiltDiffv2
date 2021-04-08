@@ -201,7 +201,7 @@
                                 <rect key="frame" x="107" y="150" width="200" height="195"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <segue destination="rtk-3X-ocz" kind="presentation" modalPresentationStyle="fullScreen" id="d9d-UX-1cQ"/>
+                                    <action selector="displayActionSheet:" destination="2Pe-gW-5Ob" eventType="touchUpInside" id="pjf-v8-fvc"/>
                                 </connections>
                             </button>
                         </subviews>
