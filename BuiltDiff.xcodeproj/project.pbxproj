@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0A1DEEF9B92B007492A089D7 /* Pods_BuiltDiff_BuiltDiffUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03618F9AC82138B5354529EB /* Pods_BuiltDiff_BuiltDiffUITests.framework */; };
 		642759965FC1DD2A1C804C95 /* Pods_BuiltDiff_WatchKit_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5195CF66888E0958331C7B6 /* Pods_BuiltDiff_WatchKit_Extension.framework */; };
+		73ADACCB261F635E000E50AB /* AchievementsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73ADACCA261F635E000E50AB /* AchievementsMainViewController.swift */; };
+		73ADACD2261F636C000E50AB /* AvatarMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73ADACD1261F636C000E50AB /* AvatarMainViewController.swift */; };
 		75262A842614E61E00EF6660 /* GroupsCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75262A832614E61E00EF6660 /* GroupsCreateViewController.swift */; };
 		75262A9C2616458800EF6660 /* GroupsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75262A9B2616458800EF6660 /* GroupsTableViewCell.swift */; };
 		75B4D149261014F200DF4932 /* Groups.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75B4D148261014F200DF4932 /* Groups.storyboard */; };
@@ -106,6 +108,8 @@
 		47AEB9041A8EE37DA881A894 /* Pods_BuiltDiff_WatchKit_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BuiltDiff_WatchKit_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CBE002738BED21CDC025C44 /* Pods-BuiltDiff.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuiltDiff.release.xcconfig"; path = "Target Support Files/Pods-BuiltDiff/Pods-BuiltDiff.release.xcconfig"; sourceTree = "<group>"; };
 		6AD612B7EDD71136CB94461D /* Pods-BuiltDiff WatchKit App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuiltDiff WatchKit App.release.xcconfig"; path = "Target Support Files/Pods-BuiltDiff WatchKit App/Pods-BuiltDiff WatchKit App.release.xcconfig"; sourceTree = "<group>"; };
+		73ADACCA261F635E000E50AB /* AchievementsMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsMainViewController.swift; sourceTree = "<group>"; };
+		73ADACD1261F636C000E50AB /* AvatarMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarMainViewController.swift; sourceTree = "<group>"; };
 		75262A832614E61E00EF6660 /* GroupsCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsCreateViewController.swift; sourceTree = "<group>"; };
 		75262A9B2616458800EF6660 /* GroupsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsTableViewCell.swift; sourceTree = "<group>"; };
 		75B4D148261014F200DF4932 /* Groups.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Groups.storyboard; sourceTree = "<group>"; };
@@ -255,6 +259,8 @@
 				75B4D17A261015B800DF4932 /* ProfileMainViewController.swift */,
 				75B4D181261015CD00DF4932 /* ExerciseMainViewController.swift */,
 				75262A832614E61E00EF6660 /* GroupsCreateViewController.swift */,
+				73ADACCA261F635E000E50AB /* AchievementsMainViewController.swift */,
+				73ADACD1261F636C000E50AB /* AvatarMainViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -701,8 +707,10 @@
 				75B4D182261015CD00DF4932 /* ExerciseMainViewController.swift in Sources */,
 				75262A9C2616458800EF6660 /* GroupsTableViewCell.swift in Sources */,
 				EB205FB1260D3A4500C65260 /* RegisterViewController.swift in Sources */,
+				73ADACD2261F636C000E50AB /* AvatarMainViewController.swift in Sources */,
 				75B4D16D2610159A00DF4932 /* GroupsMainViewController.swift in Sources */,
 				75B4D17B261015B800DF4932 /* ProfileMainViewController.swift in Sources */,
+				73ADACCB261F635E000E50AB /* AchievementsMainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

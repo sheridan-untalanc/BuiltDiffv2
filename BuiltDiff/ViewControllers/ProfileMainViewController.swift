@@ -31,7 +31,6 @@ class ProfileMainViewController: UIViewController, UIImagePickerControllerDelega
     @IBAction func displayActionSheet(_ sender: Any) {
         let optionMenu = UIAlertController(title: nil, message: "Choose Option", preferredStyle: .actionSheet)
         let profilePictureAction = UIAlertAction(title: "Change Profile Picture", style: .default)
-        }
         let customizeAvatarAction = UIAlertAction(title: "Customize Avatar", style: .default)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
                 
