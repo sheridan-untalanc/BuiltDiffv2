@@ -15,7 +15,7 @@ class ProfileMainViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet weak var backgroundMedal: UIImageView!
     @IBOutlet weak var exercisesBackground: UIImageView!
     
-    var imagePicker = UIImagePickerController()
+//    let profileVC : UIViewController = ProfileMainViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,11 +26,14 @@ class ProfileMainViewController: UIViewController, UIImagePickerControllerDelega
         profilePicture.layer.masksToBounds = true
         backgroundMedal.layer.cornerRadius = 30
         exercisesBackground.layer.cornerRadius = 30
+    
     }
     
     @IBAction func displayActionSheet(_ sender: Any) {
         let optionMenu = UIAlertController(title: nil, message: "Choose Option", preferredStyle: .actionSheet)
-        let profilePictureAction = UIAlertAction(title: "Change Profile Picture", style: .default)
+        let profilePictureAction = UIAlertAction(title: "Change Profile Picture", style: .default, handler: {action in
+            print("Tapped")
+        })
         let customizeAvatarAction = UIAlertAction(title: "Customize Avatar", style: .default)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
                 

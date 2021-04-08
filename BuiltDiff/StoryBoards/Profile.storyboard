@@ -443,7 +443,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="nRd-fy-lH4"/>
+        <segue reference="wtp-KU-Tau"/>
+        <segue reference="r2V-wF-5Vn"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="BuiltDiff" width="421" height="138"/>
