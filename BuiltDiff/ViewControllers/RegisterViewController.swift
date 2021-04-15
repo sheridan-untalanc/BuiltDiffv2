@@ -12,6 +12,7 @@ import FirebaseDatabase
 class RegisterViewController: UIViewController {
 
     @IBOutlet weak var emailInput: UITextField!
+    @IBOutlet weak var usernameInput: UITextField!
     @IBOutlet weak var passwordInput: UITextField!
     @IBOutlet weak var passwordConfirmInput: UITextField!
     
@@ -30,6 +31,7 @@ class RegisterViewController: UIViewController {
         }
         
         guard let email = emailInput.text, !email.isEmpty,
+              let username = usernameInput.text, !username.isEmpty,
               let password = passwordInput.text, !password.isEmpty else {
             
             let alert = UIAlertController(title: "Error!", message: "One or more of the fields is empty.", preferredStyle: .alert)
@@ -49,9 +51,15 @@ class RegisterViewController: UIViewController {
             }
             
             var ref: DatabaseReference!
-            ref = Database.database().reference()
+            ref = Database.database().reference().child("users")
             
-            ref.child("users/\(authResult!.user.uid)/email").setValue(email)
+            let userInfo = ["username": username,
+                            "email": email]
+            let childUpdates = ["\(authResult!.user.uid)" : userInfo]
+            
+            //ref.child("users/\(authResult!.user.uid)/email").setValue(email)
+            
+            ref.updateChildValues(childUpdates)
             
             let alert = UIAlertController(title: "Success!", message: "Your account has been created successfully.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
