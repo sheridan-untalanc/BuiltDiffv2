@@ -72,8 +72,8 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
+                        <outlet property="emailInput" destination="w3k-7S-sT0" id="Ob7-fN-zmT"/>
                         <outlet property="passwordInput" destination="08B-9P-HyR" id="M8L-1x-ZVO"/>
-                        <outlet property="usernameInput" destination="w3k-7S-sT0" id="C9I-lg-dVc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
