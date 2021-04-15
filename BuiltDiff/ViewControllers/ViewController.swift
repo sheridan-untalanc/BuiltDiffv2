@@ -47,7 +47,21 @@ class ViewController: UIViewController {
             return
         }
         
-        
+        Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
+            if(error != nil){
+                let errorMessage = error?.localizedDescription
+
+                let alert = UIAlertController(title: "Error logging in!", message: errorMessage, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
+                self.present(alert, animated: true, completion: nil)
+                return
+            }
+            
+            let mainStoryBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let mainView  = mainStoryBoard.instantiateViewController(withIdentifier: "MainMenu") as! MainMenuViewController
+            self.navigationController?.pushViewController(mainView, animated: true)
+            self.present(mainView, animated: true, completion: nil)
+        }
     
     }
     
