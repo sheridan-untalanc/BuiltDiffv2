@@ -29,24 +29,6 @@ class ViewController: UIViewController {
             return
         }
         
-        Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
-            if (error != nil){
-                let errorMessage = error?.localizedDescription
-
-                let alert = UIAlertController(title: "Login Error", message: errorMessage, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
-                self.present(alert, animated: true, completion: nil)
-                return
-            }
-            
-            let loginMessage = "User: " + (authResult?.user.email)!
-            
-            let alert = UIAlertController(title: "Login Success!", message: loginMessage, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
-            self.present(alert, animated: true, completion: nil)
-            return
-        }
-        
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
             if(error != nil){
                 let errorMessage = error?.localizedDescription
