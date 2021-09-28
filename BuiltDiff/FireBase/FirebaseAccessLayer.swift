@@ -55,6 +55,8 @@ class FirebaseAccessLayer{
             }
             
             if Auth.auth().currentUser != nil{
+                print("User is found!")
+                
                 //TODO: Update login navigation
                 
                 //let mainStoryBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
