@@ -27,6 +27,7 @@
 		D68CFF0E1B3977D9670545F6 /* Pods_BuiltDiff_WatchKit_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47AEB9041A8EE37DA881A894 /* Pods_BuiltDiff_WatchKit_App.framework */; };
 		EB205FB1260D3A4500C65260 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB205FB0260D3A4500C65260 /* RegisterViewController.swift */; };
 		EBBE90A42604E8EA00D8D4D2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EBBE90A32604E8E900D8D4D2 /* GoogleService-Info.plist */; };
+		EBC3240F26FFDC9E00DA426A /* FirebaseAccessLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC3240E26FFDC9E00DA426A /* FirebaseAccessLayer.swift */; };
 		EBDE95CC260292F800B9E544 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDE95CB260292F800B9E544 /* AppDelegate.swift */; };
 		EBDE95CE260292F800B9E544 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDE95CD260292F800B9E544 /* SceneDelegate.swift */; };
 		EBDE95D0260292F800B9E544 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDE95CF260292F800B9E544 /* ViewController.swift */; };
@@ -133,6 +134,7 @@
 		E9565645955B475D0C435CB5 /* Pods_BuiltDiff.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BuiltDiff.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB205FB0260D3A4500C65260 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		EBBE90A32604E8E900D8D4D2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		EBC3240E26FFDC9E00DA426A /* FirebaseAccessLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAccessLayer.swift; sourceTree = "<group>"; };
 		EBDE95C8260292F800B9E544 /* BuiltDiff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BuiltDiff.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBDE95CB260292F800B9E544 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EBDE95CD260292F800B9E544 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -265,6 +267,14 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		EBC3240126FFC4A300DA426A /* FireBase */ = {
+			isa = PBXGroup;
+			children = (
+				EBC3240E26FFDC9E00DA426A /* FirebaseAccessLayer.swift */,
+			);
+			path = FireBase;
+			sourceTree = "<group>";
+		};
 		EBDE95BF260292F800B9E544 = {
 			isa = PBXGroup;
 			children = (
@@ -294,6 +304,7 @@
 		EBDE95CA260292F800B9E544 /* BuiltDiff */ = {
 			isa = PBXGroup;
 			children = (
+				EBC3240126FFC4A300DA426A /* FireBase */,
 				75B4D14F261014FB00DF4932 /* StoryBoards */,
 				EB205FAA260D398900C65260 /* ViewControllers */,
 				EBBE90A32604E8E900D8D4D2 /* GoogleService-Info.plist */,
@@ -710,6 +721,7 @@
 				73ADACD2261F636C000E50AB /* AvatarMainViewController.swift in Sources */,
 				75B4D16D2610159A00DF4932 /* GroupsMainViewController.swift in Sources */,
 				75B4D17B261015B800DF4932 /* ProfileMainViewController.swift in Sources */,
+				EBC3240F26FFDC9E00DA426A /* FirebaseAccessLayer.swift in Sources */,
 				73ADACCB261F635E000E50AB /* AchievementsMainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
