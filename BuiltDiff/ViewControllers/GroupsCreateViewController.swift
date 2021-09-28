@@ -48,27 +48,8 @@ class GroupsCreateViewController: UIViewController {
             print("Could not get image!")
             return
         }
-        
-        // Create a reference to the file you want to upload
-        let storageRef = Storage.storage().reference()
-        let imageRef = storageRef.child("images/\(groupName).jpg")
-
-        // Upload the file to the path "images/rivers.jpg"
-        let uploadTask = imageRef.putData(imageData, metadata: nil) { (metadata, error) in
-          guard let metadata = metadata else {
-            print("Uh-oh, an error occurred getting the metadata")
-            return
-          }
-          // Metadata contains file metadata such as size, content-type.
-          let size = metadata.size
-          // You can also access to download URL after upload.
-          imageRef.downloadURL { (url, error) in
-            guard let downloadURL = url else {
-                print("Uh-oh, an error occurred getting the download URL")
-              return
-            }
-          }
-        }
+    
+        FirebaseAccessLayer.UploadImage(imageData: imageData, fileName: groupName)
         
     }
     

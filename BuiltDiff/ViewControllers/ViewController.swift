@@ -29,29 +29,7 @@ class ViewController: UIViewController {
             return
         }
         
-        Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
-            if(error != nil){
-                let errorMessage = error?.localizedDescription
-
-                let alert = UIAlertController(title: "Error logging in!", message: errorMessage, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
-                self.present(alert, animated: true, completion: nil)
-                return
-            }
-            
-            if Auth.auth().currentUser != nil{
-                let mainStoryBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-                let mainView  = mainStoryBoard.instantiateViewController(withIdentifier: "MainMenu") as! MainMenuViewController
-                self.navigationController?.pushViewController(mainView, animated: true)
-                self.present(mainView, animated: true, completion: nil)
-            }
-            else{
-                let alert = UIAlertController(title: "Error logging in!", message: "User could not be found", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
-                self.present(alert, animated: true, completion: nil)
-                return
-            }
-        }
+        FirebaseAccessLayer.LogIn(email: email, password: password)
     
     }
     
