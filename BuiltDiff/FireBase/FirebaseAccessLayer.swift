@@ -12,6 +12,10 @@ import FirebaseStorage
 
 class FirebaseAccessLayer{
     
+    static func GetCurrentUser() -> String {
+        return Auth.auth().currentUser!.uid
+    }
+    
     static func Register(username: String, email: String, password: String){
             Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
                 if(error != nil){
@@ -98,4 +102,27 @@ class FirebaseAccessLayer{
           }
         }
     }
+    
+    static func UpdateUser(username: String) {
+            var ref: DatabaseReference!
+            ref = Database.database().reference().child("users")
+            
+            //TODO: update values as they are created
+            let userInfo = ["username": username]
+            
+            let childUpdates = ["\(Auth.auth().currentUser!.uid)" : userInfo]
+            
+            ref.updateChildValues(childUpdates)
+        }
+        
+        static func UpdateGroup(groupName: String){
+            var ref: DatabaseReference!
+            ref = Database.database().reference().child("groups")
+            
+            //TODO: update values as they are created
+            let userInfo = ["groupName": groupName]
+            let childUpdates = ["\(Auth.auth().currentUser!.uid)" : userInfo]
+            
+            ref.updateChildValues(childUpdates)
+        }
 }
