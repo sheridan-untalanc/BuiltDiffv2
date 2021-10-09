@@ -27,7 +27,7 @@ class ExerciseViewController: UIViewController {
         let scrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.height - 100))
         view.addSubview(scrollView)
         let topButton = UIButton(frame: CGRect(x: 330, y: 25, width: 20, height: 20))
-        topButton.backgroundColor = .red
+        topButton.backgroundColor = .blue
         scrollView.addSubview(topButton)
         scrollView.contentSize = CGSize(width: view.frame.size.width, height: 2200)
         
