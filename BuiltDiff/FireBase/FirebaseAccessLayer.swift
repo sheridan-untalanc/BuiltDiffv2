@@ -103,7 +103,7 @@ class FirebaseAccessLayer{
         }
     }
     
-    static func UpdateUser(username: String) {
+    static func UpdateUserRemote(username: String) {
             var ref: DatabaseReference!
             ref = Database.database().reference().child("users")
             
@@ -115,14 +115,14 @@ class FirebaseAccessLayer{
             ref.updateChildValues(childUpdates)
         }
         
-        static func UpdateGroup(groupName: String){
-            var ref: DatabaseReference!
-            ref = Database.database().reference().child("groups")
-            
-            //TODO: update values as they are created
-            let userInfo = ["groupName": groupName]
-            let childUpdates = ["\(Auth.auth().currentUser!.uid)" : userInfo]
-            
-            ref.updateChildValues(childUpdates)
-        }
+    static func UpdateGroupRemote(groupName: String){
+        var ref: DatabaseReference!
+        ref = Database.database().reference().child("groups")
+        
+        //TODO: update values as they are created
+        let userInfo = ["groupName": groupName]
+        let childUpdates = ["\(Auth.auth().currentUser!.uid)" : userInfo]
+        
+        ref.updateChildValues(childUpdates)
+    }
 }

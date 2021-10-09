@@ -16,7 +16,7 @@ struct Profile {
     }
     
     func UpdateRemote() {
-        FirebaseAccessLayer.UpdateUser(username: UserName)
+        FirebaseAccessLayer.UpdateUserRemote(username: UserName)
     }
     
 }
