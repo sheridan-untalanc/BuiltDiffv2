@@ -16,6 +16,16 @@ class FirebaseAccessLayer{
         return Auth.auth().currentUser!.uid
     }
     
+    static func IsLoggedIn() -> Bool{
+        let currentUser = Auth.auth().currentUser
+        if(currentUser != nil){
+            return true
+        }
+        else {
+            return false
+        }
+    }
+    
     static func Register(username: String, email: String, password: String){
             Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
                 if(error != nil){
@@ -46,7 +56,7 @@ class FirebaseAccessLayer{
         }
     }
     
-    static func LogIn(email: String, password: String){
+    static func LogIn(email: String, password: String) {
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
             if(error != nil){
                 let errorMessage = error?.localizedDescription
@@ -75,6 +85,28 @@ class FirebaseAccessLayer{
                 //let alert = UIAlertController(title: "Error logging in!", message: "User could not be found" preferredStyle: .alert)
                 //alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
                 //self.present(alert, animated: true, completion: nil)
+                return
+            }
+        }
+    }
+    
+    static func LogInBeta(email: String, password: String) {
+        Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
+            if(error != nil){
+                let errorMessage = error?.localizedDescription
+                print(errorMessage!)
+                
+                return
+            }
+            
+            if Auth.auth().currentUser != nil{
+                print("User is found!")
+            
+                return
+            }
+            else{
+                print("User could not be found")
+                
                 return
             }
         }
