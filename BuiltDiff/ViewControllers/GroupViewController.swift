@@ -8,12 +8,16 @@
 import UIKit
 
 class GroupViewController: UIViewController {
-
+    
+    @IBOutlet weak var groupImage1: UIView!
+    @IBOutlet weak var inviteButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        
     }
+    
     
 
     /*
