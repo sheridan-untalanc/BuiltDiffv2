@@ -69,15 +69,14 @@ class ExerciseViewController: UIViewController, UICollectionViewDelegate, UIColl
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCollectionViewCell.identifier, for: indexPath) as! CustomCollectionViewCell
 //        cell.contentView.backgroundColor = .blue
         cell.configure(label: "Exercise \(indexPath.row)")
+        cell.myButton.tag = indexPath.row
+        cell.myButton.addTarget(self, action: #selector(testMethod), for: .touchUpInside)
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //print("User tapped on item \(indexPath.row)")
-//        print(colories)
-          let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate,
+    @objc func testMethod(){
+        let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate,
                                                 ascending: true)
-        
         let query = HKSampleQuery(
           sampleType: .workoutType(),
           predicate: nil,
@@ -119,5 +118,10 @@ class ExerciseViewController: UIViewController, UICollectionViewDelegate, UIColl
           }
 
         HKHealthStore().execute(query)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //print("User tapped on item \(indexPath.row)")
+//        print(colories)
     }
 }

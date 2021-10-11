@@ -30,10 +30,10 @@ class CustomCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    private let myMilkshake: UIButton = {
+    public let myButton: UIButton = {
         let button = UIButton()
         button.setTitle("Button", for: .normal)
-//        label.backgroundColor = .green
+        button.backgroundColor = .green
         return button
     }()
     
@@ -43,7 +43,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
 //        contentView.backgroundColor = .red
         contentView.addSubview(myLabel)
         contentView.addSubview(myImageView)
-        contentView.addSubview(myMilkshake)
+        contentView.addSubview(myButton)
         contentView.clipsToBounds = true
     }
     
@@ -55,12 +55,13 @@ class CustomCollectionViewCell: UICollectionViewCell {
         super.layoutSubviews()
         myLabel.frame = CGRect(x: 5, y: contentView.frame.size.height-50, width: contentView.frame.size.width-10, height: 50)
         myImageView.frame = CGRect(x: 5, y: 0, width: contentView.frame.size.width-10, height: contentView.frame.size.height-50)
-        myMilkshake.frame = CGRect(x: 5, y: contentView.frame.size.height-50, width: contentView.frame.size.width-10, height: 50)
+        myButton.frame = CGRect(x: 5, y: contentView.frame.size.height-50, width: contentView.frame.size.width-10, height: 50)
     }
     
     public func configure(label: String){
         myLabel.text = label
     }
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         myLabel.text = nil
