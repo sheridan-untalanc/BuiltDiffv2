@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import HealthKit
+
+let healthKitStore:HKHealthStore = HKHealthStore()
 
 class ExerciseViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
@@ -13,6 +16,9 @@ class ExerciseViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.authorizeHealthKitInApp()
+
         // Do any additional setup after loading the view.
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -33,6 +39,28 @@ class ExerciseViewController: UIViewController, UICollectionViewDelegate, UIColl
         collectionView.frame = view.bounds
     }
     
+    func authorizeHealthKitInApp()
+    {
+        let healthKitTypeToRead : Set<HKWorkoutType> = [
+            HKWorkoutType.workoutType()
+
+        ]
+        let healthKitTypesToWrite : Set<HKSampleType> = [
+            HKWorkoutType.workoutType()
+        ]
+        
+        if !HKHealthStore.isHealthDataAvailable()
+        {
+            print("Error occured")
+            return
+        }
+        
+        healthKitStore.requestAuthorization(toShare: healthKitTypesToWrite, read: healthKitTypeToRead)
+        { (success, error) -> Void in
+            print ("Read Write Authorization succeeded")
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 10
     }
@@ -45,68 +73,51 @@ class ExerciseViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("User tapped on item \(indexPath.row)")
-    }
-    
-//    override func viewDidLayoutSubviews() {
-//        super.viewDidLayoutSubviews()
+        //print("User tapped on item \(indexPath.row)")
+//        print(colories)
+          let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate,
+                                                ascending: true)
         
-//        let scrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.height - 100))
-//        view.addSubview(scrollView)
-        
-//        let topButton = UIButton(frame: CGRect(x: 335, y: 15, width: 30, height: 30))
-//        scrollView.contentSize = CGSize(width: view.frame.size.width, height: 2200)
-//        let icon = UIImage(named: "plusbuttonicon")!
-//        topButton.setImage(icon, for: .normal)
-//        topButton.imageView?.contentMode = .scaleAspectFit
-//        scrollView.addSubview(topButton)
-        
-//        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-//        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-//        layout.itemSize = CGSize(width: 350, height: 150)
-//        myCollectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
-//        myCollectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "MyCell")
-//        myCollectionView?.backgroundColor = UIColor.green
-//        myCollectionView?.dataSource = self
-//        myCollectionView?.delegate = self
-//        view.addSubview(myCollectionView ?? UICollectionView())
-//        self.view = view
-}
+        let query = HKSampleQuery(
+          sampleType: .workoutType(),
+          predicate: nil,
+          limit: 10,
+          sortDescriptors: [sortDescriptor]) { (query, samples, error) in
+            DispatchQueue.main.async {
+              guard
+                let samples = samples as? [HKWorkout],
+                error == nil
+                else {
+                  return
+              }
+                let sample = samples[3]
+                
+//                let distance = Double((sample.totalDistance!.doubleValue(for: HKUnit.meter())))
+//                self.lblDistance.text = "\(String((distance/1000).rounded(.awayFromZero))) km"
+                
+                let calories = Double((sample.totalEnergyBurned!.doubleValue(for: HKUnit.largeCalorie())))
+                
+                var exerciseType = ""
+                switch sample.workoutActivityType.rawValue{
+                case 46:
+                    exerciseType = "Swimming"
+                case 13:
+                    exerciseType = "Cycling"
+                case 52:
+                    exerciseType = "Walking"
+                default:
+                    exerciseType = "Generic Workout"
+                }
+                
+                func secondsToHoursMinutesSeconds (seconds : Int) -> (Int, Int, Int) {
+                  return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
+                }
+                let (h,m,s) = secondsToHoursMinutesSeconds(seconds: Int(sample.duration))
+                print(samples[2].duration)
+              
+            }
+          }
 
-//extension ExerciseViewController: UICollectionViewDataSource {
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return 10 // How many cells to display
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//
-//        let myImageView: UIImageView = {
-//            let imageView = UIImageView()
-//            imageView.image = UIImageView(image: "")
-//            return imageView
-//        }
-//
-//        let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyCell", for: indexPath)
-//        myCell.backgroundColor = UIColor.red
-//        myCell.contentView.layer.cornerRadius = 25
-//        myCell.contentView.layer.borderWidth = 1.0
-//        myCell.contentView.layer.borderColor = UIColor.clear.cgColor
-//        myCell.contentView.layer.masksToBounds = true
-//        myCell.layer.shadowColor = UIColor.black.cgColor
-//        myCell.layer.shadowOffset = CGSize(width: 0, height: 2.0)
-//        myCell.layer.shadowRadius = 2.0
-//        myCell.layer.shadowOpacity = 0.5
-//        myCell.layer.masksToBounds = false
-//        myCell.layer.shadowPath = UIBezierPath(roundedRect: myCell.bounds, cornerRadius: myCell.contentView.layer.cornerRadius).cgPath
-//
-//        return myCell
-//    }
-//}
-//
-//extension ExerciseViewController: UICollectionViewDelegate {
-//
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//       print("User tapped on item \(indexPath.row)")
-//    }
-//}
-        
+        HKHealthStore().execute(query)
+    }
+}

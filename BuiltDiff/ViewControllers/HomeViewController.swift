@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import HealthKit
+
 
 class HomeViewController: UIViewController {
 
