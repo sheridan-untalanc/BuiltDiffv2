@@ -13,6 +13,8 @@ class ProfileViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        changePicture.layer.cornerRadius = 50.0;
+        changePicture.layer.masksToBounds = true;
         // Do any additional setup after loading the view.
 //        changePicture.layer.masksToBounds = true
 //        changePicture.layer.cornerRadius = changePicture.frame.height / 2

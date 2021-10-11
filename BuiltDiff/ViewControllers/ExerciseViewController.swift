@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import HealthKitUI
 import HealthKit
 
 let healthKitStore:HKHealthStore = HKHealthStore()
@@ -16,6 +17,55 @@ class ExerciseViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.authorizeHealthKitInApp()
+        
+        let workoutPredicate = HKQuery.predicateForWorkouts(with: .walking)
+          let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate,
+                                                ascending: true)
+        
+        let query = HKSampleQuery(
+          sampleType: .workoutType(),
+          predicate: nil,
+          limit: 10,
+          sortDescriptors: [sortDescriptor]) { (query, samples, error) in
+            DispatchQueue.main.async {
+              guard
+                let samples = samples as? [HKWorkout],
+                error == nil
+                else {
+                  return
+              }
+                let sample = samples[2]
+                
+                let distance = Double((sample.totalDistance!.doubleValue(for: HKUnit.meter())))
+//                self.lblDistance.text = "\(String((distance/1000).rounded(.awayFromZero))) km"
+                
+                let calories = Double((sample.totalEnergyBurned!.doubleValue(for: HKUnit.largeCalorie())))
+                
+                var exerciseType = ""
+                switch sample.workoutActivityType.rawValue{
+                case 46:
+                    exerciseType = "Swimming"
+                case 13:
+                    exerciseType = "Cycling"
+                case 52:
+                    exerciseType = "Walking"
+                default:
+                    exerciseType = "Generic Workout"
+                }
+                
+                func secondsToHoursMinutesSeconds (seconds : Int) -> (Int, Int, Int) {
+                  return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
+                }
+                let (h,m,s) = secondsToHoursMinutesSeconds(seconds: Int(sample.duration))
+                print(calories)
+                print("\(String((distance/1000).rounded(.awayFromZero))) km")
+              
+            }
+          }
+
+        HKHealthStore().execute(query)
         
         self.authorizeHealthKitInApp()
 
@@ -75,49 +125,7 @@ class ExerciseViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     @objc func testMethod(){
-        let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate,
-                                                ascending: true)
-        let query = HKSampleQuery(
-          sampleType: .workoutType(),
-          predicate: nil,
-          limit: 10,
-          sortDescriptors: [sortDescriptor]) { (query, samples, error) in
-            DispatchQueue.main.async {
-              guard
-                let samples = samples as? [HKWorkout],
-                error == nil
-                else {
-                  return
-              }
-                let sample = samples[3]
-                
-//                let distance = Double((sample.totalDistance!.doubleValue(for: HKUnit.meter())))
-//                self.lblDistance.text = "\(String((distance/1000).rounded(.awayFromZero))) km"
-                
-                let calories = Double((sample.totalEnergyBurned!.doubleValue(for: HKUnit.largeCalorie())))
-                
-                var exerciseType = ""
-                switch sample.workoutActivityType.rawValue{
-                case 46:
-                    exerciseType = "Swimming"
-                case 13:
-                    exerciseType = "Cycling"
-                case 52:
-                    exerciseType = "Walking"
-                default:
-                    exerciseType = "Generic Workout"
-                }
-                
-                func secondsToHoursMinutesSeconds (seconds : Int) -> (Int, Int, Int) {
-                  return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
-                }
-                let (h,m,s) = secondsToHoursMinutesSeconds(seconds: Int(sample.duration))
-                print(samples[2].duration)
-              
-            }
-          }
-
-        HKHealthStore().execute(query)
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
