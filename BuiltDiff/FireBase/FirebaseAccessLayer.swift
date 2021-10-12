@@ -9,8 +9,25 @@ import Foundation
 import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
+import OSLog
 
 class FirebaseAccessLayer{
+    
+    static let logger = Logger()
+    
+    static func GetCurrentUser() -> String {
+        return Auth.auth().currentUser!.uid
+    }
+    
+    static func IsLoggedIn() -> Bool{
+        let currentUser = Auth.auth().currentUser
+        if(currentUser != nil){
+            return true
+        }
+        else {
+            return false
+        }
+    }
     
     static func Register(username: String, email: String, password: String){
             Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
@@ -42,38 +59,27 @@ class FirebaseAccessLayer{
         }
     }
     
-    static func LogIn(email: String, password: String){
+    static func LogIn(email: String, password: String) -> Bool {
+        var status = false
+        
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
             if(error != nil){
-                let errorMessage = error?.localizedDescription
-                print(errorMessage!)
-                
-                //let alert = UIAlertController(title: "Error logging in!", message: errorMessage, preferredStyle: .alert)
-                //alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
-                //self.present(alert, animated: true, completion: nil)
+                let errorMessage = error!.localizedDescription
+                logger.error("\(errorMessage)")
                 return
             }
-            
             if Auth.auth().currentUser != nil{
-                print("User is found!")
-                
-                //TODO: Update login navigation
-                
-                //let mainStoryBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-                //let mainView  = mainStoryBoard.instantiateViewController(withIdentifier: "MainMenu") as! MainMenuViewController
-                //self.navigationController?.pushViewController(mainView, animated: true)
-                //self.present(mainView, animated: true, completion: nil)
+                logger.debug("User is found!")
+                status = true
                 return
             }
             else{
-                print("User could not be found")
-                
-                //let alert = UIAlertController(title: "Error logging in!", message: "User could not be found" preferredStyle: .alert)
-                //alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
-                //self.present(alert, animated: true, completion: nil)
+                logger.error("User could not be found")
                 return
             }
         }
+        
+        return status
     }
     
     static func UploadImage(imageData: Data, fileName: String){
@@ -97,5 +103,28 @@ class FirebaseAccessLayer{
             }
           }
         }
+    }
+    
+    static func UpdateUserRemote(username: String) {
+            var ref: DatabaseReference!
+            ref = Database.database().reference().child("users")
+            
+            //TODO: update values as they are created
+            let userInfo = ["username": username]
+            
+            let childUpdates = ["\(Auth.auth().currentUser!.uid)" : userInfo]
+            
+            ref.updateChildValues(childUpdates)
+        }
+        
+    static func UpdateGroupRemote(groupName: String){
+        var ref: DatabaseReference!
+        ref = Database.database().reference().child("groups")
+        
+        //TODO: update values as they are created
+        let userInfo = ["groupName": groupName]
+        let childUpdates = ["\(Auth.auth().currentUser!.uid)" : userInfo]
+        
+        ref.updateChildValues(childUpdates)
     }
 }
