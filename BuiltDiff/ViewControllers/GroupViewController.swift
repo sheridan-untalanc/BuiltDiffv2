@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GroupViewController: UIViewController {
+class GroupViewController: UIViewController, UIActionSheetDelegate {
     
     @IBOutlet weak var groupImage1: UIView!
     @IBOutlet weak var inviteButton: UIButton!
@@ -18,6 +18,9 @@ class GroupViewController: UIViewController {
         
     }
     
+    @IBAction func downloadSheet(sender: AnyObject){
+//        let actionSheet = UIActionSheet
+    }
     
 
     /*
