@@ -10,71 +10,20 @@ import HealthKitUI
 import HealthKit
 
 let healthKitStore:HKHealthStore = HKHealthStore()
+var count = 0
+var workouts = [[String]]()
 
 class ExerciseViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-
-    private var collectionView: UICollectionView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        self.authorizeHealthKitInApp()
-//
-//        let workoutPredicate = HKQuery.predicateForWorkouts(with: .walking)
-//        let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate,
-//                                                ascending: true)
-//
-//        let query = HKSampleQuery(
-//          sampleType: .workoutType(),
-//          predicate: nil,
-//          limit: 10,
-//          sortDescriptors: [sortDescriptor]) { (query, samples, error) in
-//            DispatchQueue.main.async {
-//              guard
-//                let samples = samples as? [HKWorkout],
-//                error == nil
-//                else {
-//                  return
-//              }
-//                let sample = samples[2]
-//
-//                let distance = Double((sample.totalDistance!.doubleValue(for: HKUnit.meter())))
-////                self.lblDistance.text = "\(String((distance/1000).rounded(.awayFromZero))) km"
-//
-//                let calories = Double((sample.totalEnergyBurned!.doubleValue(for: HKUnit.largeCalorie())))
-//
-//                var exerciseType = ""
-//                switch sample.workoutActivityType.rawValue{
-//                case 46:
-//                    exerciseType = "Swimming"
-//                case 13:
-//                    exerciseType = "Cycling"
-//                case 52:
-//                    exerciseType = "Walking"
-//                default:
-//                    exerciseType = "Generic Workout"
-//                }
-//
-//                func secondsToHoursMinutesSeconds (seconds : Int) -> (Int, Int, Int) {
-//                  return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
-//                }
-//                let (h,m,s) = secondsToHoursMinutesSeconds(seconds: Int(sample.duration))
-//                print(calories)
-//                print("\(String((distance/1000).rounded(.awayFromZero))) km")
-//
-//            }
-//          }
-//
-//        HKHealthStore().execute(query)
-//
-//        self.authorizeHealthKitInApp()
-
         // Do any additional setup after loading the view.
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         layout.itemSize = CGSize(width: (view.frame.size.width),
-                                 height: (view.frame.size.height/3.5))
+                                 height: (150))
         
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         guard let collectionView = collectionView else {
@@ -87,57 +36,68 @@ class ExerciseViewController: UIViewController, UICollectionViewDelegate, UIColl
         collectionView.frame = view.bounds
     }
     
-    func authorizeHealthKitInApp()
-    {
-        let healthKitTypeToRead : Set<HKWorkoutType> = [
-            HKWorkoutType.workoutType()
-
-        ]
-        let healthKitTypesToWrite : Set<HKSampleType> = [
-            HKWorkoutType.workoutType()
-        ]
-        
-        if !HKHealthStore.isHealthDataAvailable()
-        {
-            print("Error occured")
-            return
-        }
-        
-        healthKitStore.requestAuthorization(toShare: healthKitTypesToWrite, read: healthKitTypeToRead)
-        { (success, error) -> Void in
-            print ("Read Write Authorization succeeded")
-        }
-    }
+    private var collectionView: UICollectionView?
+    var counts: Int = 0
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return 4;
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCollectionViewCell.identifier, for: indexPath) as! CustomCollectionViewCell
+        let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate,
+                                                ascending: true)
         
-        var iconArray: [UIImage] = [
-            UIImage(named: "runningIcon")!,
-            UIImage(named: "runningIcon")!,
-            UIImage(named: "runningIcon")!,
-            UIImage(named: "swimmingIcon")!
-        ]
-        
-        var typeArray: [String] = [
-            "walking",
-            "walking",
-            "walking",
-            "swimming"
-        ]
-        
-        var dateArray: [String] = [
-            "11/10/2021",
-            "11/10/2021",
-            "11/10/2021",
-            "10/10/2021"
-        ]
-        
-        cell.configure(image: iconArray[indexPath.row], label: typeArray[indexPath.row], date: dateArray[indexPath.row])
+        let query = HKSampleQuery(
+          sampleType: .workoutType(),
+          predicate: nil,
+          limit: 10,
+          sortDescriptors: [sortDescriptor]) { (query, samples, error) in
+            DispatchQueue.main.async {
+              guard
+                let samples = samples as? [HKWorkout],
+                error == nil
+                else {
+                  return
+              }
+                let calories = Double((samples[count].totalEnergyBurned!.doubleValue(for: HKUnit.largeCalorie())))
+
+                var exerciseType = ""
+                var imageType = ""
+                switch samples[count].workoutActivityType.rawValue{
+                case 46:
+                    exerciseType = "Swimming"
+                    imageType = "swimmingIcon"
+                case 13:
+                    exerciseType = "Cycling"
+                    imageType = "bikingIcon"
+                case 52:
+                    exerciseType = "Walking"
+                    imageType = "walkingIcon"
+                default:
+                    exerciseType = "Generic Workout"
+                    imageType = "runningIcon"
+                }
+
+                func secondsToHoursMinutesSeconds (seconds : Int) -> (Int, Int, Int) {
+                    return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
+                }
+                let (h,m,s) = secondsToHoursMinutesSeconds(seconds: Int(samples[count].duration))
+                    
+                let date = samples[count].startDate
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "dd/MM/YY"
+                let formattedDate = dateFormatter.string(from: date)
+                    
+                let workout = [exerciseType, "\(h)h \(m)m \(s)s", "\(String(calories.rounded(.awayFromZero))) Cal", formattedDate, imageType]
+                workouts.append(workout)
+                cell.configure(image: UIImage(named: workouts[count][4])!,label: workouts[count][0], date: workouts[count][3],duration: workouts[count][1], calories: workouts[count][2])
+                count = count + 1
+                
+            }
+              
+          }
+        HKHealthStore().execute(query)
         return cell
     }
     
