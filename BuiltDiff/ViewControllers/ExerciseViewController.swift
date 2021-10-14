@@ -96,6 +96,7 @@ class ExerciseViewController: UIViewController, UICollectionViewDelegate, UIColl
                 cell.configure(image: UIImage(named: workouts[count][4])!,label: workouts[count][0], date: workouts[count][3],duration: workouts[count][1], calories: workouts[count][2])
                 count = count + 1
                 
+                
             }
               
           }
