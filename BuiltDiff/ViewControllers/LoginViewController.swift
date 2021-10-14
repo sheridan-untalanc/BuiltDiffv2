@@ -19,9 +19,25 @@ class LoginViewController: UIViewController {
     @IBAction func loginTapped(_ sender: Any) {
         //for christian
         
-        //var loginStatus = FirebaseAccessLayer.LogIn(email: <#T##String#>, password: <#T##String#>)
-        
-        self.performSegue(withIdentifier: "loginSegue", sender: self)
+        if emailText.text == "" || passText.text == "" {
+            let alert = UIAlertController(title: "Error!", message: "Please fill in all fields", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
+        else {
+            var loginStatus = FirebaseAccessLayer.LogIn(email: emailText.text!, password: passText.text!)
+            if loginStatus.status == true {
+                print("working")
+                self.performSegue(withIdentifier: "loginSegue", sender: self)
+            }
+            else{
+                let alert = UIAlertController(title: "Error!", message: "\(loginStatus.1)", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
+                self.present(alert, animated: true, completion: nil)
+                return
+            }
+        }
     }
     
 }
