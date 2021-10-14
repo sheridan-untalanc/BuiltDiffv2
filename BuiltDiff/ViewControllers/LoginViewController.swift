@@ -19,6 +19,7 @@ class LoginViewController: UIViewController {
     @IBAction func loginTapped(_ sender: Any) {
         //for christian
         
+        //var loginStatus = FirebaseAccessLayer.LogIn(email: <#T##String#>, password: <#T##String#>)
         
         self.performSegue(withIdentifier: "loginSegue", sender: self)
     }
