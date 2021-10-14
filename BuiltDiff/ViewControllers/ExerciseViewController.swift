@@ -108,3 +108,7 @@ class ExerciseViewController: UIViewController, UICollectionViewDelegate, UIColl
 //        print(colories)
     }
 }
+
+
+
+//self.performSegue(withIdentifier: "inspectWorkout", sender: self)
