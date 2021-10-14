@@ -132,10 +132,29 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Exercise" image="bolt.fill" catalog="system" id="WsN-CL-fPU"/>
+                    <connections>
+                        <segue destination="Cdx-KG-HFr" kind="push" identifier="inspectWorkout" id="FHM-Xp-n8a"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xAg-ra-m7O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2043" y="1517"/>
+            <point key="canvasLocation" x="2041" y="1517"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="eSo-8E-kCk">
+            <objects>
+                <viewController id="Cdx-KG-HFr" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KHP-gP-IqQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="q1d-5H-yje"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="xNb-pr-7iP"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rOk-sj-xzV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2041" y="2261"/>
         </scene>
         <!--Home-->
         <scene sceneID="HBd-Km-HgK">
