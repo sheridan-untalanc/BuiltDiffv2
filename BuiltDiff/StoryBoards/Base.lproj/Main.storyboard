@@ -63,6 +63,7 @@
                                     <color key="baseBackgroundColor" systemColor="systemOrangeColor"/>
                                 </buttonConfiguration>
                                 <connections>
+                                    <action selector="onRegister:" destination="3HP-bf-Ukf" eventType="touchUpInside" id="THe-Y7-wkC"/>
                                     <segue destination="Nyd-TQ-ZuN" kind="push" id="ssH-3B-FP4"/>
                                 </connections>
                             </button>
@@ -116,6 +117,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="MfJ-pD-lMe"/>
+                    <connections>
+                        <outlet property="emailInput" destination="nft-BF-cg5" id="ykk-Ib-cly"/>
+                        <outlet property="passwordConfirmInput" destination="F0J-ie-m5C" id="RAd-A5-jxG"/>
+                        <outlet property="passwordInput" destination="yKL-ES-sZL" id="OJh-sQ-e7u"/>
+                        <outlet property="usernameInput" destination="yNs-zG-yWs" id="DaN-T2-zAg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LCp-Qd-rdx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -529,7 +536,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="e6h-fA-XOk"/>
+        <segue reference="ssH-3B-FP4"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="IMG_0601" width="500" height="670"/>
