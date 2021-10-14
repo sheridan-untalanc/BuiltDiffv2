@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FpP-og-aLB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fSp-hg-6fU">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -292,6 +292,7 @@
                     <connections>
                         <outlet property="groupImage1" destination="T9n-s0-1dp" id="8PL-Fx-a4i"/>
                         <outlet property="inviteButton" destination="Wso-9E-LLY" id="Yqh-QY-MoT"/>
+                        <segue destination="FpP-og-aLB" kind="push" identifier="joinGroupSegue" id="ogD-fG-n0L"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b1h-jJ-Nmz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -308,10 +309,11 @@
                         <viewLayoutGuide key="safeArea" id="aYO-WH-ax5"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="lZt-K1-uI1"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="54Q-bQ-Ot8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1211.5942028985507" y="2184.375"/>
+            <point key="canvasLocation" x="738" y="2247"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="wWf-22-Dhj">
