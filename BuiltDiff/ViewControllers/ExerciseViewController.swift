@@ -40,11 +40,13 @@ class ExerciseViewController: UIViewController, UICollectionViewDelegate, UIColl
     var counts: Int = 0
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4;
+        return 6;
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCollectionViewCell.identifier, for: indexPath) as! CustomCollectionViewCell
+        collectionView.backgroundColor = .systemBackground
+        
         let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate,
                                                 ascending: true)
         
