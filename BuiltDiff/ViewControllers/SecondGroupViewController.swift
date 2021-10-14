@@ -16,7 +16,7 @@ class SecondGroupViewController: UIViewController, UICollectionViewDelegate, UIC
         // Do any additional setup after loading the view.
         let layout = UICollectionViewFlowLayout()
                 layout.scrollDirection = .vertical
-                layout.sectionInset = UIEdgeInsets(top: 200, left: 10, bottom: 10, right: 10)
+                layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
                 layout.itemSize = CGSize(width: (view.frame.size.width),
                                          height: (view.frame.size.height/8))
                 
