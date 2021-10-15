@@ -59,7 +59,8 @@ class FirebaseAccessLayer{
         }
     }
     
-    static func LogIn(email: String, password: String) -> (status: Bool, message: String) {
+    //Login Methods moved out of FAL due to needing await to handle auth.SignIn() async completion
+    /*static func LogIn(email: String, password: String) -> (status: Bool, message: String) {
         var status = false
         var message = ""
         
@@ -83,7 +84,7 @@ class FirebaseAccessLayer{
         }
         
         return (status, message)
-    }
+    }*/
     
     static func UploadImage(imageData: Data, fileName: String){
         // Create a reference to the file you want to upload

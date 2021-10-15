@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
     @IBOutlet weak var emailText: UITextField!
@@ -26,17 +27,29 @@ class LoginViewController: UIViewController {
             return
         }
         else {
-            var loginStatus = FirebaseAccessLayer.LogIn(email: emailText.text!, password: passText.text!)
-            if loginStatus.status == true {
-                print("working")
-                self.performSegue(withIdentifier: "loginSegue", sender: self)
+            Auth.auth().signIn(withEmail: emailText.text!, password: passText.text!) { (result, error) in
+                if(error != nil){
+                    let errorMessage = error!.localizedDescription
+                    let alert = UIAlertController(title: "Error!", message: errorMessage, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
+                    self.present(alert, animated: true, completion: nil)
+                    return
+                }
+                if Auth.auth().currentUser != nil{
+                    print("User is found!")
+                    self.performSegue(withIdentifier: "loginSegue", sender: self)
+                    return
+                }
+                else{
+                    let errorMessage = "User could not be found."
+                    let alert = UIAlertController(title: "Error!", message: errorMessage, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
+                    self.present(alert, animated: true, completion: nil)
+                    return
+                }
             }
-            else{
-                let alert = UIAlertController(title: "Error!", message: "\(loginStatus.1)", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
-                self.present(alert, animated: true, completion: nil)
-                return
-            }
+            
+
         }
     }
     
