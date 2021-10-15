@@ -21,6 +21,8 @@
 		B4C6DD5BE80EEF5E315D3ED4 /* Pods_BuiltDiffTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E89C583861952322F0ED190C /* Pods_BuiltDiffTests.framework */; };
 		D68CFF0E1B3977D9670545F6 /* Pods_BuiltDiff_WatchKit_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47AEB9041A8EE37DA881A894 /* Pods_BuiltDiff_WatchKit_App.framework */; };
 		EB205FB1260D3A4500C65260 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB205FB0260D3A4500C65260 /* RegisterViewController.swift */; };
+		EB5D5A962710B71700027E00 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5D5A952710B71700027E00 /* Profile.swift */; };
+		EB5D5A9E27120DF500027E00 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5D5A9D27120DF500027E00 /* Group.swift */; };
 		EBBE90A42604E8EA00D8D4D2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EBBE90A32604E8E900D8D4D2 /* GoogleService-Info.plist */; };
 		EBC3240F26FFDC9E00DA426A /* FirebaseAccessLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC3240E26FFDC9E00DA426A /* FirebaseAccessLayer.swift */; };
 		EBDE95CC260292F800B9E544 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDE95CB260292F800B9E544 /* AppDelegate.swift */; };
@@ -124,6 +126,8 @@
 		E89C583861952322F0ED190C /* Pods_BuiltDiffTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BuiltDiffTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9565645955B475D0C435CB5 /* Pods_BuiltDiff.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BuiltDiff.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB205FB0260D3A4500C65260 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		EB5D5A952710B71700027E00 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		EB5D5A9D27120DF500027E00 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		EBBE90A32604E8E900D8D4D2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EBC3240E26FFDC9E00DA426A /* FirebaseAccessLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAccessLayer.swift; sourceTree = "<group>"; };
 		EBDE95C8260292F800B9E544 /* BuiltDiff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BuiltDiff.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -253,6 +257,15 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		EB5D5A942710B6F500027E00 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				EB5D5A952710B71700027E00 /* Profile.swift */,
+				EB5D5A9D27120DF500027E00 /* Group.swift */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
 		EBC3240126FFC4A300DA426A /* FireBase */ = {
 			isa = PBXGroup;
 			children = (
@@ -291,6 +304,7 @@
 			isa = PBXGroup;
 			children = (
 				756E71452714C95C00A4C3BE /* BuiltDiff.entitlements */,
+				EB5D5A942710B6F500027E00 /* Library */,
 				EBC3240126FFC4A300DA426A /* FireBase */,
 				75B4D14F261014FB00DF4932 /* StoryBoards */,
 				EB205FAA260D398900C65260 /* ViewControllers */,
@@ -695,11 +709,13 @@
 				73118F4027091784005FE169 /* GroupViewController.swift in Sources */,
 				73118F3C27091745005FE169 /* LoginViewController.swift in Sources */,
 				EBDE95D0260292F800B9E544 /* ViewController.swift in Sources */,
+				EB5D5A9E27120DF500027E00 /* Group.swift in Sources */,
 				EBDE95CC260292F800B9E544 /* AppDelegate.swift in Sources */,
 				73118F3E27091778005FE169 /* HomeViewController.swift in Sources */,
 				EBDE95CE260292F800B9E544 /* SceneDelegate.swift in Sources */,
 				73118F4227091790005FE169 /* ExerciseViewController.swift in Sources */,
 				EB205FB1260D3A4500C65260 /* RegisterViewController.swift in Sources */,
+				EB5D5A962710B71700027E00 /* Profile.swift in Sources */,
 				75B4D17B261015B800DF4932 /* ProfileViewController.swift in Sources */,
 				EBC3240F26FFDC9E00DA426A /* FirebaseAccessLayer.swift in Sources */,
 				73F9069A2712260C004E200F /* CustomCollectionViewCell.swift in Sources */,
