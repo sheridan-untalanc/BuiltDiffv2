@@ -29,6 +29,33 @@ class FirebaseAccessLayer{
         }
     }
     
+    //Login Methods moved out of FAL due to needing await to handle auth.SignIn() async completion
+    /*static func LogIn(email: String, password: String) -> (status: Bool, message: String) {
+        var status = false
+        var message = ""
+        
+        Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
+            if(error != nil){
+                message = error!.localizedDescription
+                logger.error("\(message)")
+                return
+            }
+            if Auth.auth().currentUser != nil{
+                message = "User is found!"
+                logger.debug("\(message)")
+                status = true
+                return
+            }
+            else{
+                message = "User could not be found"
+                logger.error("\(message)")
+                return
+            }
+        }
+        
+        return (status, message)
+    }
+    
     static func Register(username: String, email: String, password: String) -> (status: Bool, message: String){
         var status = false
         var message = ""
@@ -57,33 +84,6 @@ class FirebaseAccessLayer{
             
             ref.updateChildValues(childUpdates)
             return
-        }
-        
-        return (status, message)
-    }
-    
-    //Login Methods moved out of FAL due to needing await to handle auth.SignIn() async completion
-    /*static func LogIn(email: String, password: String) -> (status: Bool, message: String) {
-        var status = false
-        var message = ""
-        
-        Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
-            if(error != nil){
-                message = error!.localizedDescription
-                logger.error("\(message)")
-                return
-            }
-            if Auth.auth().currentUser != nil{
-                message = "User is found!"
-                logger.debug("\(message)")
-                status = true
-                return
-            }
-            else{
-                message = "User could not be found"
-                logger.error("\(message)")
-                return
-            }
         }
         
         return (status, message)

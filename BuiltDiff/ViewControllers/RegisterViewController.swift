@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseDatabase
 
 class RegisterViewController: UIViewController {
 
@@ -36,9 +38,34 @@ class RegisterViewController: UIViewController {
             self.present(alert, animated: true, completion: nil)
             return
         }
+        
+        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+            if(error != nil){
+                let errorMessage = error!.localizedDescription
+                print(errorMessage)
 
-        FirebaseAccessLayer.Register(username: username, email: email, password: password)
-
+                let alert = UIAlertController(title: "Error creating a new account", message: errorMessage, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
+                self.present(alert, animated: true, completion: nil)
+                return
+            }
+            var ref: DatabaseReference!
+            ref = Database.database().reference().child("users")
+            
+            let userInfo = ["username": username,
+                            "email": email]
+            let childUpdates = ["\(authResult!.user.uid)" : userInfo]
+            
+            //ref.child("users/\(authResult!.user.uid)/email").setValue(email)
+            
+            ref.updateChildValues(childUpdates)
+            
+            let alert = UIAlertController(title: "Error creating a new account", message: "Your account has been created successfully.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
+            self.present(alert, animated: true, completion: nil)
+            self.performSegue(withIdentifier: "createAccountSegue", sender: self)
+            return
         }
+    }
 
 }
