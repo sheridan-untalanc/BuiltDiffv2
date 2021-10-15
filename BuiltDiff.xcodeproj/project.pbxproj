@@ -14,6 +14,7 @@
 		73118F3E27091778005FE169 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73118F3D27091778005FE169 /* HomeViewController.swift */; };
 		73118F4027091784005FE169 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73118F3F27091784005FE169 /* GroupViewController.swift */; };
 		73118F4227091790005FE169 /* ExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73118F4127091790005FE169 /* ExerciseViewController.swift */; };
+		75AAB95E2719142500D83903 /* AchievementChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AAB95D2719142500D83903 /* AchievementChecker.swift */; };
 		75B4D17B261015B800DF4932 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B4D17A261015B800DF4932 /* ProfileViewController.swift */; };
 		9A41528CE3708332ACD0C750 /* Pods_BuiltDiff.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9565645955B475D0C435CB5 /* Pods_BuiltDiff.framework */; };
 		B4C6DD5BE80EEF5E315D3ED4 /* Pods_BuiltDiffTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E89C583861952322F0ED190C /* Pods_BuiltDiffTests.framework */; };
@@ -108,6 +109,7 @@
 		73118F3D27091778005FE169 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		73118F3F27091784005FE169 /* GroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
 		73118F4127091790005FE169 /* ExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewController.swift; sourceTree = "<group>"; };
+		75AAB95D2719142500D83903 /* AchievementChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementChecker.swift; sourceTree = "<group>"; };
 		75B4D17A261015B800DF4932 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		830E1E699DC89397F58DCF11 /* Pods-BuiltDiff.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuiltDiff.debug.xcconfig"; path = "Target Support Files/Pods-BuiltDiff/Pods-BuiltDiff.debug.xcconfig"; sourceTree = "<group>"; };
 		90C91FF8B391442488E36CAD /* Pods-BuiltDiff WatchKit Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuiltDiff WatchKit Extension.release.xcconfig"; path = "Target Support Files/Pods-BuiltDiff WatchKit Extension/Pods-BuiltDiff WatchKit Extension.release.xcconfig"; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 				73118F3F27091784005FE169 /* GroupViewController.swift */,
 				73118F4127091790005FE169 /* ExerciseViewController.swift */,
 				730C264A2718CD6700B4152E /* AchievementsCollectionViewCell.swift */,
+				75AAB95D2719142500D83903 /* AchievementChecker.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -707,6 +710,7 @@
 				EB5D5A962710B71700027E00 /* Profile.swift in Sources */,
 				75B4D17B261015B800DF4932 /* ProfileViewController.swift in Sources */,
 				EBC3240F26FFDC9E00DA426A /* FirebaseAccessLayer.swift in Sources */,
+				75AAB95E2719142500D83903 /* AchievementChecker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -899,7 +903,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = U53NQ24ZF2;
+				DEVELOPMENT_TEAM = W22XKCBSX7;
 				INFOPLIST_FILE = "BuiltDiff WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -922,7 +926,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = U53NQ24ZF2;
+				DEVELOPMENT_TEAM = W22XKCBSX7;
 				INFOPLIST_FILE = "BuiltDiff WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -948,7 +952,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = U53NQ24ZF2;
+				DEVELOPMENT_TEAM = W22XKCBSX7;
 				IBSC_MODULE = BuiltDiff_WatchKit_Extension;
 				INFOPLIST_FILE = "BuiltDiff WatchKit App/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = untalanc.BuiltDiff.watchkitapp;
@@ -969,7 +973,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = U53NQ24ZF2;
+				DEVELOPMENT_TEAM = W22XKCBSX7;
 				IBSC_MODULE = BuiltDiff_WatchKit_Extension;
 				INFOPLIST_FILE = "BuiltDiff WatchKit App/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = untalanc.BuiltDiff.watchkitapp;
@@ -990,7 +994,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = U53NQ24ZF2;
+				DEVELOPMENT_TEAM = W22XKCBSX7;
 				INFOPLIST_FILE = BuiltDiff/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1012,7 +1016,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = U53NQ24ZF2;
+				DEVELOPMENT_TEAM = W22XKCBSX7;
 				INFOPLIST_FILE = BuiltDiff/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1035,7 +1039,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = U53NQ24ZF2;
+				DEVELOPMENT_TEAM = W22XKCBSX7;
 				INFOPLIST_FILE = BuiltDiffTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1059,7 +1063,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = U53NQ24ZF2;
+				DEVELOPMENT_TEAM = W22XKCBSX7;
 				INFOPLIST_FILE = BuiltDiffTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1083,7 +1087,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = U53NQ24ZF2;
+				DEVELOPMENT_TEAM = W22XKCBSX7;
 				INFOPLIST_FILE = BuiltDiffUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1106,7 +1110,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = U53NQ24ZF2;
+				DEVELOPMENT_TEAM = W22XKCBSX7;
 				INFOPLIST_FILE = BuiltDiffUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (

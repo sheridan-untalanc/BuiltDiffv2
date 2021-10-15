@@ -12,8 +12,12 @@ class ProfileViewController: UIViewController{
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var changePicture: UIImageView!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        let checkerInstance = AchievementChecker()
+        
+        print(checkerInstance.MarathonRunner())
         // Do any additional setup after loading the view.
 //        changePicture.layer.masksToBounds = true
 //        changePicture.layer.cornerRadius = changePicture.frame.height / 2
@@ -58,6 +62,8 @@ extension ProfileViewController: UICollectionViewDataSource{
         let emptyStar = UIImage(systemName: "star")?.withRenderingMode(.alwaysOriginal)
             
         completedStar?.withTintColor(.systemOrange)
+        
+        
         
         cell.configure(trophy: UIImage(named: "achievements-icon")!, star1: completedStar!, star2: completedStar!, star3: emptyStar!, title: "Marathon Runner")
         return cell
