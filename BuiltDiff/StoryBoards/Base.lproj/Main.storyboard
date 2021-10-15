@@ -63,7 +63,6 @@
                                     <color key="baseBackgroundColor" systemColor="systemOrangeColor"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="onRegister:" destination="3HP-bf-Ukf" eventType="touchUpInside" id="THe-Y7-wkC"/>
                                     <segue destination="Nyd-TQ-ZuN" kind="push" id="ssH-3B-FP4"/>
                                 </connections>
                             </button>
@@ -117,32 +116,45 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="MfJ-pD-lMe"/>
-                    <connections>
-                        <outlet property="emailInput" destination="nft-BF-cg5" id="ykk-Ib-cly"/>
-                        <outlet property="passwordConfirmInput" destination="F0J-ie-m5C" id="RAd-A5-jxG"/>
-                        <outlet property="passwordInput" destination="yKL-ES-sZL" id="OJh-sQ-e7u"/>
-                        <outlet property="usernameInput" destination="yNs-zG-yWs" id="DaN-T2-zAg"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LCp-Qd-rdx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1937.68115942029" y="-13.392857142857142"/>
         </scene>
-        <!--Exercises-->
-        <scene sceneID="8HO-Iq-jaC">
+        <!--Exercise-->
+        <scene sceneID="kgR-st-mgG">
             <objects>
-                <viewController id="YhW-ED-f0D" customClass="ExerciseViewController" customModule="BuiltDiff" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="I9v-T5-SSZ">
+                <viewController id="Yg6-cH-pT3" customClass="ExerciseViewController" customModule="BuiltDiff" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="r6z-ad-btC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="dGD-ji-wNd"/>
+                        <viewLayoutGuide key="safeArea" id="0Vw-Ai-btN"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Exercises" image="bolt.fill" catalog="system" id="oPF-BW-Jt8"/>
+                    <tabBarItem key="tabBarItem" title="Exercise" image="bolt.fill" catalog="system" id="WsN-CL-fPU"/>
+                    <connections>
+                        <segue destination="Cdx-KG-HFr" kind="push" identifier="inspectWorkout" id="FHM-Xp-n8a"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JE6-pb-7FR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xAg-ra-m7O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2074" y="1517"/>
+            <point key="canvasLocation" x="2041" y="1517"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="eSo-8E-kCk">
+            <objects>
+                <viewController id="Cdx-KG-HFr" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KHP-gP-IqQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="q1d-5H-yje"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="xNb-pr-7iP"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rOk-sj-xzV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2041" y="2261"/>
         </scene>
         <!--Home-->
         <scene sceneID="HBd-Km-HgK">
@@ -264,13 +276,13 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="lLe-fV-77B">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="a3h-28-ob3" kind="relationship" relationship="viewControllers" id="zYC-T2-Gy4"/>
-                        <segue destination="YhW-ED-f0D" kind="relationship" relationship="viewControllers" id="R7N-8A-2NR"/>
                         <segue destination="6xV-qk-Oht" kind="relationship" relationship="viewControllers" id="8Nz-Sv-o9e"/>
                         <segue destination="6Ia-ea-cdF" kind="relationship" relationship="viewControllers" id="NcB-dG-Q1w"/>
+                        <segue destination="Yg6-cH-pT3" kind="relationship" relationship="viewControllers" id="Gjr-xi-T50"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kdO-e5-ddc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -297,12 +309,12 @@
                                     <constraint firstAttribute="height" constant="36" id="nBY-Cs-YTL"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" textContentType="email"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="PASSWORD" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0wp-XQ-lGm">
                                 <rect key="frame" x="35" y="467" width="344" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" textContentType="password"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lkx-RA-U0R">
                                 <rect key="frame" x="308" y="549" width="71" height="38"/>
@@ -315,7 +327,7 @@
                                     <color key="baseBackgroundColor" systemColor="systemOrangeColor"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="Nyd-TQ-ZuN" kind="show" id="e6h-fA-XOk"/>
+                                    <action selector="loginTapped:" destination="YVb-Jf-hft" eventType="touchUpInside" id="4t7-G0-GuR"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ECc-x5-FSd">
@@ -365,6 +377,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="TEf-bQ-ywc"/>
+                    <connections>
+                        <outlet property="emailText" destination="D6G-ux-J6h" id="LRv-fa-tUi"/>
+                        <outlet property="loginButton" destination="lkx-RA-U0R" id="eoi-JQ-Yh4"/>
+                        <outlet property="passText" destination="0wp-XQ-lGm" id="vah-zn-zxp"/>
+                        <segue destination="Nyd-TQ-ZuN" kind="push" identifier="loginSegue" id="DOB-l1-iSU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ogb-Qb-Zc2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -536,7 +554,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ssH-3B-FP4"/>
+        <segue reference="DOB-l1-iSU"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="IMG_0601" width="500" height="670"/>
