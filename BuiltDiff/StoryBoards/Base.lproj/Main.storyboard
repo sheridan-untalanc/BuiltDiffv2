@@ -309,12 +309,12 @@
                                     <constraint firstAttribute="height" constant="36" id="nBY-Cs-YTL"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" textContentType="email"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="PASSWORD" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0wp-XQ-lGm">
                                 <rect key="frame" x="35" y="467" width="344" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" textContentType="password"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lkx-RA-U0R">
                                 <rect key="frame" x="308" y="549" width="71" height="38"/>
@@ -327,7 +327,7 @@
                                     <color key="baseBackgroundColor" systemColor="systemOrangeColor"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="Nyd-TQ-ZuN" kind="show" id="e6h-fA-XOk"/>
+                                    <action selector="loginTapped:" destination="YVb-Jf-hft" eventType="touchUpInside" id="4t7-G0-GuR"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ECc-x5-FSd">
@@ -377,6 +377,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="TEf-bQ-ywc"/>
+                    <connections>
+                        <outlet property="emailText" destination="D6G-ux-J6h" id="LRv-fa-tUi"/>
+                        <outlet property="loginButton" destination="lkx-RA-U0R" id="eoi-JQ-Yh4"/>
+                        <outlet property="passText" destination="0wp-XQ-lGm" id="vah-zn-zxp"/>
+                        <segue destination="Nyd-TQ-ZuN" kind="push" identifier="loginSegue" id="DOB-l1-iSU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ogb-Qb-Zc2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -548,7 +554,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="e6h-fA-XOk"/>
+        <segue reference="DOB-l1-iSU"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="IMG_0601" width="500" height="670"/>
