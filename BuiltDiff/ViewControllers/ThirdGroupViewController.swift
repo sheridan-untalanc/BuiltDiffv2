@@ -46,9 +46,13 @@ class ThirdGroupViewController: UIViewController {
     }
     
     @IBAction func createGroupTapped(_ sender: Any) {
-        
+        if groupName.text == "" || groupDescription.text == "" {
+            let alert = UIAlertController(title: "Error!", message: "Please fill in all fields", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
     }
-    
 }
 
 extension ThirdGroupViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
