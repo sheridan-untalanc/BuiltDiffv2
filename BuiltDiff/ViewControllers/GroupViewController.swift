@@ -21,11 +21,12 @@ class GroupViewController: UIViewController, UIActionSheetDelegate {
     @IBAction func didTapButton(){
         let alertController = UIAlertController(title: "", message: "What would you like to do?", preferredStyle: .actionSheet)
             
-            let sendButton = UIAlertAction(title: "Create Group", style: .default, handler: { (action) -> Void in
+            let createButton = UIAlertAction(title: "Create Group", style: .default, handler: { (action) -> Void in
+                self.performSegue(withIdentifier: "createGroupSegue", sender: self)
                 
             })
             
-            let  deleteButton = UIAlertAction(title: "Join a Group", style: .default, handler: { (action) -> Void in
+            let  joinButton = UIAlertAction(title: "Join a Group", style: .default, handler: { (action) -> Void in
                 self.performSegue(withIdentifier: "joinGroupSegue", sender: self)
             })
             
@@ -33,8 +34,8 @@ class GroupViewController: UIViewController, UIActionSheetDelegate {
                 print("Cancel button tapped")
             })
     
-            alertController.addAction(sendButton)
-            alertController.addAction(deleteButton)
+            alertController.addAction(createButton)
+            alertController.addAction(joinButton)
             alertController.addAction(cancelButton)
             
             self.navigationController?.present(alertController, animated: true, completion: nil)

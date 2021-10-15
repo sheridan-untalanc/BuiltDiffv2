@@ -11,6 +11,13 @@ class SecondGroupViewController: UIViewController, UICollectionViewDelegate, UIC
 
     private var collectionView: UICollectionView?
     
+    var groupNameArray: [String] = [
+            "Deadlift Squad",
+            "Running Club",
+            "Swim Team",
+            "Bike Crew",
+            "Soccer FC"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -39,12 +46,7 @@ class SecondGroupViewController: UIViewController, UICollectionViewDelegate, UIC
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GroupCustomCollectionViewCell.identifier, for: indexPath) as! GroupCustomCollectionViewCell
                 
-        var groupNameArray: [String] = [
-                "Deadlift Squad",
-                "Running Club",
-                "Swim Team",
-                "Bike Crew",
-                "Soccer FC"]
+        
                 
         var groupMembersArray: [String] = [
                 "5 members",
@@ -60,5 +62,10 @@ class SecondGroupViewController: UIViewController, UICollectionViewDelegate, UIC
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("User tapped on item \(indexPath.row)")
+        let alert = UIAlertController(title: "Confirm?", message: "Would you like to join the \(groupNameArray[indexPath.row])?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
+//        alert.addAction(UIAlertAction(tit))
+        self.present(alert, animated: true, completion: nil)
+        return
     }
 }
