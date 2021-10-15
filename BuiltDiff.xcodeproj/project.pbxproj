@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -475,7 +475,7 @@
 				};
 			};
 			buildConfigurationList = EBDE95C3260292F800B9E544 /* Build configuration list for PBXProject "BuiltDiff" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -1001,6 +1001,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				Test = "";
 			};
 			name = Debug;
 		};
@@ -1024,6 +1025,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				Test = "";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
