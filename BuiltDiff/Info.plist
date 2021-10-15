@@ -59,6 +59,10 @@
 	<string>This app wants to take pictures.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>This app wants to use your photos.</string>
+	<key>NSHealthShareUsageDescription</key>
+	<string>Needs Access to your HealthKit sharing</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>Needs Access to your HealthKit updating</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

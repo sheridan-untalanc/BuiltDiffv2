@@ -18,6 +18,9 @@ class ProfileViewController: UIViewController{
         let checkerInstance = AchievementChecker()
         
         print(checkerInstance.MarathonRunner())
+        changePicture.layer.cornerRadius = 50.0;
+        changePicture.layer.masksToBounds = true;
+
         // Do any additional setup after loading the view.
 //        changePicture.layer.masksToBounds = true
 //        changePicture.layer.cornerRadius = changePicture.frame.height / 2

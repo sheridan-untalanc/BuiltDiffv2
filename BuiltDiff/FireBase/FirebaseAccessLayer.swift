@@ -59,28 +59,32 @@ class FirebaseAccessLayer{
         }
     }
     
-    static func LogIn(email: String, password: String) -> Bool {
+    //Login Methods moved out of FAL due to needing await to handle auth.SignIn() async completion
+    /*static func LogIn(email: String, password: String) -> (status: Bool, message: String) {
         var status = false
+        var message = ""
         
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
             if(error != nil){
-                let errorMessage = error!.localizedDescription
-                logger.error("\(errorMessage)")
+                message = error!.localizedDescription
+                logger.error("\(message)")
                 return
             }
             if Auth.auth().currentUser != nil{
-                logger.debug("User is found!")
+                message = "User is found!"
+                logger.debug("\(message)")
                 status = true
                 return
             }
             else{
-                logger.error("User could not be found")
+                message = "User could not be found"
+                logger.error("\(message)")
                 return
             }
         }
         
-        return status
-    }
+        return (status, message)
+    }*/
     
     static func UploadImage(imageData: Data, fileName: String){
         // Create a reference to the file you want to upload
