@@ -15,6 +15,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var imageExercise3: UIImageView!
     @IBOutlet weak var imageExercise4: UIImageView!
     @IBOutlet weak var imageExercise5: UIImageView!
+    @IBOutlet weak var homeTitle: UILabel!
     
     var workouts = [[String]]()
     
@@ -48,6 +49,11 @@ class HomeViewController: UIViewController {
         imageExercise4.layer.cornerRadius = 10
         imageExercise5.layer.cornerRadius = 10
         // Do any additional setup after loading the view.
+        FirebaseAccessLayer.GetCurrentUsername{ (username) in
+            DispatchQueue.main.async {
+                self.homeTitle.text = "Welcome back, \(username)"
+            }
+        }
     }
     
     func authorizeHealthKitInApp()
