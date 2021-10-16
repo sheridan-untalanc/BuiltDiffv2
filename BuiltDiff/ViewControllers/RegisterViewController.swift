@@ -60,10 +60,10 @@ class RegisterViewController: UIViewController {
             
             ref.updateChildValues(childUpdates)
             
-            let alert = UIAlertController(title: "Error creating a new account", message: "Your account has been created successfully.", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Success!", message: "Your account has been created successfully.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
-            self.present(alert, animated: true, completion: nil)
             self.performSegue(withIdentifier: "createAccountSegue", sender: self)
+            self.present(alert, animated: true, completion: nil)
             return
         }
     }

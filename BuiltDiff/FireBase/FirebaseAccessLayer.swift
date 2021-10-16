@@ -15,8 +15,20 @@ class FirebaseAccessLayer{
     
     static let logger = Logger()
     
-    static func GetCurrentUser() -> String {
+    static func GetCurrentUserId() -> String {
         return Auth.auth().currentUser!.uid
+    }
+    
+    static func GetCurrentUsername(completion: @escaping (String)-> Void){
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        ref.child("users/\(GetCurrentUserId())/username").getData(completion:  { error, snapshot in
+          guard error == nil else {
+            print(error!.localizedDescription)
+            return;
+          }
+            completion(snapshot.value as? String ?? "Unknown")
+        });
     }
     
     static func IsLoggedIn() -> Bool{
