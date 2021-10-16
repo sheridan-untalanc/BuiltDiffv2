@@ -10,12 +10,12 @@
 		0A1DEEF9B92B007492A089D7 /* Pods_BuiltDiff_BuiltDiffUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03618F9AC82138B5354529EB /* Pods_BuiltDiff_BuiltDiffUITests.framework */; };
 		642759965FC1DD2A1C804C95 /* Pods_BuiltDiff_WatchKit_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5195CF66888E0958331C7B6 /* Pods_BuiltDiff_WatchKit_Extension.framework */; };
 		730C2641271632D600B4152E /* SecondGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730C2640271632D600B4152E /* SecondGroupViewController.swift */; };
-		730C264327163E7400B4152E /* GroupCustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730C264227163E7400B4152E /* GroupCustomCollectionViewCell.swift */; };
 		730C26472718C45200B4152E /* ThirdGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730C26462718C45200B4152E /* ThirdGroupViewController.swift */; };
 		73118F3C27091745005FE169 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73118F3B27091745005FE169 /* LoginViewController.swift */; };
 		73118F3E27091778005FE169 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73118F3D27091778005FE169 /* HomeViewController.swift */; };
 		73118F4027091784005FE169 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73118F3F27091784005FE169 /* GroupViewController.swift */; };
 		73118F4227091790005FE169 /* ExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73118F4127091790005FE169 /* ExerciseViewController.swift */; };
+		735F471B271A33F300309D08 /* JoinGroupCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735F471A271A33F300309D08 /* JoinGroupCollectionViewCell.swift */; };
 		75B4D17B261015B800DF4932 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B4D17A261015B800DF4932 /* ProfileViewController.swift */; };
 		9A41528CE3708332ACD0C750 /* Pods_BuiltDiff.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9565645955B475D0C435CB5 /* Pods_BuiltDiff.framework */; };
 		B4C6DD5BE80EEF5E315D3ED4 /* Pods_BuiltDiffTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E89C583861952322F0ED190C /* Pods_BuiltDiffTests.framework */; };
@@ -104,12 +104,12 @@
 		4CBE002738BED21CDC025C44 /* Pods-BuiltDiff.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuiltDiff.release.xcconfig"; path = "Target Support Files/Pods-BuiltDiff/Pods-BuiltDiff.release.xcconfig"; sourceTree = "<group>"; };
 		6AD612B7EDD71136CB94461D /* Pods-BuiltDiff WatchKit App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuiltDiff WatchKit App.release.xcconfig"; path = "Target Support Files/Pods-BuiltDiff WatchKit App/Pods-BuiltDiff WatchKit App.release.xcconfig"; sourceTree = "<group>"; };
 		730C2640271632D600B4152E /* SecondGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondGroupViewController.swift; sourceTree = "<group>"; };
-		730C264227163E7400B4152E /* GroupCustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		730C26462718C45200B4152E /* ThirdGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdGroupViewController.swift; sourceTree = "<group>"; };
 		73118F3B27091745005FE169 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		73118F3D27091778005FE169 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		73118F3F27091784005FE169 /* GroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
 		73118F4127091790005FE169 /* ExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewController.swift; sourceTree = "<group>"; };
+		735F471A271A33F300309D08 /* JoinGroupCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinGroupCollectionViewCell.swift; sourceTree = "<group>"; };
 		75B4D17A261015B800DF4932 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		830E1E699DC89397F58DCF11 /* Pods-BuiltDiff.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuiltDiff.debug.xcconfig"; path = "Target Support Files/Pods-BuiltDiff/Pods-BuiltDiff.debug.xcconfig"; sourceTree = "<group>"; };
 		90C91FF8B391442488E36CAD /* Pods-BuiltDiff WatchKit Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuiltDiff WatchKit Extension.release.xcconfig"; path = "Target Support Files/Pods-BuiltDiff WatchKit Extension/Pods-BuiltDiff WatchKit Extension.release.xcconfig"; sourceTree = "<group>"; };
@@ -242,8 +242,8 @@
 				73118F3D27091778005FE169 /* HomeViewController.swift */,
 				73118F3F27091784005FE169 /* GroupViewController.swift */,
 				730C2640271632D600B4152E /* SecondGroupViewController.swift */,
+				735F471A271A33F300309D08 /* JoinGroupCollectionViewCell.swift */,
 				730C26462718C45200B4152E /* ThirdGroupViewController.swift */,
-				730C264227163E7400B4152E /* GroupCustomCollectionViewCell.swift */,
 				73118F4127091790005FE169 /* ExerciseViewController.swift */,
 			);
 			path = ViewControllers;
@@ -687,13 +687,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				73118F4027091784005FE169 /* GroupViewController.swift in Sources */,
-				730C264327163E7400B4152E /* GroupCustomCollectionViewCell.swift in Sources */,
 				73118F3C27091745005FE169 /* LoginViewController.swift in Sources */,
 				EBDE95D0260292F800B9E544 /* ViewController.swift in Sources */,
 				EBDE95CC260292F800B9E544 /* AppDelegate.swift in Sources */,
 				73118F3E27091778005FE169 /* HomeViewController.swift in Sources */,
 				EBDE95CE260292F800B9E544 /* SceneDelegate.swift in Sources */,
 				730C26472718C45200B4152E /* ThirdGroupViewController.swift in Sources */,
+				735F471B271A33F300309D08 /* JoinGroupCollectionViewCell.swift in Sources */,
 				73118F4227091790005FE169 /* ExerciseViewController.swift in Sources */,
 				EB205FB1260D3A4500C65260 /* RegisterViewController.swift in Sources */,
 				75B4D17B261015B800DF4932 /* ProfileViewController.swift in Sources */,
