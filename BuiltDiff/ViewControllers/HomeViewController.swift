@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import HealthKit
 
 class HomeViewController: UIViewController {
 
@@ -14,6 +15,8 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var imageExercise3: UIImageView!
     @IBOutlet weak var imageExercise4: UIImageView!
     @IBOutlet weak var imageExercise5: UIImageView!
+    
+    var workouts = [[String]]()
     
 //    lazy var openButton:UIButton = {
 //        let button = UIImageView(frame: CGRect(x: 0, y: self.view.frame.height - 90, width: self.view.frame.width, height: 70))
@@ -36,6 +39,9 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.authorizeHealthKitInApp()
+        
         imageExercise1.layer.cornerRadius = 10
         imageExercise2.layer.cornerRadius = 10
         imageExercise3.layer.cornerRadius = 10
@@ -44,6 +50,27 @@ class HomeViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    func authorizeHealthKitInApp()
+    {
+        let healthKitTypeToRead : Set<HKWorkoutType> = [
+            HKWorkoutType.workoutType()
+
+        ]
+        let healthKitTypesToWrite : Set<HKSampleType> = [
+            HKWorkoutType.workoutType()
+        ]
+        
+        if !HKHealthStore.isHealthDataAvailable()
+        {
+            print("Error occured")
+            return
+        }
+        
+        healthKitStore.requestAuthorization(toShare: healthKitTypesToWrite, read: healthKitTypeToRead)
+        { (success, error) -> Void in
+            print ("Read Write Authorization succeeded")
+        }
+    }
 
     /*
     // MARK: - Navigation

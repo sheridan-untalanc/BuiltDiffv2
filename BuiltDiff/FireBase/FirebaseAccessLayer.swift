@@ -9,8 +9,25 @@ import Foundation
 import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
+import OSLog
 
 class FirebaseAccessLayer{
+    
+    static let logger = Logger()
+    
+    static func GetCurrentUser() -> String {
+        return Auth.auth().currentUser!.uid
+    }
+    
+    static func IsLoggedIn() -> Bool{
+        let currentUser = Auth.auth().currentUser
+        if(currentUser != nil){
+            return true
+        }
+        else {
+            return false
+        }
+    }
     
     static func Register(username: String, email: String, password: String){
             Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
@@ -42,39 +59,32 @@ class FirebaseAccessLayer{
         }
     }
     
-    static func LogIn(email: String, password: String){
+    //Login Methods moved out of FAL due to needing await to handle auth.SignIn() async completion
+    /*static func LogIn(email: String, password: String) -> (status: Bool, message: String) {
+        var status = false
+        var message = ""
+        
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
             if(error != nil){
-                let errorMessage = error?.localizedDescription
-                print(errorMessage!)
-                
-                //let alert = UIAlertController(title: "Error logging in!", message: errorMessage, preferredStyle: .alert)
-                //alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
-                //self.present(alert, animated: true, completion: nil)
+                message = error!.localizedDescription
+                logger.error("\(message)")
                 return
             }
-            
             if Auth.auth().currentUser != nil{
-                print("User is found!")
-                
-                //TODO: Update login navigation
-                
-                //let mainStoryBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-                //let mainView  = mainStoryBoard.instantiateViewController(withIdentifier: "MainMenu") as! MainMenuViewController
-                //self.navigationController?.pushViewController(mainView, animated: true)
-                //self.present(mainView, animated: true, completion: nil)
+                message = "User is found!"
+                logger.debug("\(message)")
+                status = true
                 return
             }
             else{
-                print("User could not be found")
-                
-                //let alert = UIAlertController(title: "Error logging in!", message: "User could not be found" preferredStyle: .alert)
-                //alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
-                //self.present(alert, animated: true, completion: nil)
+                message = "User could not be found"
+                logger.error("\(message)")
                 return
             }
         }
-    }
+        
+        return (status, message)
+    }*/
     
     static func UploadImage(imageData: Data, fileName: String){
         // Create a reference to the file you want to upload
@@ -97,5 +107,28 @@ class FirebaseAccessLayer{
             }
           }
         }
+    }
+    
+    static func UpdateUserRemote(username: String) {
+            var ref: DatabaseReference!
+            ref = Database.database().reference().child("users")
+            
+            //TODO: update values as they are created
+            let userInfo = ["username": username]
+            
+            let childUpdates = ["\(Auth.auth().currentUser!.uid)" : userInfo]
+            
+            ref.updateChildValues(childUpdates)
+        }
+        
+    static func UpdateGroupRemote(groupName: String){
+        var ref: DatabaseReference!
+        ref = Database.database().reference().child("groups")
+        
+        //TODO: update values as they are created
+        let userInfo = ["groupName": groupName]
+        let childUpdates = ["\(Auth.auth().currentUser!.uid)" : userInfo]
+        
+        ref.updateChildValues(childUpdates)
     }
 }
