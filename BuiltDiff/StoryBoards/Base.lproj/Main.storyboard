@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fSp-hg-6fU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fSp-hg-6fU">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -51,16 +52,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" textContentType="password"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DSX-2R-y7L">
-                                <rect key="frame" x="333" y="663" width="46" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="YB3-Jr-dRc"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="Nyd-TQ-ZuN" kind="push" identifier="createAccountSegue" id="ssH-3B-FP4"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Already have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j7u-89-TOH">
                                 <rect key="frame" x="85" y="846" width="166" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -72,7 +63,23 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="107" id="MZo-XX-PNd"/>
                                 </constraints>
+                                <state key="normal" title="Sign In">
+                                    <color key="titleColor" systemColor="systemOrangeColor"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uzE-Ah-yFt">
+                                <rect key="frame" x="293" y="651" width="86" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="80r-FS-fBG"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="SIGN UP">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="15"/>
+                                    <color key="baseBackgroundColor" systemColor="systemOrangeColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="onRegister:" destination="3HP-bf-Ukf" eventType="touchUpInside" id="gNd-19-ay3"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="BNJ-ts-ts3"/>
@@ -86,27 +93,32 @@
                             <constraint firstItem="yNs-zG-yWs" firstAttribute="top" secondItem="WMm-jg-4o1" secondAttribute="bottom" constant="49" id="7O4-Kn-EEa"/>
                             <constraint firstItem="F0J-ie-m5C" firstAttribute="top" secondItem="yKL-ES-sZL" secondAttribute="bottom" constant="29" id="AeR-dJ-fnC"/>
                             <constraint firstItem="BNJ-ts-ts3" firstAttribute="trailing" secondItem="RoI-4G-Uln" secondAttribute="trailing" constant="64" id="CiV-3V-dNZ"/>
-                            <constraint firstItem="DSX-2R-y7L" firstAttribute="top" secondItem="F0J-ie-m5C" secondAttribute="bottom" constant="36" id="HDL-4e-ppm"/>
                             <constraint firstItem="BNJ-ts-ts3" firstAttribute="trailing" secondItem="yKL-ES-sZL" secondAttribute="trailing" constant="35" id="KH0-ee-xvW"/>
                             <constraint firstItem="yNs-zG-yWs" firstAttribute="leading" secondItem="WMm-jg-4o1" secondAttribute="leading" id="Kh6-yC-Ci1"/>
                             <constraint firstItem="RoI-4G-Uln" firstAttribute="bottom" secondItem="BNJ-ts-ts3" secondAttribute="bottom" constant="7" id="Lv4-5n-n0g"/>
                             <constraint firstItem="yNs-zG-yWs" firstAttribute="centerX" secondItem="VWd-85-7lC" secondAttribute="centerX" id="WPS-MZ-uNS"/>
                             <constraint firstItem="yNs-zG-yWs" firstAttribute="leading" secondItem="nft-BF-cg5" secondAttribute="leading" id="XN8-N6-mnp"/>
-                            <constraint firstItem="BNJ-ts-ts3" firstAttribute="trailing" secondItem="DSX-2R-y7L" secondAttribute="trailing" constant="35" id="cq1-2q-3rp"/>
+                            <constraint firstItem="uzE-Ah-yFt" firstAttribute="top" secondItem="F0J-ie-m5C" secondAttribute="bottom" constant="24" id="a0a-Ii-m7x"/>
                             <constraint firstItem="yKL-ES-sZL" firstAttribute="top" secondItem="nft-BF-cg5" secondAttribute="bottom" constant="29" id="hc0-NM-xaM"/>
                             <constraint firstItem="yKL-ES-sZL" firstAttribute="trailing" secondItem="F0J-ie-m5C" secondAttribute="trailing" id="k1u-i3-ZOO"/>
                             <constraint firstItem="j7u-89-TOH" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="BNJ-ts-ts3" secondAttribute="leading" symbolic="YES" id="lyU-uy-QXU"/>
                             <constraint firstItem="yNs-zG-yWs" firstAttribute="leading" secondItem="uba-zb-NsC" secondAttribute="leading" id="mAD-ey-K0S"/>
                             <constraint firstItem="BNJ-ts-ts3" firstAttribute="trailing" secondItem="F0J-ie-m5C" secondAttribute="trailing" constant="35" id="msY-dD-g9f"/>
+                            <constraint firstItem="uzE-Ah-yFt" firstAttribute="trailing" secondItem="F0J-ie-m5C" secondAttribute="trailing" id="o8K-rU-dTN"/>
                             <constraint firstItem="uba-zb-NsC" firstAttribute="leading" secondItem="BNJ-ts-ts3" secondAttribute="leading" constant="35" id="pQj-49-CYy"/>
                             <constraint firstItem="RoI-4G-Uln" firstAttribute="leading" secondItem="j7u-89-TOH" secondAttribute="trailing" constant="-8" id="pdk-gw-8PE"/>
                             <constraint firstItem="uba-zb-NsC" firstAttribute="top" secondItem="BNJ-ts-ts3" secondAttribute="top" constant="236" id="pfL-fG-jjl"/>
                             <constraint firstItem="yKL-ES-sZL" firstAttribute="leading" secondItem="BNJ-ts-ts3" secondAttribute="leading" constant="35" id="ty6-T7-fdq"/>
-                            <constraint firstItem="DSX-2R-y7L" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="BNJ-ts-ts3" secondAttribute="leading" symbolic="YES" id="wbc-rU-a0H"/>
                             <constraint firstItem="F0J-ie-m5C" firstAttribute="leading" secondItem="BNJ-ts-ts3" secondAttribute="leading" constant="35" id="xC6-AE-zrD"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="MfJ-pD-lMe"/>
+                    <connections>
+                        <outlet property="emailInput" destination="nft-BF-cg5" id="iZR-fD-h6O"/>
+                        <outlet property="passwordConfirmInput" destination="F0J-ie-m5C" id="oWD-jm-3XN"/>
+                        <outlet property="passwordInput" destination="yKL-ES-sZL" id="GAz-WI-LoW"/>
+                        <outlet property="usernameInput" destination="yNs-zG-yWs" id="7Ww-rT-vF9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LCp-Qd-rdx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -535,9 +547,6 @@
             <point key="canvasLocation" x="302.89855072463769" y="-13.392857142857142"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="ssH-3B-FP4"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="IMG_0601" width="500" height="670"/>
         <image name="body_fat_percentage_fitness_diet_icon_149052" width="512" height="512"/>
@@ -557,6 +566,9 @@
         <image name="weighing-scale" width="512" height="512"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
