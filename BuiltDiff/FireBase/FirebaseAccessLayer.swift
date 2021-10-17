@@ -15,8 +15,20 @@ class FirebaseAccessLayer{
     
     static let logger = Logger()
     
-    static func GetCurrentUser() -> String {
+    static func GetCurrentUserId() -> String {
         return Auth.auth().currentUser!.uid
+    }
+    
+    static func GetCurrentUsername(completion: @escaping (String)-> Void){
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        ref.child("users/\(GetCurrentUserId())/username").getData(completion:  { error, snapshot in
+          guard error == nil else {
+            print(error!.localizedDescription)
+            return;
+          }
+            completion(snapshot.value as? String ?? "Unknown")
+        });
     }
     
     static func IsLoggedIn() -> Bool{
@@ -26,36 +38,6 @@ class FirebaseAccessLayer{
         }
         else {
             return false
-        }
-    }
-    
-    static func Register(username: String, email: String, password: String){
-            Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-                if(error != nil){
-                    let errorMessage = error?.localizedDescription
-                    print(errorMessage!)
-
-                    //let alert = UIAlertController(title: "Error creating a new account", message: errorMessage, preferredStyle: .alert)
-                    //alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
-                    //self.present(alert, animated: true, completion: nil)
-                    return
-                }
-                
-                var ref: DatabaseReference!
-                ref = Database.database().reference().child("users")
-                
-                let userInfo = ["username": username,
-                                "email": email]
-                let childUpdates = ["\(authResult!.user.uid)" : userInfo]
-                
-                //ref.child("users/\(authResult!.user.uid)/email").setValue(email)
-                
-                ref.updateChildValues(childUpdates)
-                
-                //let alert = UIAlertController(title: "Success!", message: "Your account has been created successfully.", preferredStyle: .alert)
-                //alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
-                //self.present(alert, animated: true, completion: nil)
-                return
         }
     }
     
@@ -81,6 +63,39 @@ class FirebaseAccessLayer{
                 logger.error("\(message)")
                 return
             }
+        }
+        
+        return (status, message)
+    }
+    
+    static func Register(username: String, email: String, password: String) -> (status: Bool, message: String){
+        var status = false
+        var message = ""
+        
+        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+            if(error != nil){
+                message = error!.localizedDescription
+                logger.error("\(message)")
+
+                //let alert = UIAlertController(title: "Error creating a new account", message: errorMessage, preferredStyle: .alert)
+                //alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
+                //self.present(alert, animated: true, completion: nil)
+                return
+            }
+            status = true
+            message = "Your account has been created successfully."
+            
+            var ref: DatabaseReference!
+            ref = Database.database().reference().child("users")
+            
+            let userInfo = ["username": username,
+                            "email": email]
+            let childUpdates = ["\(authResult!.user.uid)" : userInfo]
+            
+            //ref.child("users/\(authResult!.user.uid)/email").setValue(email)
+            
+            ref.updateChildValues(childUpdates)
+            return
         }
         
         return (status, message)
