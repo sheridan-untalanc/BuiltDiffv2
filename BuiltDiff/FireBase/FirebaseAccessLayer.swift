@@ -136,14 +136,60 @@ class FirebaseAccessLayer{
             ref.updateChildValues(childUpdates)
         }
         
-    static func UpdateGroupRemote(groupName: String){
+    static func CreateGroupRemote(groupName: String, groupOwner: String){
         var ref: DatabaseReference!
         ref = Database.database().reference().child("groups")
+        guard let groupKey = ref.childByAutoId().key else{
+            return
+        }
         
         //TODO: update values as they are created
-        let userInfo = ["groupName": groupName]
-        let childUpdates = ["\(Auth.auth().currentUser!.uid)" : userInfo]
+        let groupInfo = ["groupName": groupName, "groupOwner": groupOwner]
+        let childUpdates = ["\(groupKey)" : groupInfo]
         
         ref.updateChildValues(childUpdates)
+        
+        ref = Database.database().reference().child("users/\(groupOwner)/assignedGroups/")
+        guard let assignedGroupKey = ref.childByAutoId().key else{
+            return
+        }
+        let assignedGroupUpdates = ["\(assignedGroupKey)" : groupKey]
+        ref.updateChildValues(assignedGroupUpdates)
     }
+    
+//    static func UpdateGroupLocal(groupId: String, completion: @escaping (NSEnumerator)-> Void){
+//        var ref: DatabaseReference!
+//        ref = Database.database().reference()
+//        ref.child("groups/\(groupId)/").getData(completion:  { error, snapshot in
+//          guard error == nil else {
+//            print(error!.localizedDescription)
+//            return;
+//          }
+//            completion(snapshot.children)
+//        });
+//    }
+    static func UpdateUserLocal(uid: String, completion: @escaping (String, [String: String])-> Void){
+            var ref: DatabaseReference!
+            ref = Database.database().reference()
+            ref.child("users/\(uid)/").getData(completion:  { error, snapshot in
+              guard error == nil else {
+                print(error!.localizedDescription)
+                return;
+              }
+//                var profileDict: [String: Any] = [:]
+//                for child in snapshot.children{
+//                    let testVar = child as! DataSnapshot
+//                    profileDict[testVar.value.]
+//                }
+                
+                let userDetails = snapshot.value as! [String: AnyObject]
+                let assignedGroups = userDetails["assignedGroups"] as? [String: String] ?? [:]
+                print("yes")
+                
+                completion(
+                    userDetails["username"] as! String,
+                    assignedGroups
+                )
+            });
+        }
 }

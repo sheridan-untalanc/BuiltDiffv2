@@ -27,6 +27,7 @@ class ThirdGroupViewController: UIViewController {
         
         groupCode.text = "\(randomCode(digits: 6))"
         
+        
     }
 
     @objc func didTapGroupImage(){
@@ -49,6 +50,16 @@ class ThirdGroupViewController: UIViewController {
         if groupName.text == "" || groupDescription.text == "" {
             let alert = UIAlertController(title: "Error!", message: "Please fill in all fields", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
+        else{
+            let newGroup = Group(groupName: groupName.text!, groupOwner: FirebaseAccessLayer.GetCurrentUserId())
+            
+            let alert = UIAlertController(title: "Success!", message: "Group created successfully", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
+            
+//            self.performSegue(withIdentifier: "groupCreatedSegue", sender: self)
             self.present(alert, animated: true, completion: nil)
             return
         }

@@ -8,6 +8,9 @@
 import UIKit
 import HealthKit
 
+//BEWARE
+var profile : Profile?
+
 class HomeViewController: UIViewController {
 
     @IBOutlet weak var imageExercise1: UIImageView!
@@ -40,7 +43,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        profile = Profile()
         self.authorizeHealthKitInApp()
         
         imageExercise1.layer.cornerRadius = 10
@@ -55,6 +58,8 @@ class HomeViewController: UIViewController {
             }
         }
     }
+    
+    
     
     func authorizeHealthKitInApp()
     {

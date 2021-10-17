@@ -269,6 +269,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ptD-El-31Y">
+                                <rect key="frame" x="0.0" y="124" width="394" height="620"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="vtI-fv-KuW">
+                                        <rect key="frame" x="0.0" y="44.5" width="394" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vtI-fv-KuW" id="bUF-OA-OuT">
+                                            <rect key="frame" x="0.0" y="0.0" width="394" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Groups" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UIM-20-6bd">
                                 <rect key="frame" x="20" y="60" width="89" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -285,19 +300,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="labelColor"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wso-9E-LLY">
-                                <rect key="frame" x="20" y="670" width="350" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Create or join a group" cornerStyle="large" titleAlignment="center">
-                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="20"/>
-                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <color key="baseBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="didTapButton" destination="6xV-qk-Oht" eventType="touchUpInside" id="rpJ-SY-2Q4"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="More friends. More Mileage." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dNc-hb-WlV">
                                 <rect key="frame" x="20" y="550" width="350" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -312,14 +314,32 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wso-9E-LLY">
+                                <rect key="frame" x="20" y="670" width="350" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Create or join a group" cornerStyle="large" titleAlignment="center">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="20"/>
+                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="didTapButton" destination="6xV-qk-Oht" eventType="touchUpInside" id="rpJ-SY-2Q4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3QC-1V-gZk"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Groups" image="person.3.fill" catalog="system" id="fJX-b0-GlD"/>
+                    <navigationItem key="navigationItem" id="QFt-K4-ghk"/>
                     <connections>
+                        <outlet property="backgroundImage" destination="FSj-hU-5XH" id="GkM-iz-uCe"/>
+                        <outlet property="firstLabel" destination="dNc-hb-WlV" id="Yky-XD-EBB"/>
                         <outlet property="groupImage1" destination="T9n-s0-1dp" id="8PL-Fx-a4i"/>
                         <outlet property="inviteButton" destination="Wso-9E-LLY" id="Yqh-QY-MoT"/>
+                        <outlet property="secondLabel" destination="DyZ-bX-1xm" id="y3b-h8-fWa"/>
+                        <outlet property="tableView" destination="ptD-El-31Y" id="pk9-al-YlP"/>
                         <segue destination="FpP-og-aLB" kind="presentation" identifier="joinGroupSegue" id="ogD-fG-n0L"/>
                         <segue destination="QyL-2Y-d3g" kind="presentation" identifier="createGroupSegue" id="muO-bL-hcL"/>
                     </connections>
@@ -440,7 +460,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="54Q-bQ-Ot8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="737.68115942028987" y="2246.6517857142858"/>
+            <point key="canvasLocation" x="559" y="2247"/>
         </scene>
         <!--Third Group View Controller-->
         <scene sceneID="NIn-lg-b2F">
@@ -548,7 +568,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7yw-J3-MrC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1602.8985507246377" y="2246.6517857142858"/>
+            <point key="canvasLocation" x="1213" y="2247"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="wWf-22-Dhj">
@@ -848,8 +868,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ssH-3B-FP4"/>
-        <segue reference="DOB-l1-iSU"/>
         <segue reference="xI7-Jd-0u0"/>
     </inferredMetricsTieBreakers>
     <resources>

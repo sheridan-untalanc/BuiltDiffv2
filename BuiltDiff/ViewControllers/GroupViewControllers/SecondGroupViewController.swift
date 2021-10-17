@@ -35,7 +35,6 @@ class SecondGroupViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.collectionViewLayout = UICollectionViewFlowLayout()
-        
     }
     
     @IBAction func joinButtonTapped(_ sender: Any) {

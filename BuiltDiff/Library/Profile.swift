@@ -7,16 +7,33 @@
 
 import Foundation
 
-struct Profile {
-    var UserName : String
+class Profile {
+    var UserName : String = "Unknown"
     //var ProfileImage : Data
-
+    var GroupList : [String: String] = [:]
+    
     init(userName: String) {
         UserName = userName
+    }
+    init(){
+        FirebaseAccessLayer.UpdateUserLocal(uid: FirebaseAccessLayer.GetCurrentUserId(), completion: { (username, listOfGroups) in
+            DispatchQueue.main.async {
+                self.UserName = username
+                self.GroupList = listOfGroups
+            }
+        })
     }
     
     func UpdateRemote() {
         FirebaseAccessLayer.UpdateUserRemote(username: UserName)
+    }
+    
+    func UpdateLocal(){
+        FirebaseAccessLayer.UpdateUserLocal(uid: FirebaseAccessLayer.GetCurrentUserId(), completion: { (username, listOfGroups) in
+            self.UserName = username
+            self.GroupList = listOfGroups
+            
+        })
     }
     
 }
