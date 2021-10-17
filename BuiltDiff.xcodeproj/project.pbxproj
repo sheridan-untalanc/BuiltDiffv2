@@ -14,10 +14,11 @@
 		73118F3E27091778005FE169 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73118F3D27091778005FE169 /* HomeViewController.swift */; };
 		73118F4027091784005FE169 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73118F3F27091784005FE169 /* GroupViewController.swift */; };
 		73118F4227091790005FE169 /* ExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73118F4127091790005FE169 /* ExerciseViewController.swift */; };
-		75AAB95E2719142500D83903 /* AchievementChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AAB95D2719142500D83903 /* AchievementChecker.swift */; };
 		73F9069A2712260C004E200F /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F906992712260C004E200F /* CustomCollectionViewCell.swift */; };
+		75050FE7271AB84B00B79C41 /* AchievementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75050FE6271AB84B00B79C41 /* AchievementViewController.swift */; };
 		756E71442714A93800A4C3BE /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 756E71432714A93800A4C3BE /* HealthKit.framework */; };
 		756E71472714C95C00A4C3BE /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 756E71462714C95C00A4C3BE /* HealthKit.framework */; };
+		75AAB95E2719142500D83903 /* AchievementChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AAB95D2719142500D83903 /* AchievementChecker.swift */; };
 		75B4D17B261015B800DF4932 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B4D17A261015B800DF4932 /* ProfileViewController.swift */; };
 		9A41528CE3708332ACD0C750 /* Pods_BuiltDiff.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9565645955B475D0C435CB5 /* Pods_BuiltDiff.framework */; };
 		B4C6DD5BE80EEF5E315D3ED4 /* Pods_BuiltDiffTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E89C583861952322F0ED190C /* Pods_BuiltDiffTests.framework */; };
@@ -112,12 +113,13 @@
 		73118F3D27091778005FE169 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		73118F3F27091784005FE169 /* GroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
 		73118F4127091790005FE169 /* ExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewController.swift; sourceTree = "<group>"; };
-		75AAB95D2719142500D83903 /* AchievementChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementChecker.swift; sourceTree = "<group>"; };
 		73F906992712260C004E200F /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
+		75050FE6271AB84B00B79C41 /* AchievementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementViewController.swift; sourceTree = "<group>"; };
 		756E71422714A93800A4C3BE /* BuiltDiff WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "BuiltDiff WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		756E71432714A93800A4C3BE /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS8.0.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
 		756E71452714C95C00A4C3BE /* BuiltDiff.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BuiltDiff.entitlements; sourceTree = "<group>"; };
 		756E71462714C95C00A4C3BE /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.0.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
+		75AAB95D2719142500D83903 /* AchievementChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementChecker.swift; sourceTree = "<group>"; };
 		75B4D17A261015B800DF4932 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		830E1E699DC89397F58DCF11 /* Pods-BuiltDiff.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuiltDiff.debug.xcconfig"; path = "Target Support Files/Pods-BuiltDiff/Pods-BuiltDiff.debug.xcconfig"; sourceTree = "<group>"; };
 		90C91FF8B391442488E36CAD /* Pods-BuiltDiff WatchKit Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuiltDiff WatchKit Extension.release.xcconfig"; path = "Target Support Files/Pods-BuiltDiff WatchKit Extension/Pods-BuiltDiff WatchKit Extension.release.xcconfig"; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 				730C264A2718CD6700B4152E /* AchievementsCollectionViewCell.swift */,
 				75AAB95D2719142500D83903 /* AchievementChecker.swift */,
 				73F906992712260C004E200F /* CustomCollectionViewCell.swift */,
+				75050FE6271AB84B00B79C41 /* AchievementViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -714,6 +717,7 @@
 			files = (
 				73118F4027091784005FE169 /* GroupViewController.swift in Sources */,
 				73118F3C27091745005FE169 /* LoginViewController.swift in Sources */,
+				75050FE7271AB84B00B79C41 /* AchievementViewController.swift in Sources */,
 				EBDE95D0260292F800B9E544 /* ViewController.swift in Sources */,
 				EB5D5A9E27120DF500027E00 /* Group.swift in Sources */,
 				730C264B2718CD6700B4152E /* AchievementsCollectionViewCell.swift in Sources */,
