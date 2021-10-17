@@ -40,7 +40,7 @@ class ExerciseViewController: UIViewController, UICollectionViewDelegate, UIColl
     var counts: Int = 0
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6;
+        return 5;
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -106,7 +106,6 @@ class ExerciseViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("User tapped on item \(indexPath.row)")
-//        print(colories)
     }
 }
 
