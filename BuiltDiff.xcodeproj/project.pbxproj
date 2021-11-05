@@ -20,6 +20,7 @@
 		756E71472714C95C00A4C3BE /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 756E71462714C95C00A4C3BE /* HealthKit.framework */; };
 		75AAB95E2719142500D83903 /* AchievementChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AAB95D2719142500D83903 /* AchievementChecker.swift */; };
 		75B4D17B261015B800DF4932 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B4D17A261015B800DF4932 /* ProfileViewController.swift */; };
+		75BB15B3273583E900FCF5D9 /* ExerciseHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BB15B2273583E900FCF5D9 /* ExerciseHomeViewController.swift */; };
 		9A41528CE3708332ACD0C750 /* Pods_BuiltDiff.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9565645955B475D0C435CB5 /* Pods_BuiltDiff.framework */; };
 		B4C6DD5BE80EEF5E315D3ED4 /* Pods_BuiltDiffTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E89C583861952322F0ED190C /* Pods_BuiltDiffTests.framework */; };
 		D68CFF0E1B3977D9670545F6 /* Pods_BuiltDiff_WatchKit_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47AEB9041A8EE37DA881A894 /* Pods_BuiltDiff_WatchKit_App.framework */; };
@@ -121,6 +122,7 @@
 		756E71462714C95C00A4C3BE /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.0.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
 		75AAB95D2719142500D83903 /* AchievementChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementChecker.swift; sourceTree = "<group>"; };
 		75B4D17A261015B800DF4932 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		75BB15B2273583E900FCF5D9 /* ExerciseHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseHomeViewController.swift; sourceTree = "<group>"; };
 		830E1E699DC89397F58DCF11 /* Pods-BuiltDiff.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuiltDiff.debug.xcconfig"; path = "Target Support Files/Pods-BuiltDiff/Pods-BuiltDiff.debug.xcconfig"; sourceTree = "<group>"; };
 		90C91FF8B391442488E36CAD /* Pods-BuiltDiff WatchKit Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuiltDiff WatchKit Extension.release.xcconfig"; path = "Target Support Files/Pods-BuiltDiff WatchKit Extension/Pods-BuiltDiff WatchKit Extension.release.xcconfig"; sourceTree = "<group>"; };
 		95206ACA337A644C2F3C02F9 /* Pods-BuiltDiffTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuiltDiffTests.release.xcconfig"; path = "Target Support Files/Pods-BuiltDiffTests/Pods-BuiltDiffTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 				75AAB95D2719142500D83903 /* AchievementChecker.swift */,
 				73F906992712260C004E200F /* CustomCollectionViewCell.swift */,
 				75050FE6271AB84B00B79C41 /* AchievementViewController.swift */,
+				75BB15B2273583E900FCF5D9 /* ExerciseHomeViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -728,6 +731,7 @@
 				EB205FB1260D3A4500C65260 /* RegisterViewController.swift in Sources */,
 				EB5D5A962710B71700027E00 /* Profile.swift in Sources */,
 				75B4D17B261015B800DF4932 /* ProfileViewController.swift in Sources */,
+				75BB15B3273583E900FCF5D9 /* ExerciseHomeViewController.swift in Sources */,
 				EBC3240F26FFDC9E00DA426A /* FirebaseAccessLayer.swift in Sources */,
 				75AAB95E2719142500D83903 /* AchievementChecker.swift in Sources */,
 				73F9069A2712260C004E200F /* CustomCollectionViewCell.swift in Sources */,
@@ -1019,7 +1023,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W22XKCBSX7;
 				INFOPLIST_FILE = BuiltDiff/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1043,7 +1047,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W22XKCBSX7;
 				INFOPLIST_FILE = BuiltDiff/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
