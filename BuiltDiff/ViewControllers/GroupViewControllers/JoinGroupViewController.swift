@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SecondGroupViewController: UIViewController {
+class JoinGroupViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var digitCodeLabel: UITextField!
@@ -51,7 +51,7 @@ class SecondGroupViewController: UIViewController {
     
 }
 
-extension SecondGroupViewController: UICollectionViewDataSource{
+extension JoinGroupViewController: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 5
     }
@@ -69,7 +69,7 @@ extension SecondGroupViewController: UICollectionViewDataSource{
     }
 }
 
-extension SecondGroupViewController: UICollectionViewDelegateFlowLayout {
+extension JoinGroupViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 350, height: 110)
     }

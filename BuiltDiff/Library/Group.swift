@@ -7,16 +7,38 @@
 
 import Foundation
 
-struct Group {
-    var GroupName : String
+class Group {
+    var GroupName : String = ""
     //var GroupImage : Data
-    var GroupOwner : String
+    var GroupOwner : String = ""
+    var GroupDescription : String = ""
 
-    init(groupName: String, groupOwner: String) {
+    init(groupName: String, groupOwner: String, saveToDatabase: Bool, groupDescription: String) {
         GroupName = groupName
         GroupOwner = groupOwner
-        FirebaseAccessLayer.CreateGroupRemote(groupName: groupName, groupOwner: groupOwner)
+        GroupDescription = groupDescription
+        if saveToDatabase == true{
+            FirebaseAccessLayer.CreateGroupRemote(groupName: groupName, groupOwner: groupOwner, groupDescription: groupDescription)
+        }
     }
+    
+    static func LoadAll(groupIds: [String]) async throws -> ([Group]){
+        var groupFutures: [Group] = []
+        for groupId in groupIds {
+            let groupData = try await FirebaseAccessLayer.UpdateGroupLocal(groupId: groupId)
+            groupFutures.append(Group(groupName: groupData.groupName, groupOwner: groupData.groupOwner, saveToDatabase: false, groupDescription: groupData.groupDescription))
+        }
+        return groupFutures
+    }
+//    init(groupId: String){
+//        Task.init {
+//            print("Started loading group")
+//            let group = try await FirebaseAccessLayer.UpdateGroupLocal(groupId: groupId)
+//            GroupName = group.groupName
+//            print("Finished loading group\(GroupName)")
+//            GroupOwner = group.groupOwner
+//        }
+//    }
     
 //    func UpdateRemote() {
 //        FirebaseAccessLayer.UpdateGroupRemote(groupName: GroupName, groupOwner: GroupOwner)

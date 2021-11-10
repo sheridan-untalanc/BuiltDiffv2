@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ThirdGroupViewController: UIViewController {
+class CreateGroupViewController: UIViewController {
     @IBOutlet weak var groupProfileImage: UIImageView!
     @IBOutlet weak var groupName: UITextField!
     @IBOutlet weak var groupDescription: UITextField!
@@ -46,6 +46,11 @@ class ThirdGroupViewController: UIViewController {
         return number
     }
     
+    func finishAlert(alert: UIAlertAction!)
+    {
+        performSegue(withIdentifier: "unwindToGroupHome", sender: self)
+    }
+    
     @IBAction func createGroupTapped(_ sender: Any) {
         if groupName.text == "" || groupDescription.text == "" {
             let alert = UIAlertController(title: "Error!", message: "Please fill in all fields", preferredStyle: .alert)
@@ -54,19 +59,16 @@ class ThirdGroupViewController: UIViewController {
             return
         }
         else{
-            let newGroup = Group(groupName: groupName.text!, groupOwner: FirebaseAccessLayer.GetCurrentUserId())
-            
+            let newGroup = Group(groupName: groupName.text!, groupOwner: FirebaseAccessLayer.GetCurrentUserId(), saveToDatabase: true, groupDescription: groupDescription.text!)
             let alert = UIAlertController(title: "Success!", message: "Group created successfully", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
-            
-//            self.performSegue(withIdentifier: "groupCreatedSegue", sender: self)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: finishAlert(alert:)))
             self.present(alert, animated: true, completion: nil)
             return
         }
     }
 }
 
-extension ThirdGroupViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+extension CreateGroupViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")]as? UIImage{
             groupProfileImage.image = image

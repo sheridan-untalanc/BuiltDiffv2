@@ -43,9 +43,10 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        profile = Profile()
+//        Task.init{
+//            profile = Profile()
+//        }
         self.authorizeHealthKitInApp()
-        
         imageExercise1.layer.cornerRadius = 10
         imageExercise2.layer.cornerRadius = 10
         imageExercise3.layer.cornerRadius = 10
@@ -59,7 +60,12 @@ class HomeViewController: UIViewController {
         }
     }
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        Task.init{
+            profile = Profile()
+        }
+    }
     
     func authorizeHealthKitInApp()
     {

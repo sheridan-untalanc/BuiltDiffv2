@@ -9,15 +9,16 @@
 /* Begin PBXBuildFile section */
 		0A1DEEF9B92B007492A089D7 /* Pods_BuiltDiff_BuiltDiffUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03618F9AC82138B5354529EB /* Pods_BuiltDiff_BuiltDiffUITests.framework */; };
 		642759965FC1DD2A1C804C95 /* Pods_BuiltDiff_WatchKit_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5195CF66888E0958331C7B6 /* Pods_BuiltDiff_WatchKit_Extension.framework */; };
-		730C2641271632D600B4152E /* SecondGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730C2640271632D600B4152E /* SecondGroupViewController.swift */; };
-		730C26472718C45200B4152E /* ThirdGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730C26462718C45200B4152E /* ThirdGroupViewController.swift */; };
+		730C2641271632D600B4152E /* JoinGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730C2640271632D600B4152E /* JoinGroupViewController.swift */; };
+		730C26472718C45200B4152E /* CreateGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730C26462718C45200B4152E /* CreateGroupViewController.swift */; };
 		730C264B2718CD6700B4152E /* AchievementsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730C264A2718CD6700B4152E /* AchievementsCollectionViewCell.swift */; };
+		730E0609273AF8AA00C95E00 /* ListGroupsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730E0608273AF8AA00C95E00 /* ListGroupsCollectionViewCell.swift */; };
 		73118F3C27091745005FE169 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73118F3B27091745005FE169 /* LoginViewController.swift */; };
 		73118F3E27091778005FE169 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73118F3D27091778005FE169 /* HomeViewController.swift */; };
 		73118F4027091784005FE169 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73118F3F27091784005FE169 /* GroupViewController.swift */; };
 		73118F4227091790005FE169 /* ExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73118F4127091790005FE169 /* ExerciseViewController.swift */; };
 		735F471B271A33F300309D08 /* JoinGroupCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735F471A271A33F300309D08 /* JoinGroupCollectionViewCell.swift */; };
-		73C8294A271B515F000091B9 /* FourthGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C82949271B515F000091B9 /* FourthGroupViewController.swift */; };
+		73C8294A271B515F000091B9 /* ListGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C82949271B515F000091B9 /* ListGroupsViewController.swift */; };
 		73F9069A2712260C004E200F /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F906992712260C004E200F /* CustomCollectionViewCell.swift */; };
 		75050FE7271AB84B00B79C41 /* AchievementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75050FE6271AB84B00B79C41 /* AchievementViewController.swift */; };
 		756E71442714A93800A4C3BE /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 756E71432714A93800A4C3BE /* HealthKit.framework */; };
@@ -112,15 +113,16 @@
 		47AEB9041A8EE37DA881A894 /* Pods_BuiltDiff_WatchKit_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BuiltDiff_WatchKit_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CBE002738BED21CDC025C44 /* Pods-BuiltDiff.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuiltDiff.release.xcconfig"; path = "Target Support Files/Pods-BuiltDiff/Pods-BuiltDiff.release.xcconfig"; sourceTree = "<group>"; };
 		6AD612B7EDD71136CB94461D /* Pods-BuiltDiff WatchKit App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuiltDiff WatchKit App.release.xcconfig"; path = "Target Support Files/Pods-BuiltDiff WatchKit App/Pods-BuiltDiff WatchKit App.release.xcconfig"; sourceTree = "<group>"; };
-		730C2640271632D600B4152E /* SecondGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondGroupViewController.swift; sourceTree = "<group>"; };
-		730C26462718C45200B4152E /* ThirdGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdGroupViewController.swift; sourceTree = "<group>"; };
+		730C2640271632D600B4152E /* JoinGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinGroupViewController.swift; sourceTree = "<group>"; };
+		730C26462718C45200B4152E /* CreateGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupViewController.swift; sourceTree = "<group>"; };
 		730C264A2718CD6700B4152E /* AchievementsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsCollectionViewCell.swift; sourceTree = "<group>"; };
+		730E0608273AF8AA00C95E00 /* ListGroupsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListGroupsCollectionViewCell.swift; sourceTree = "<group>"; };
 		73118F3B27091745005FE169 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		73118F3D27091778005FE169 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		73118F3F27091784005FE169 /* GroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
 		73118F4127091790005FE169 /* ExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewController.swift; sourceTree = "<group>"; };
 		735F471A271A33F300309D08 /* JoinGroupCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinGroupCollectionViewCell.swift; sourceTree = "<group>"; };
-		73C82949271B515F000091B9 /* FourthGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthGroupViewController.swift; sourceTree = "<group>"; };
+		73C82949271B515F000091B9 /* ListGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListGroupsViewController.swift; sourceTree = "<group>"; };
 		73F906992712260C004E200F /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		75050FE6271AB84B00B79C41 /* AchievementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementViewController.swift; sourceTree = "<group>"; };
 		756E71422714A93800A4C3BE /* BuiltDiff WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "BuiltDiff WatchKit Extension.entitlements"; sourceTree = "<group>"; };
@@ -238,10 +240,11 @@
 			isa = PBXGroup;
 			children = (
 				73118F3F27091784005FE169 /* GroupViewController.swift */,
-				730C2640271632D600B4152E /* SecondGroupViewController.swift */,
+				730C2640271632D600B4152E /* JoinGroupViewController.swift */,
 				735F471A271A33F300309D08 /* JoinGroupCollectionViewCell.swift */,
-				730C26462718C45200B4152E /* ThirdGroupViewController.swift */,
-				73C82949271B515F000091B9 /* FourthGroupViewController.swift */,
+				730C26462718C45200B4152E /* CreateGroupViewController.swift */,
+				73C82949271B515F000091B9 /* ListGroupsViewController.swift */,
+				730E0608273AF8AA00C95E00 /* ListGroupsCollectionViewCell.swift */,
 			);
 			path = GroupViewControllers;
 			sourceTree = "<group>";
@@ -744,15 +747,16 @@
 				EBDE95CC260292F800B9E544 /* AppDelegate.swift in Sources */,
 				73118F3E27091778005FE169 /* HomeViewController.swift in Sources */,
 				EBDE95CE260292F800B9E544 /* SceneDelegate.swift in Sources */,
-				730C26472718C45200B4152E /* ThirdGroupViewController.swift in Sources */,
+				730C26472718C45200B4152E /* CreateGroupViewController.swift in Sources */,
 				735F471B271A33F300309D08 /* JoinGroupCollectionViewCell.swift in Sources */,
 				73118F4227091790005FE169 /* ExerciseViewController.swift in Sources */,
+				730E0609273AF8AA00C95E00 /* ListGroupsCollectionViewCell.swift in Sources */,
 				EB205FB1260D3A4500C65260 /* RegisterViewController.swift in Sources */,
 				EB5D5A962710B71700027E00 /* Profile.swift in Sources */,
 				75B4D17B261015B800DF4932 /* ProfileViewController.swift in Sources */,
-				73C8294A271B515F000091B9 /* FourthGroupViewController.swift in Sources */,
+				73C8294A271B515F000091B9 /* ListGroupsViewController.swift in Sources */,
 				EBC3240F26FFDC9E00DA426A /* FirebaseAccessLayer.swift in Sources */,
-				730C2641271632D600B4152E /* SecondGroupViewController.swift in Sources */,
+				730C2641271632D600B4152E /* JoinGroupViewController.swift in Sources */,
 				75AAB95E2719142500D83903 /* AchievementChecker.swift in Sources */,
 				73F9069A2712260C004E200F /* CustomCollectionViewCell.swift in Sources */,
 			);
@@ -1043,7 +1047,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W22XKCBSX7;
 				INFOPLIST_FILE = BuiltDiff/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1067,7 +1071,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W22XKCBSX7;
 				INFOPLIST_FILE = BuiltDiff/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

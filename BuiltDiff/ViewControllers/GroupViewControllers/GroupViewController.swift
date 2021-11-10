@@ -7,6 +7,8 @@
 
 import UIKit
 
+var groupBuilder: Profile?
+
 class GroupViewController: UIViewController, UIActionSheetDelegate {
     
     @IBOutlet weak var groupImage1: UIView!
@@ -14,28 +16,20 @@ class GroupViewController: UIViewController, UIActionSheetDelegate {
     @IBOutlet weak var firstLabel: UILabel!
     @IBOutlet weak var secondLabel: UILabel!
     @IBOutlet weak var backgroundImage: UIImageView!
-    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        if profile!.GroupList.count != 0{
-//            groupImage1.isHidden = true
-////            inviteButton.isHidden = true
-//            inviteButton.backgroundColor = .systemOrange
-//            inviteButton.setTitleColor(.white, for: .normal)
-//            firstLabel.isHidden = true
-//            secondLabel.isHidden = true
-//            backgroundImage.isHidden = true
-            tableView.isHidden = true
-            tableView.delegate = self
-            tableView.dataSource = self
-            
-        }
-        else{
-//            tableView.isHidden = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        Task.init{
+            groupBuilder = Profile()
         }
     }
+    
+    @IBAction func unwindToGroupHome( _ seg: UIStoryboardSegue){
+            
+        }
     
     @IBAction func didTapButton(){
         let alertController = UIAlertController(title: "", message: "What would you like to do?", preferredStyle: .actionSheet)
@@ -58,26 +52,5 @@ class GroupViewController: UIViewController, UIActionSheetDelegate {
             alertController.addAction(cancelButton)
             
             self.navigationController?.present(alertController, animated: true, completion: nil)
-    }
-}
-
-extension GroupViewController: UITableViewDelegate{
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("user tapped")
-    }
-}
-
-extension GroupViewController: UITableViewDataSource{
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return profile!.GroupList.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        
-        for groupId in profile!.GroupList{
-            cell.textLabel?.text = groupId.value
-        }
-        return cell
     }
 }
