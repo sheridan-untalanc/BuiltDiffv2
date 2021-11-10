@@ -25,10 +25,16 @@ class ExerciseHomeViewController: UIViewController {
         
     }
     
-    
+    @IBAction func unwindToExerciseHome( _ seg: UIStoryboardSegue){
+        
+    }
     
     @IBAction func FitnessSessionStart(_ sender: Any) {
-        
+        let alertController = UIAlertController(title: "BuiltDiff", message:
+                "Open the fitness application on your apple watch to record a workout!", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+
+            self.present(alertController, animated: true, completion: nil)
     }
     
     @IBAction func WeightSessionStart(_ sender: Any) {
