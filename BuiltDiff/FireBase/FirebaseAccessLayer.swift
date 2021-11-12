@@ -136,14 +136,56 @@ class FirebaseAccessLayer{
             ref.updateChildValues(childUpdates)
         }
         
-    static func UpdateGroupRemote(groupName: String){
+    static func CreateGroupRemote(groupName: String, groupOwner: String, groupDescription: String){
         var ref: DatabaseReference!
         ref = Database.database().reference().child("groups")
+        guard let groupKey = ref.childByAutoId().key else{
+            return
+        }
         
         //TODO: update values as they are created
-        let userInfo = ["groupName": groupName]
-        let childUpdates = ["\(Auth.auth().currentUser!.uid)" : userInfo]
+        let groupInfo = ["groupName": groupName, "groupOwner": groupOwner, "groupDescription": groupDescription]
+        let childUpdates = ["\(groupKey)" : groupInfo]
         
         ref.updateChildValues(childUpdates)
+        
+        ref = Database.database().reference().child("users/\(groupOwner)/assignedGroups/")
+        guard let assignedGroupKey = ref.childByAutoId().key else{
+            return
+        }
+        let assignedGroupUpdates = ["\(assignedGroupKey)" : groupKey]
+        ref.updateChildValues(assignedGroupUpdates)
     }
+    
+//    static func UpdateGroupLocal(groupId: String, completion: @escaping (NSEnumerator)-> Void){
+//        var ref: DatabaseReference!
+//        ref = Database.database().reference()
+//        ref.child("groups/\(groupId)/").getData(completion:  { error, snapshot in
+//          guard error == nil else {
+//            print(error!.localizedDescription)
+//            return;
+//          }
+//            completion(snapshot.children)
+//        });
+//    }
+    static func UpdateGroupLocal(groupId: String) async throws -> (groupName: String, groupOwner: String, groupDescription: String){
+            var ref: DatabaseReference!
+            ref = Database.database().reference()
+            let snapshot = try await ref.child("groups/\(groupId)/").getData();
+            let groupDetails = snapshot.value as! [String: AnyObject]
+            let groupName = groupDetails["groupName"] as! String
+            let groupOwner = groupDetails["groupOwner"] as! String
+            let groupDescription = groupDetails["groupDescription"] as! String
+            return (groupName, groupOwner, groupDescription)
+        }
+    
+    static func UpdateUserLocal(uid: String) async throws -> (username: String, assignedGroups: [String: String]){
+            var ref: DatabaseReference!
+            ref = Database.database().reference()
+            let snapshot = try await ref.child("users/\(uid)/").getData();
+            let userDetails = snapshot.value as! [String: AnyObject]
+            let username = userDetails["username"] as! String
+            let assignedGroups = userDetails["assignedGroups"] as? [String: String] ?? [:]
+            return (username, assignedGroups)
+        }
 }
