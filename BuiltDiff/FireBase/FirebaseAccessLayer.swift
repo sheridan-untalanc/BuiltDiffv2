@@ -25,8 +25,9 @@ class FirebaseAccessLayer{
         
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {
-                let dataDescription = document.data()?.description ?? "nil"
-                completion(dataDescription)
+                let dataDescription = document.data()!
+                let username = dataDescription["username"] as! String
+                completion(username)
             } else {
                 completion("Document does not exist")
             }
@@ -109,11 +110,18 @@ class FirebaseAccessLayer{
     
     static func UpdateUserLocal(uid: String) async throws -> (username: String, assignedGroups: [String: String]){
         let userRef = db.collection("users").document(GetCurrentUserId())
+        let assignedGroupsRef = userRef.collection("assignedGroups")
         
-        let snapshot = try await userRef.getDocument()
-        let userDetails = snapshot.data()!
+        let userSnapshot = try await userRef.getDocument()
+        let userDetails = userSnapshot.data()!
         let username = userDetails["username"] as! String
-        let assignedGroups = userDetails["assignedGroups"] as? [String: String] ?? [:]
+        
+        let assignedGroupsSnapshot = try await assignedGroupsRef.getDocuments()
+        var assignedGroups : [String: String] = [:]
+        for document in assignedGroupsSnapshot.documents{
+            assignedGroups[document.documentID] = document["groupId"] as? String
+        }
+        
         return (username, assignedGroups)
     }
 }

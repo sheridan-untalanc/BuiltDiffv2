@@ -23,7 +23,7 @@ class GroupViewController: UIViewController, UIActionSheetDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         Task.init{
-            groupBuilder = Profile()
+            groupBuilder = try await Profile.GetProfile()
         }
     }
     
