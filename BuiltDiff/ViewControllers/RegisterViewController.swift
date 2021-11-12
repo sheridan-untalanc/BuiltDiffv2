@@ -7,7 +7,7 @@
 
 import UIKit
 import FirebaseAuth
-import FirebaseDatabase
+import FirebaseFirestore
 
 class RegisterViewController: UIViewController {
 
@@ -49,16 +49,12 @@ class RegisterViewController: UIViewController {
                 self.present(alert, animated: true, completion: nil)
                 return
             }
-            var ref: DatabaseReference!
-            ref = Database.database().reference().child("users")
             
-            let userInfo = ["username": username,
-                            "email": email]
-            let childUpdates = ["\(authResult!.user.uid)" : userInfo]
-            
-            //ref.child("users/\(authResult!.user.uid)/email").setValue(email)
-            
-            ref.updateChildValues(childUpdates)
+            let db = Firestore.firestore()
+            db.collection("users").document(authResult!.user.uid).setData([
+                "username": username,
+                "email": email
+            ])
             
             let alert = UIAlertController(title: "Success!", message: "Your account has been created successfully.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
