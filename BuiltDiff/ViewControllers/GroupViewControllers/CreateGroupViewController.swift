@@ -59,10 +59,19 @@ class CreateGroupViewController: UIViewController {
             return
         }
         else{
-            let newGroup = Group(groupName: groupName.text!, groupOwner: FirebaseAccessLayer.GetCurrentUserId(), saveToDatabase: true, groupDescription: groupDescription.text!)
-            let alert = UIAlertController(title: "Success!", message: "Group created successfully", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: finishAlert(alert:)))
-            self.present(alert, animated: true, completion: nil)
+            if groupBuilder?.OwnedGroup == nil {
+                let newGroup = Group(groupName: groupName.text!, groupOwner: FirebaseAccessLayer.GetCurrentUserId(), saveToDatabase: true, groupDescription: groupDescription.text!)
+                FirebaseAccessLayer.UploadGroupImage(imageData: groupProfileImage.image!.jpegData(compressionQuality: 0.7)!)
+                let alert = UIAlertController(title: "Success!", message: "Group created successfully", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: finishAlert(alert:)))
+                self.present(alert, animated: true, completion: nil)
+            }
+            else{
+                let alert = UIAlertController(title: "Error!", message: "You can only create one group!", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
+                performSegue(withIdentifier: "unwindToGroupHome", sender: self)
+                self.present(alert, animated: true, completion: nil)
+            }
             return
         }
     }

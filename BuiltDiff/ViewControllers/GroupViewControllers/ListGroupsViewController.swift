@@ -74,8 +74,7 @@ extension ListGroupsViewController: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let vc = storyboard?.instantiateViewController(withIdentifier: "groupDetails") as? GroupDetailsViewController
-        vc?.groupName = groups[indexPath.row].GroupName
-        vc?.groupDescription = groups[indexPath.row].GroupDescription
+        vc?.group = groups[indexPath.row]
         self.navigationController?.pushViewController(vc!, animated: true)
 //        performSegue(withIdentifier: "groupDetailSegue", sender: self)
     }

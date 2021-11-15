@@ -14,18 +14,23 @@ class GroupDetailsViewController: UIViewController {
     @IBOutlet weak var groupDescriptionLabel: UILabel!
     @IBOutlet weak var groupBackButton: UIButton!
     
-    var groupName = ""
-    var groupDescription = ""
-    var memberCount = ""
+    var group: Group? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        groupTitle.text = groupName
-        groupDescriptionLabel.text = groupDescription
+        groupTitle.text = group?.GroupName
+        groupDescriptionLabel.text = group?.GroupDescription
         groupImage.layer.cornerRadius = 50
         groupImage.layer.masksToBounds = true
         groupBackButton.layer.cornerRadius = 20
+        Task.init{
+            FirebaseAccessLayer.GetGroupImage(ownerUid: group!.GroupOwner, completion: { image in
+                DispatchQueue.main.async{
+                    self.groupImage.image = image
+                }
+            })
+        }
     }
     
     @IBAction func unwindToMyGroups(_ sender: Any) {

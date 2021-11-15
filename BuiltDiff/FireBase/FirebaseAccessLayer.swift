@@ -45,10 +45,10 @@ class FirebaseAccessLayer{
         }
     }
     
-    static func UploadImage(imageData: Data, fileName: String){
+    static func UploadGroupImage(imageData: Data){
         // Create a reference to the file you want to upload
         let storageRef = Storage.storage().reference()
-        let imageRef = storageRef.child("images/\(fileName).jpg")
+        let imageRef = storageRef.child("images/profileImages/\(FirebaseAccessLayer.GetCurrentUserId())/groupImage.jpg")
 
         // Upload the file to the path "images/rivers.jpg"
         let uploadTask = imageRef.putData(imageData, metadata: nil) { (metadata, error) in
@@ -65,6 +65,21 @@ class FirebaseAccessLayer{
               return
             }
           }
+        }
+    }
+    
+    static func GetGroupImage(ownerUid: String, completion: @escaping (UIImage) -> Void){
+        let storageRef = Storage.storage().reference()
+        let imageRef = storageRef.child("images/profileImages/\(ownerUid)/groupImage.jpg")
+        Task.init{
+            let image = imageRef.getData(maxSize: 1 * 1024 * 1024, completion:{ data, error in
+                if let error = error {
+                    // Uh-oh, an error occurred!
+                  } else {
+                    let image = UIImage(data: data!)
+                      completion(image!)
+                  }
+            })
         }
     }
     
@@ -94,7 +109,9 @@ class FirebaseAccessLayer{
             }
         }
             
-        db.collection("users").document(GetCurrentUserId()).collection("assignedGroups").addDocument(data: ["groupId": groupRef.documentID])
+        let userRef = db.collection("users").document(GetCurrentUserId())
+        userRef.collection("assignedGroups").addDocument(data: ["groupId": groupRef.documentID])
+        userRef.setData(["ownedGroup" : groupRef.documentID], merge: true)
     }
 
     static func UpdateGroupLocal(groupId: String) async throws -> (groupName: String, groupOwner: String, groupDescription: String){
@@ -108,20 +125,20 @@ class FirebaseAccessLayer{
         return (groupName, groupOwner, groupDescription)
     }
     
-    static func UpdateUserLocal(uid: String) async throws -> (username: String, assignedGroups: [String: String]){
+    static func UpdateUserLocal(uid: String) async throws -> (username: String, assignedGroups: [String: String], ownedGroup: String?){
         let userRef = db.collection("users").document(GetCurrentUserId())
         let assignedGroupsRef = userRef.collection("assignedGroups")
         
         let userSnapshot = try await userRef.getDocument()
         let userDetails = userSnapshot.data()!
         let username = userDetails["username"] as! String
-        
+        let ownedGroup = userDetails["ownedGroup"] as? String
         let assignedGroupsSnapshot = try await assignedGroupsRef.getDocuments()
         var assignedGroups : [String: String] = [:]
         for document in assignedGroupsSnapshot.documents{
             assignedGroups[document.documentID] = document["groupId"] as? String
         }
         
-        return (username, assignedGroups)
+        return (username, assignedGroups, ownedGroup)
     }
 }
