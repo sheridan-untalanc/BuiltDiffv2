@@ -15,23 +15,17 @@ class Profile {
     init(userName: String) {
         UserName = userName
     }
-    init(){ Task.init{
-            let user = try await FirebaseAccessLayer.UpdateUserLocal(uid: FirebaseAccessLayer.GetCurrentUserId())
-            UserName = user.username
-            GroupList = user.assignedGroups
-        }
-    }
     
-    func UpdateRemote() {
-        FirebaseAccessLayer.UpdateUserRemote(username: UserName)
+    init(username: String, groupList: [String: String]){
+            UserName = username
+            GroupList = groupList
     }
-    
-//    func UpdateLocal(){
-//        FirebaseAccessLayer.UpdateUserLocal(uid: FirebaseAccessLayer.GetCurrentUserId(), completion: { (username, listOfGroups) in
-//            self.UserName = username
-//            self.GroupList = listOfGroups
-//
-//        })
-//    }
+
+    static func GetProfile() async throws -> Profile{
+        var futureProfile: Profile
+        let profileData = try await FirebaseAccessLayer.UpdateUserLocal(uid: FirebaseAccessLayer.GetCurrentUserId())
+        futureProfile = Profile(username: profileData.username, groupList: profileData.assignedGroups)
+        return futureProfile
+    }
     
 }
