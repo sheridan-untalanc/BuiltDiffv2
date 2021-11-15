@@ -9,6 +9,7 @@ import UIKit
 
 class ListGroupsViewController: UIViewController {
     @IBOutlet weak var groupsCollectionView: UICollectionView!
+    @IBOutlet weak var groupBackButton: UIButton!
     
     var groups: [Group] = []
     
@@ -40,6 +41,7 @@ class ListGroupsViewController: UIViewController {
             groupsCollectionView.delegate = self
             groupsCollectionView.collectionViewLayout = UICollectionViewFlowLayout()
             groupsCollectionView.reloadData()
+            groupBackButton.layer.cornerRadius = 20
         }
     }
 
@@ -49,6 +51,10 @@ class ListGroupsViewController: UIViewController {
     
     @IBAction func unwindToGroupHome(_ sender: Any) {
         performSegue(withIdentifier: "unwindToGroupHome", sender: self)
+        }
+    
+    @IBAction func unwindToMyGroups( _ seg: UIStoryboardSegue){
+            
         }
 }
 
@@ -66,7 +72,12 @@ extension ListGroupsViewController: UICollectionViewDataSource{
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("works")
+        
+        let vc = storyboard?.instantiateViewController(withIdentifier: "groupDetails") as? GroupDetailsViewController
+        vc?.groupName = groups[indexPath.row].GroupName
+        vc?.groupDescription = groups[indexPath.row].GroupDescription
+        self.navigationController?.pushViewController(vc!, animated: true)
+//        performSegue(withIdentifier: "groupDetailSegue", sender: self)
     }
 }
 

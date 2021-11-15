@@ -13,28 +13,48 @@ class JoinGroupViewController: UIViewController {
     @IBOutlet weak var digitCodeLabel: UITextField!
     @IBOutlet weak var joinButton: UIButton!
     
-    var groupNameArray: [String] = [
-            "Sheridan Club",
-            "Milton Team",
-            "McMaster Squad",
-            "Band of Brothers",
-            "Raging Bull"]
+    var groups: [Group] = []
     
-    var groupMemberArray: [String] = ["5","10","25","3","6"]
+    var groupMemberArray: [String] = ["5","10","25","3","6","5","10","25","3","6"]
     
     var groupDateArray: [String] = [
             "01/10/2021",
             "02/10/2021",
             "03/10/2021",
             "04/10/2021",
+            "05/10/2021",
+            "01/10/2021",
+            "02/10/2021",
+            "03/10/2021",
+            "04/10/2021",
             "05/10/2021"]
+    
+//    var groupNameArray: [String] = [
+//            "Sheridan Club",
+//            "Milton Team",
+//            "McMaster Squad",
+//            "Band of Brothers",
+//            "Raging Bull"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        collectionView.collectionViewLayout = UICollectionViewFlowLayout()
+        Task.init{
+            let values = groupBuilder!.GroupList.values
+            var groupIdList: [String] = []
+            for value in values{
+                groupIdList.append(value)
+            }
+            groups = try await Group.LoadAll(groupIds: groupIdList)
+            collectionView.dataSource = self
+            collectionView.delegate = self
+            collectionView.collectionViewLayout = UICollectionViewFlowLayout()
+            collectionView.reloadData()
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
     }
     
     @IBAction func joinButtonTapped(_ sender: Any) {
@@ -53,14 +73,14 @@ class JoinGroupViewController: UIViewController {
 
 extension JoinGroupViewController: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return groupBuilder!.GroupList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "JoinGroupCollectionViewCell", for: indexPath) as! JoinGroupCollectionViewCell
         cell.layer.cornerRadius = 10
         
-        cell.configure(name: groupNameArray[indexPath.row], members: "\(groupMemberArray[indexPath.row]) members", date: groupDateArray[indexPath.row])
+        cell.configure(name: groups[indexPath.row].GroupName, description: groups[indexPath.row].GroupDescription)
         return cell
     }
     

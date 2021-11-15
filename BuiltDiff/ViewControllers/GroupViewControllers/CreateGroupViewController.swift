@@ -14,6 +14,7 @@ class CreateGroupViewController: UIViewController {
     @IBOutlet weak var groupSize: UISegmentedControl!
     @IBOutlet weak var groupCode: UILabel!
     @IBOutlet weak var createGroupButton: UIButton!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +25,6 @@ class CreateGroupViewController: UIViewController {
         groupProfileImage.layer.masksToBounds = true
         groupProfileImage.layer.cornerRadius = groupProfileImage.frame.height / 2
         groupProfileImage.layer.cornerRadius = groupProfileImage.frame.width / 2
-        
         groupCode.text = "\(randomCode(digits: 6))"
         
         

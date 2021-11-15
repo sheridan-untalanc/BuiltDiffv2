@@ -19,6 +19,7 @@
 		73118F4227091790005FE169 /* ExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73118F4127091790005FE169 /* ExerciseViewController.swift */; };
 		735F471B271A33F300309D08 /* JoinGroupCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735F471A271A33F300309D08 /* JoinGroupCollectionViewCell.swift */; };
 		73C8294A271B515F000091B9 /* ListGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C82949271B515F000091B9 /* ListGroupsViewController.swift */; };
+		73F61169273EE80C0007E6FE /* GroupDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F61168273EE80C0007E6FE /* GroupDetailsViewController.swift */; };
 		73F9069A2712260C004E200F /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F906992712260C004E200F /* CustomCollectionViewCell.swift */; };
 		75050FE7271AB84B00B79C41 /* AchievementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75050FE6271AB84B00B79C41 /* AchievementViewController.swift */; };
 		756E71442714A93800A4C3BE /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 756E71432714A93800A4C3BE /* HealthKit.framework */; };
@@ -123,6 +124,7 @@
 		73118F4127091790005FE169 /* ExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewController.swift; sourceTree = "<group>"; };
 		735F471A271A33F300309D08 /* JoinGroupCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinGroupCollectionViewCell.swift; sourceTree = "<group>"; };
 		73C82949271B515F000091B9 /* ListGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListGroupsViewController.swift; sourceTree = "<group>"; };
+		73F61168273EE80C0007E6FE /* GroupDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailsViewController.swift; sourceTree = "<group>"; };
 		73F906992712260C004E200F /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		75050FE6271AB84B00B79C41 /* AchievementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementViewController.swift; sourceTree = "<group>"; };
 		756E71422714A93800A4C3BE /* BuiltDiff WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "BuiltDiff WatchKit Extension.entitlements"; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 				730C26462718C45200B4152E /* CreateGroupViewController.swift */,
 				73C82949271B515F000091B9 /* ListGroupsViewController.swift */,
 				730E0608273AF8AA00C95E00 /* ListGroupsCollectionViewCell.swift */,
+				73F61168273EE80C0007E6FE /* GroupDetailsViewController.swift */,
 			);
 			path = GroupViewControllers;
 			sourceTree = "<group>";
@@ -754,6 +757,7 @@
 				EB205FB1260D3A4500C65260 /* RegisterViewController.swift in Sources */,
 				EB5D5A962710B71700027E00 /* Profile.swift in Sources */,
 				75B4D17B261015B800DF4932 /* ProfileViewController.swift in Sources */,
+				73F61169273EE80C0007E6FE /* GroupDetailsViewController.swift in Sources */,
 				73C8294A271B515F000091B9 /* ListGroupsViewController.swift in Sources */,
 				EBC3240F26FFDC9E00DA426A /* FirebaseAccessLayer.swift in Sources */,
 				730C2641271632D600B4152E /* JoinGroupViewController.swift in Sources */,

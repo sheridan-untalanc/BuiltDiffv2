@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fSp-hg-6fU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fSp-hg-6fU">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -423,8 +423,8 @@
                                         <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                         <size key="customSize" width="350" height="110"/>
                                         <connections>
-                                            <outlet property="groupDate" destination="nbl-oe-czF" id="gZ9-Mw-8Ge"/>
-                                            <outlet property="groupMemberCount" destination="r6s-1m-kRW" id="IKs-Sb-iG8"/>
+                                            <outlet property="groupDate" destination="nbl-oe-czF" id="dKq-PI-dmb"/>
+                                            <outlet property="groupDescription" destination="r6s-1m-kRW" id="jpA-sX-RpV"/>
                                             <outlet property="groupName" destination="jO2-6L-hAi" id="2rB-IO-zyS"/>
                                         </connections>
                                     </collectionViewCell>
@@ -440,7 +440,7 @@
                                     <color key="baseBackgroundColor" systemColor="systemOrangeColor"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="joinButtonTapped:" destination="FpP-og-aLB" eventType="touchUpInside" id="zIt-g5-F9Q"/>
+                                    <action selector="joinButtonTapped:" destination="FpP-og-aLB" eventType="touchUpInside" id="bKn-ce-Z81"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -542,7 +542,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="123456" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xmq-mR-EOK">
-                                <rect key="frame" x="16" y="623" width="120" height="30"/>
+                                <rect key="frame" x="16" y="623" width="340" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="25"/>
                                 <nil key="textColor"/>
@@ -566,7 +566,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7yw-J3-MrC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="10l-3u-hRE" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1213" y="2247"/>
+            <point key="canvasLocation" x="1212.3076923076924" y="2246.4454976303318"/>
         </scene>
         <!--List Groups View Controller-->
         <scene sceneID="pyR-fz-e8W">
@@ -635,16 +635,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="18X-WD-0XC">
-                                <rect key="frame" x="290" y="51" width="84" height="32"/>
+                                <rect key="frame" x="342" y="51" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Done">
-                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <buttonConfiguration key="configuration" style="filled" image="arrowshape.turn.up.backward.fill" catalog="system">
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="baseBackgroundColor" systemColor="systemOrangeColor"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="joinButtonTapped:" destination="FpP-og-aLB" eventType="touchUpInside" id="fpM-Xe-S6B"/>
                                     <action selector="unwindToGroupHome:" destination="Zaa-e5-dJC" eventType="touchUpInside" id="RdO-ft-dBX"/>
                                 </connections>
                             </button>
@@ -654,14 +652,88 @@
                     </view>
                     <navigationItem key="navigationItem" id="n5S-HN-uqu"/>
                     <connections>
+                        <outlet property="groupBackButton" destination="18X-WD-0XC" id="lNb-mA-eMc"/>
                         <outlet property="groupsCollectionView" destination="BWq-sB-IAL" id="xbz-G5-LPZ"/>
                         <segue destination="vvd-WT-R0I" kind="unwind" identifier="unwindToGroupHome" unwindAction="unwindToGroupHome:" id="nAZ-gt-keh"/>
+                        <segue destination="YKh-eP-vLq" kind="push" identifier="groupDetailSegue" id="09t-h2-TGH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f65-DE-sll" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="vvd-WT-R0I" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1890.7692307692307" y="2245.7345971563982"/>
+        </scene>
+        <!--Group Details View Controller-->
+        <scene sceneID="08p-iy-iNH">
+            <objects>
+                <viewController storyboardIdentifier="groupDetails" id="YKh-eP-vLq" customClass="GroupDetailsViewController" customModule="BuiltDiff" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6di-DH-jcW">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Member Count:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yY4-fd-qzY">
+                                <rect key="frame" x="16" y="764" width="279" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ex-ag-6xR">
+                                <rect key="frame" x="327" y="42" width="47" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="message.fill" catalog="system"/>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person.3.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="A2c-H4-NrX">
+                                <rect key="frame" x="94" y="64.000000000001819" width="200" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gang Bang" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F1c-Q0-rIV">
+                                <rect key="frame" x="16" y="202.00000000000182" width="358" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Group Description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kfq-Ah-Qzu">
+                                <rect key="frame" x="16" y="240.00000000000182" width="358" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CbR-pK-YEu">
+                                <rect key="frame" x="16" y="42" width="32" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" image="arrowshape.turn.up.backward.fill" catalog="system">
+                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseBackgroundColor" systemColor="systemOrangeColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="unwindToMyGroups:" destination="YKh-eP-vLq" eventType="touchUpInside" id="NHh-wR-Q14"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="9MW-I6-A0I"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="CO2-8D-UhV"/>
+                    <connections>
+                        <outlet property="groupBackButton" destination="CbR-pK-YEu" id="2eF-jq-2Ul"/>
+                        <outlet property="groupDescriptionLabel" destination="kfq-Ah-Qzu" id="yId-sd-j71"/>
+                        <outlet property="groupImage" destination="A2c-H4-NrX" id="0bS-7l-WVE"/>
+                        <outlet property="groupMemberCount" destination="yY4-fd-qzY" id="pP9-np-Hhj"/>
+                        <outlet property="groupTitle" destination="F1c-Q0-rIV" id="yis-IH-Kaw"/>
+                        <segue destination="fE1-0Q-6qC" kind="unwind" identifier="unwindToMyGroups" unwindAction="unwindToMyGroups:" id="GiI-Qc-jcj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2HK-vB-8eh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="fE1-0Q-6qC" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1890.7692307692307" y="2984.3601895734596"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="wWf-22-Dhj">
@@ -1079,6 +1151,7 @@
     <resources>
         <image name="IMG_0601" width="500" height="670"/>
         <image name="achievements-icon" width="2048" height="2048"/>
+        <image name="arrowshape.turn.up.backward.fill" catalog="system" width="128" height="106"/>
         <image name="body_fat_percentage_fitness_diet_icon_149052" width="512" height="512"/>
         <image name="bolt.fill" catalog="system" width="101" height="128"/>
         <image name="diet" width="729" height="486"/>
@@ -1088,11 +1161,12 @@
         <image name="exercise5" width="1200" height="630"/>
         <image name="group-exercise" width="1500" height="1000"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
+        <image name="message.fill" catalog="system" width="128" height="113"/>
         <image name="person.3.fill" catalog="system" width="128" height="61"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="ruler.fill" catalog="system" width="128" height="57"/>
-        <image name="star" width="128" height="128"/>
         <image name="star" catalog="system" width="128" height="116"/>
+        <image name="star" width="128" height="128"/>
         <image name="weighing-scale" width="512" height="512"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
