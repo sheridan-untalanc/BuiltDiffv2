@@ -7,28 +7,32 @@
 
 import Foundation
 import FirebaseAuth
-import FirebaseDatabase
+import FirebaseFirestore
 import FirebaseStorage
 import OSLog
 
 class FirebaseAccessLayer{
     
     static let logger = Logger()
+    private static let db = Firestore.firestore()
     
     static func GetCurrentUserId() -> String {
         return Auth.auth().currentUser!.uid
     }
     
-    static func GetCurrentUsername(completion: @escaping (String)-> Void){
-        var ref: DatabaseReference!
-        ref = Database.database().reference()
-        ref.child("users/\(GetCurrentUserId())/username").getData(completion:  { error, snapshot in
-          guard error == nil else {
-            print(error!.localizedDescription)
-            return;
-          }
-            completion(snapshot.value as? String ?? "Unknown")
-        });
+    static func GetCurrentUsername(completion: @escaping (String) -> Void){
+        let docRef = db.collection("users").document(GetCurrentUserId())
+        
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let dataDescription = document.data()!
+                let username = dataDescription["username"] as! String
+                completion(username)
+            } else {
+                completion("Document does not exist")
+            }
+        
+        }
     }
     
     static func IsLoggedIn() -> Bool{
@@ -40,66 +44,6 @@ class FirebaseAccessLayer{
             return false
         }
     }
-    
-    //Login Methods moved out of FAL due to needing await to handle auth.SignIn() async completion
-    /*static func LogIn(email: String, password: String) -> (status: Bool, message: String) {
-        var status = false
-        var message = ""
-        
-        Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
-            if(error != nil){
-                message = error!.localizedDescription
-                logger.error("\(message)")
-                return
-            }
-            if Auth.auth().currentUser != nil{
-                message = "User is found!"
-                logger.debug("\(message)")
-                status = true
-                return
-            }
-            else{
-                message = "User could not be found"
-                logger.error("\(message)")
-                return
-            }
-        }
-        
-        return (status, message)
-    }
-    
-    static func Register(username: String, email: String, password: String) -> (status: Bool, message: String){
-        var status = false
-        var message = ""
-        
-        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-            if(error != nil){
-                message = error!.localizedDescription
-                logger.error("\(message)")
-
-                //let alert = UIAlertController(title: "Error creating a new account", message: errorMessage, preferredStyle: .alert)
-                //alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
-                //self.present(alert, animated: true, completion: nil)
-                return
-            }
-            status = true
-            message = "Your account has been created successfully."
-            
-            var ref: DatabaseReference!
-            ref = Database.database().reference().child("users")
-            
-            let userInfo = ["username": username,
-                            "email": email]
-            let childUpdates = ["\(authResult!.user.uid)" : userInfo]
-            
-            //ref.child("users/\(authResult!.user.uid)/email").setValue(email)
-            
-            ref.updateChildValues(childUpdates)
-            return
-        }
-        
-        return (status, message)
-    }*/
     
     static func UploadImage(imageData: Data, fileName: String){
         // Create a reference to the file you want to upload
@@ -125,67 +69,59 @@ class FirebaseAccessLayer{
     }
     
     static func UpdateUserRemote(username: String) {
-            var ref: DatabaseReference!
-            ref = Database.database().reference().child("users")
-            
-            //TODO: update values as they are created
-            let userInfo = ["username": username]
-            
-            let childUpdates = ["\(Auth.auth().currentUser!.uid)" : userInfo]
-            
-            ref.updateChildValues(childUpdates)
+        db.collection("users").document(GetCurrentUserId()).setData([
+            "username" : username
+            ],  merge: true) { error in
+                if let error = error {
+                    print("Error updating User: \(error)")
+                } else {
+                    print("User sucessfully updated!")
+                }
+                
+            }
         }
         
     static func CreateGroupRemote(groupName: String, groupOwner: String, groupDescription: String){
-        var ref: DatabaseReference!
-        ref = Database.database().reference().child("groups")
-        guard let groupKey = ref.childByAutoId().key else{
-            return
+        let groupRef = db.collection("groups").addDocument(data: [
+            "groupName" : groupName,
+            "groupOwner" :  groupOwner,
+            "groupDescription" :  groupDescription
+        ]) { error in
+            if let error = error {
+                print("Error create Group: \(error)")
+            } else {
+                print("Group sucessfully created!")
+            }
         }
-        
-        //TODO: update values as they are created
-        let groupInfo = ["groupName": groupName, "groupOwner": groupOwner, "groupDescription": groupDescription]
-        let childUpdates = ["\(groupKey)" : groupInfo]
-        
-        ref.updateChildValues(childUpdates)
-        
-        ref = Database.database().reference().child("users/\(groupOwner)/assignedGroups/")
-        guard let assignedGroupKey = ref.childByAutoId().key else{
-            return
-        }
-        let assignedGroupUpdates = ["\(assignedGroupKey)" : groupKey]
-        ref.updateChildValues(assignedGroupUpdates)
+            
+        db.collection("users").document(GetCurrentUserId()).collection("assignedGroups").addDocument(data: ["groupId": groupRef.documentID])
+    }
+
+    static func UpdateGroupLocal(groupId: String) async throws -> (groupName: String, groupOwner: String, groupDescription: String){
+        let groupRef = db.collection("groups").document(groupId)
+            
+        let snapshot = try await groupRef.getDocument()
+        let groupDetails = snapshot.data()!
+        let groupName = groupDetails["groupName"] as! String
+        let groupOwner = groupDetails["groupOwner"] as! String
+        let groupDescription = groupDetails["groupDescription"] as! String
+        return (groupName, groupOwner, groupDescription)
     }
     
-//    static func UpdateGroupLocal(groupId: String, completion: @escaping (NSEnumerator)-> Void){
-//        var ref: DatabaseReference!
-//        ref = Database.database().reference()
-//        ref.child("groups/\(groupId)/").getData(completion:  { error, snapshot in
-//          guard error == nil else {
-//            print(error!.localizedDescription)
-//            return;
-//          }
-//            completion(snapshot.children)
-//        });
-//    }
-    static func UpdateGroupLocal(groupId: String) async throws -> (groupName: String, groupOwner: String, groupDescription: String){
-            var ref: DatabaseReference!
-            ref = Database.database().reference()
-            let snapshot = try await ref.child("groups/\(groupId)/").getData();
-            let groupDetails = snapshot.value as! [String: AnyObject]
-            let groupName = groupDetails["groupName"] as! String
-            let groupOwner = groupDetails["groupOwner"] as! String
-            let groupDescription = groupDetails["groupDescription"] as! String
-            return (groupName, groupOwner, groupDescription)
-        }
-    
     static func UpdateUserLocal(uid: String) async throws -> (username: String, assignedGroups: [String: String]){
-            var ref: DatabaseReference!
-            ref = Database.database().reference()
-            let snapshot = try await ref.child("users/\(uid)/").getData();
-            let userDetails = snapshot.value as! [String: AnyObject]
-            let username = userDetails["username"] as! String
-            let assignedGroups = userDetails["assignedGroups"] as? [String: String] ?? [:]
-            return (username, assignedGroups)
+        let userRef = db.collection("users").document(GetCurrentUserId())
+        let assignedGroupsRef = userRef.collection("assignedGroups")
+        
+        let userSnapshot = try await userRef.getDocument()
+        let userDetails = userSnapshot.data()!
+        let username = userDetails["username"] as! String
+        
+        let assignedGroupsSnapshot = try await assignedGroupsRef.getDocuments()
+        var assignedGroups : [String: String] = [:]
+        for document in assignedGroupsSnapshot.documents{
+            assignedGroups[document.documentID] = document["groupId"] as? String
         }
+        
+        return (username, assignedGroups)
+    }
 }

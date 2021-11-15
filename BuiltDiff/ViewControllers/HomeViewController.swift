@@ -63,7 +63,7 @@ class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         Task.init{
-            profile = Profile()
+            profile = try await Profile.GetProfile()
         }
     }
     
