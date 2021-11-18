@@ -18,6 +18,7 @@ class CreateGroupViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
         // Do any additional setup after loading the view.
         groupProfileImage.isUserInteractionEnabled = true
         let tapRecognizer = UITapGestureRecognizer(target: self, action: Selector("didTapGroupImage"))
