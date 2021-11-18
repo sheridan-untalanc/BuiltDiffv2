@@ -69,8 +69,92 @@ class AchievementChecker: NSObject {
                 }
               }
             HKHealthStore().execute(query)
-        
+
     }
+    
+    func ExerciseList(completion: @escaping (Array<Array<String>>) -> Void){
+        var completed = [[String]]()
+        
+        let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate,
+                                                ascending: true)
+        
+        let query = HKSampleQuery(
+          sampleType: .workoutType(),
+          predicate: nil,
+          limit: 20,
+          sortDescriptors: [sortDescriptor]) { (query, samples, error) in
+            DispatchQueue.main.async {
+              guard
+                let samples = samples as? [HKWorkout],
+                error == nil
+                else {
+                  return
+              }
+                for i in 0..<samples.count{
+                    let calories = Double((samples[i].totalEnergyBurned!.doubleValue(for: HKUnit.largeCalorie())))
+
+                    var exerciseType = ""
+                    var imageType = ""
+                    switch samples[i].workoutActivityType.rawValue{
+                    case 46:
+                        exerciseType = "Swimming"
+                        imageType = "swimmingIcon"
+                    case 13:
+                        exerciseType = "Cycling"
+                        imageType = "bikingIcon"
+                    case 52:
+                        exerciseType = "Walking"
+                        imageType = "walkingIcon"
+                    default:
+                        exerciseType = "Generic Workout"
+                        imageType = "runningIcon"
+                    }
+
+                    func secondsToHoursMinutesSeconds (seconds : Int) -> (Int, Int, Int) {
+                        return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
+                    }
+                    let (h,m,s) = secondsToHoursMinutesSeconds(seconds: Int(samples[i].duration))
+                        
+                    let date = samples[i].startDate
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "dd/MM/YY"
+                    let formattedDate = dateFormatter.string(from: date)
+                        
+                    let workout = [exerciseType, "\(h)h \(m)m \(s)s", "\(String(calories.rounded(.awayFromZero))) Cal", formattedDate, imageType]
+                    completed.append(workout)
+                }
+                completion(completed)
+                }
+            }
+        HKHealthStore().execute(query)
+    }
+    
+//    func ExercisesCompleted() async throws -> Int{
+//            var completed = 0
+//            let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate,
+//                                                  ascending: true)
+//
+//            let query = HKSampleQuery(
+//              sampleType: .workoutType(),
+//              predicate: nil,
+//              limit: 50,
+//              sortDescriptors: [sortDescriptor]) { (query, samples, error) in
+//                  DispatchQueue.main.async {
+//                  guard
+//                    let samples = samples as? [HKWorkout],
+//                    error == nil
+//                    else {
+//                      return
+//                  }
+//                completed = samples.count
+//                }
+//              }
+//        HKHealthStore().execute(query.)
+//        return completed
+//
+//    }
+
+    
     func TotalDuration(completion: @escaping (Double) -> Void){
         
         var totalDuration = 0.0
@@ -162,3 +246,6 @@ class AchievementChecker: NSObject {
     }
     
 }
+
+    
+

@@ -53,10 +53,10 @@ extension CreateWorkoutViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath)
         if taskArray.count > 1 {
-            var name = taskArray[indexPath.row+1][0]
-            var sets = taskArray[indexPath.row+1][2]
-            var reps = taskArray[indexPath.row+1][3]
-            cell.textLabel?.text = "\(name)  Sets:\(sets) Reps:\(reps)"
+            let name = taskArray[indexPath.row+1][0] as! String
+            let sets = taskArray[indexPath.row+1][2] as! Int
+            let reps = taskArray[indexPath.row+1][3] as! Int
+            cell.textLabel?.text = "\(name)  Sets: \(sets)  Reps: \(reps)"
         }
         return cell
     }
