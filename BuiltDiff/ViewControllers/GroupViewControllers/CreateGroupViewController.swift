@@ -23,8 +23,8 @@ class CreateGroupViewController: UIViewController {
         let tapRecognizer = UITapGestureRecognizer(target: self, action: Selector("didTapGroupImage"))
         groupProfileImage.addGestureRecognizer(tapRecognizer)
         groupProfileImage.layer.masksToBounds = true
-        groupProfileImage.layer.cornerRadius = groupProfileImage.frame.height / 2
-        groupProfileImage.layer.cornerRadius = groupProfileImage.frame.width / 2
+        groupProfileImage.layer.cornerRadius = 75
+        groupProfileImage.layer.masksToBounds = true
         groupCode.text = "\(randomCode(digits: 6))"
         
         
@@ -68,8 +68,7 @@ class CreateGroupViewController: UIViewController {
             }
             else{
                 let alert = UIAlertController(title: "Error!", message: "You can only create one group!", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
-                performSegue(withIdentifier: "unwindToGroupHome", sender: self)
+                alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: finishAlert(alert:)))
                 self.present(alert, animated: true, completion: nil)
             }
             return
