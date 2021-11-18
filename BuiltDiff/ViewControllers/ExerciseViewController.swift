@@ -25,9 +25,11 @@ class ExerciseViewController: UIViewController{
         collectionView.collectionViewLayout = UICollectionViewFlowLayout()
     }
 
-    @IBAction func unwindToExerciseHome( _ seg: UIStoryboardSegue){
+    @IBAction func unwindToExerciseHome(_ sender: Any) {
+        performSegue(withIdentifier: "unwindToExerciseHome", sender: self)
     }
 }
+
 
 extension ExerciseViewController: UICollectionViewDataSource{
     
