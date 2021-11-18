@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+platform :ios, '15.0'
 
 target 'BuiltDiff' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -9,6 +9,8 @@ target 'BuiltDiff' do
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
+  pod 'Firebase/Firestore'
+  pod 'FirebaseFirestoreSwift'
 
   target 'BuiltDiffTests' do
     inherit! :search_paths
@@ -29,10 +31,10 @@ target 'BuiltDiff WatchKit App' do
 
 end
 
-target 'BuiltDiff WatchKit Extension' do
+# target 'BuiltDiff WatchKit Extension' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
   # Pods for BuiltDiff WatchKit Extension
 
-end
+# end

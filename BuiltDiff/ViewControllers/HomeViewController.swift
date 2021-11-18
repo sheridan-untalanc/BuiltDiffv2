@@ -8,6 +8,9 @@
 import UIKit
 import HealthKit
 
+//BEWARE
+var profile : Profile?
+
 class HomeViewController: UIViewController {
 
     @IBOutlet weak var imageExercise1: UIImageView!
@@ -40,9 +43,10 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+//        Task.init{
+//            profile = Profile()
+//        }
         self.authorizeHealthKitInApp()
-        
         imageExercise1.layer.cornerRadius = 10
         imageExercise2.layer.cornerRadius = 10
         imageExercise3.layer.cornerRadius = 10
@@ -53,6 +57,13 @@ class HomeViewController: UIViewController {
             DispatchQueue.main.async {
                 self.homeTitle.text = "Welcome back, \(username)"
             }
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        Task.init{
+            profile = try await Profile.GetProfile()
         }
     }
     
