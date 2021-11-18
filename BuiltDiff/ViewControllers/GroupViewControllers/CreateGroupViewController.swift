@@ -14,6 +14,7 @@ class CreateGroupViewController: UIViewController {
     @IBOutlet weak var groupSize: UISegmentedControl!
     @IBOutlet weak var groupCode: UILabel!
     @IBOutlet weak var createGroupButton: UIButton!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,9 +23,8 @@ class CreateGroupViewController: UIViewController {
         let tapRecognizer = UITapGestureRecognizer(target: self, action: Selector("didTapGroupImage"))
         groupProfileImage.addGestureRecognizer(tapRecognizer)
         groupProfileImage.layer.masksToBounds = true
-        groupProfileImage.layer.cornerRadius = groupProfileImage.frame.height / 2
-        groupProfileImage.layer.cornerRadius = groupProfileImage.frame.width / 2
-        
+        groupProfileImage.layer.cornerRadius = 75
+        groupProfileImage.layer.masksToBounds = true
         groupCode.text = "\(randomCode(digits: 6))"
         
         
@@ -59,10 +59,18 @@ class CreateGroupViewController: UIViewController {
             return
         }
         else{
-            let newGroup = Group(groupName: groupName.text!, groupOwner: FirebaseAccessLayer.GetCurrentUserId(), saveToDatabase: true, groupDescription: groupDescription.text!)
-            let alert = UIAlertController(title: "Success!", message: "Group created successfully", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: finishAlert(alert:)))
-            self.present(alert, animated: true, completion: nil)
+            if groupBuilder?.OwnedGroup == nil {
+                let newGroup = Group(groupName: groupName.text!, groupOwner: FirebaseAccessLayer.GetCurrentUserId(), saveToDatabase: true, groupDescription: groupDescription.text!)
+                FirebaseAccessLayer.UploadGroupImage(imageData: groupProfileImage.image!.jpegData(compressionQuality: 0.7)!)
+                let alert = UIAlertController(title: "Success!", message: "Group created successfully", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: finishAlert(alert:)))
+                self.present(alert, animated: true, completion: nil)
+            }
+            else{
+                let alert = UIAlertController(title: "Error!", message: "You can only create one group!", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: finishAlert(alert:)))
+                self.present(alert, animated: true, completion: nil)
+            }
             return
         }
     }

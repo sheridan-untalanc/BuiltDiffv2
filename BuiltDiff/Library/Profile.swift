@@ -12,19 +12,22 @@ class Profile {
     //var ProfileImage : Data
     var GroupList : [String: String] = [:]
     
+    var OwnedGroup : String?
+    
     init(userName: String) {
         UserName = userName
     }
     
-    init(username: String, groupList: [String: String]){
+    init(username: String, groupList: [String: String], ownedGroup: String?){
             UserName = username
             GroupList = groupList
+            OwnedGroup = ownedGroup
     }
 
     static func GetProfile() async throws -> Profile{
         var futureProfile: Profile
         let profileData = try await FirebaseAccessLayer.UpdateUserLocal(uid: FirebaseAccessLayer.GetCurrentUserId())
-        futureProfile = Profile(username: profileData.username, groupList: profileData.assignedGroups)
+        futureProfile = Profile(username: profileData.username, groupList: profileData.assignedGroups, ownedGroup: profileData.ownedGroup)
         return futureProfile
     }
     

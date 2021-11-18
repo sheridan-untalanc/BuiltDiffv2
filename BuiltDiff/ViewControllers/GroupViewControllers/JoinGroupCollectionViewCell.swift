@@ -10,12 +10,17 @@ import UIKit
 class JoinGroupCollectionViewCell: UICollectionViewCell {
     static let identifier = "JoinGroupCollectionViewCell"
     @IBOutlet weak var groupName: UILabel!
-    @IBOutlet weak var groupMemberCount: UILabel!
+    @IBOutlet weak var groupDescription: UILabel!
     @IBOutlet weak var groupDate: UILabel!
     
-    func configure(name: String, members: String, date: String){
+//    func configure(name: String, members: String, date: String){
+//        groupName.text = name
+//        groupMemberCount.text = members
+//        groupDate.text = date
+//    }
+    
+    func configure(name: String, description: String){
         groupName.text = name
-        groupMemberCount.text = members
-        groupDate.text = date
+        groupDescription.text = description
     }
 }
