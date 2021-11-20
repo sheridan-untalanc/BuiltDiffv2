@@ -35,6 +35,7 @@
 		75F97BE12746F71E0066D631 /* WatchInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F97BE02746F71E0066D631 /* WatchInformationViewController.swift */; };
 		75F97BE32746F7A40066D631 /* CreateWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F97BE22746F7A40066D631 /* CreateWorkoutViewController.swift */; };
 		75F97BE52746F81C0066D631 /* ExerciseHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F97BE42746F81C0066D631 /* ExerciseHomeViewController.swift */; };
+		75F97BE72746FFBD0066D631 /* WorkoutListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F97BE62746FFBD0066D631 /* WorkoutListViewController.swift */; };
 		ACEF6944579561611DD2955D /* Pods_BuiltDiff_BuiltDiffUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A8BD8E607A47651244A6A4 /* Pods_BuiltDiff_BuiltDiffUITests.framework */; };
 		EB205FB1260D3A4500C65260 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB205FB0260D3A4500C65260 /* RegisterViewController.swift */; };
 		EB5D5A962710B71700027E00 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5D5A952710B71700027E00 /* Profile.swift */; };
@@ -147,6 +148,7 @@
 		75F97BE02746F71E0066D631 /* WatchInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WatchInformationViewController.swift; path = GroupViewControllers/WatchInformationViewController.swift; sourceTree = "<group>"; };
 		75F97BE22746F7A40066D631 /* CreateWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreateWorkoutViewController.swift; path = GroupViewControllers/CreateWorkoutViewController.swift; sourceTree = "<group>"; };
 		75F97BE42746F81C0066D631 /* ExerciseHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExerciseHomeViewController.swift; path = GroupViewControllers/ExerciseHomeViewController.swift; sourceTree = "<group>"; };
+		75F97BE62746FFBD0066D631 /* WorkoutListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutListViewController.swift; sourceTree = "<group>"; };
 		8820FCDCE68D4B70BB59BF39 /* Pods-BuiltDiff.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuiltDiff.debug.xcconfig"; path = "Target Support Files/Pods-BuiltDiff/Pods-BuiltDiff.debug.xcconfig"; sourceTree = "<group>"; };
 		B781BAF97D0DB336155A0C1A /* Pods_BuiltDiff_WatchKit_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BuiltDiff_WatchKit_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAA0453AD9842FE6BB3DAC65 /* Pods-BuiltDiff WatchKit App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuiltDiff WatchKit App.release.xcconfig"; path = "Target Support Files/Pods-BuiltDiff WatchKit App/Pods-BuiltDiff WatchKit App.release.xcconfig"; sourceTree = "<group>"; };
@@ -298,6 +300,7 @@
 				75AAB95D2719142500D83903 /* AchievementChecker.swift */,
 				73F906992712260C004E200F /* CustomCollectionViewCell.swift */,
 				75050FE6271AB84B00B79C41 /* AchievementViewController.swift */,
+				75F97BE62746FFBD0066D631 /* WorkoutListViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -746,6 +749,7 @@
 				73118F4227091790005FE169 /* ExerciseViewController.swift in Sources */,
 				7355B8942743002900501F72 /* GroupDetailsCollectionViewCell.swift in Sources */,
 				730E0609273AF8AA00C95E00 /* ListGroupsCollectionViewCell.swift in Sources */,
+				75F97BE72746FFBD0066D631 /* WorkoutListViewController.swift in Sources */,
 				75F97BE52746F81C0066D631 /* ExerciseHomeViewController.swift in Sources */,
 				EB205FB1260D3A4500C65260 /* RegisterViewController.swift in Sources */,
 				EB5D5A962710B71700027E00 /* Profile.swift in Sources */,
