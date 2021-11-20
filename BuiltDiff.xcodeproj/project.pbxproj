@@ -38,6 +38,8 @@
 		75F97BE72746FFBD0066D631 /* WorkoutListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F97BE62746FFBD0066D631 /* WorkoutListViewController.swift */; };
 		ACEF6944579561611DD2955D /* Pods_BuiltDiff_BuiltDiffUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A8BD8E607A47651244A6A4 /* Pods_BuiltDiff_BuiltDiffUITests.framework */; };
 		EB205FB1260D3A4500C65260 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB205FB0260D3A4500C65260 /* RegisterViewController.swift */; };
+		EB3FC1EA27499E510049842D /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3FC1E927499E510049842D /* Workout.swift */; };
+		EB3FC1EC27499E670049842D /* WorkoutTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3FC1EB27499E670049842D /* WorkoutTask.swift */; };
 		EB5D5A962710B71700027E00 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5D5A952710B71700027E00 /* Profile.swift */; };
 		EB5D5A9E27120DF500027E00 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5D5A9D27120DF500027E00 /* Group.swift */; };
 		EBBE90A42604E8EA00D8D4D2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EBBE90A32604E8E900D8D4D2 /* GoogleService-Info.plist */; };
@@ -154,6 +156,8 @@
 		CAA0453AD9842FE6BB3DAC65 /* Pods-BuiltDiff WatchKit App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuiltDiff WatchKit App.release.xcconfig"; path = "Target Support Files/Pods-BuiltDiff WatchKit App/Pods-BuiltDiff WatchKit App.release.xcconfig"; sourceTree = "<group>"; };
 		D0BDB212FABC51C57F70E3BA /* Pods-BuiltDiffTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuiltDiffTests.debug.xcconfig"; path = "Target Support Files/Pods-BuiltDiffTests/Pods-BuiltDiffTests.debug.xcconfig"; sourceTree = "<group>"; };
 		EB205FB0260D3A4500C65260 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		EB3FC1E927499E510049842D /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
+		EB3FC1EB27499E670049842D /* WorkoutTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTask.swift; sourceTree = "<group>"; };
 		EB5D5A952710B71700027E00 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		EB5D5A9D27120DF500027E00 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		EBBE90A32604E8E900D8D4D2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -310,6 +314,8 @@
 			children = (
 				EB5D5A952710B71700027E00 /* Profile.swift */,
 				EB5D5A9D27120DF500027E00 /* Group.swift */,
+				EB3FC1E927499E510049842D /* Workout.swift */,
+				EB3FC1EB27499E670049842D /* WorkoutTask.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -734,7 +740,9 @@
 				73118F4027091784005FE169 /* GroupViewController.swift in Sources */,
 				73118F3C27091745005FE169 /* LoginViewController.swift in Sources */,
 				75050FE7271AB84B00B79C41 /* AchievementViewController.swift in Sources */,
+				EB3FC1EA27499E510049842D /* Workout.swift in Sources */,
 				EBDE95D0260292F800B9E544 /* ViewController.swift in Sources */,
+				EB3FC1EC27499E670049842D /* WorkoutTask.swift in Sources */,
 				75BB15B72735991F00FCF5D9 /* (null) in Sources */,
 				75F97BE32746F7A40066D631 /* CreateWorkoutViewController.swift in Sources */,
 				EB5D5A9E27120DF500027E00 /* Group.swift in Sources */,

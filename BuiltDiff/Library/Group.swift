@@ -13,7 +13,7 @@ class Group {
     var GroupOwner : String = ""
     var GroupDescription : String = ""
 
-    init(groupName: String, groupOwner: String, saveToDatabase: Bool, groupDescription: String) {
+    init(groupName: String, groupOwner: String, groupDescription: String, saveToDatabase: Bool) {
         GroupName = groupName
         GroupOwner = groupOwner
         GroupDescription = groupDescription
