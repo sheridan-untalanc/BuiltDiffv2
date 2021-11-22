@@ -13,7 +13,7 @@ class Group {
     var GroupOwner : String = ""
     var GroupDescription : String = ""
 
-    init(groupName: String, groupOwner: String, saveToDatabase: Bool, groupDescription: String) {
+    init(groupName: String, groupOwner: String, groupDescription: String, saveToDatabase: Bool) {
         GroupName = groupName
         GroupOwner = groupOwner
         GroupDescription = groupDescription
@@ -26,7 +26,9 @@ class Group {
         var groupFutures: [Group] = []
         for groupId in groupIds {
             let groupData = try await FirebaseAccessLayer.UpdateGroupLocal(groupId: groupId)
-            groupFutures.append(Group(groupName: groupData.groupName, groupOwner: groupData.groupOwner, saveToDatabase: false, groupDescription: groupData.groupDescription))
+            groupFutures.append(Group(groupName: groupData.groupName,
+            groupOwner: groupData.groupOwner,
+                                      groupDescription: groupData.groupDescription, saveToDatabase: false))
         }
         return groupFutures
     }

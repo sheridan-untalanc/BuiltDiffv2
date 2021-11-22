@@ -47,7 +47,7 @@ class ProfileViewController: UIViewController{
         present(vc, animated: true)
     }
     
-    @IBAction func unwind( _ seg: UIStoryboardSegue){
+    @IBAction func unwindToProfile( _ seg: UIStoryboardSegue){
         
     }
 }

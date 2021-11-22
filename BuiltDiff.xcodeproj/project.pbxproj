@@ -29,8 +29,17 @@
 		756E71472714C95C00A4C3BE /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 756E71462714C95C00A4C3BE /* HealthKit.framework */; };
 		75AAB95E2719142500D83903 /* AchievementChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AAB95D2719142500D83903 /* AchievementChecker.swift */; };
 		75B4D17B261015B800DF4932 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B4D17A261015B800DF4932 /* ProfileViewController.swift */; };
+		75BB15B3273583E900FCF5D9 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		75BB15B72735991F00FCF5D9 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		75F97BDF2746EC260066D631 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		75F97BE12746F71E0066D631 /* WatchInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F97BE02746F71E0066D631 /* WatchInformationViewController.swift */; };
+		75F97BE32746F7A40066D631 /* CreateWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F97BE22746F7A40066D631 /* CreateWorkoutViewController.swift */; };
+		75F97BE52746F81C0066D631 /* ExerciseHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F97BE42746F81C0066D631 /* ExerciseHomeViewController.swift */; };
+		75F97BE72746FFBD0066D631 /* WorkoutListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F97BE62746FFBD0066D631 /* WorkoutListViewController.swift */; };
 		ACEF6944579561611DD2955D /* Pods_BuiltDiff_BuiltDiffUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A8BD8E607A47651244A6A4 /* Pods_BuiltDiff_BuiltDiffUITests.framework */; };
 		EB205FB1260D3A4500C65260 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB205FB0260D3A4500C65260 /* RegisterViewController.swift */; };
+		EB3FC1EA27499E510049842D /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3FC1E927499E510049842D /* Workout.swift */; };
+		EB3FC1EC27499E670049842D /* WorkoutTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3FC1EB27499E670049842D /* WorkoutTask.swift */; };
 		EB5D5A962710B71700027E00 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5D5A952710B71700027E00 /* Profile.swift */; };
 		EB5D5A9E27120DF500027E00 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5D5A9D27120DF500027E00 /* Group.swift */; };
 		EBBE90A42604E8EA00D8D4D2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EBBE90A32604E8E900D8D4D2 /* GoogleService-Info.plist */; };
@@ -138,11 +147,17 @@
 		756E71462714C95C00A4C3BE /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.0.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
 		75AAB95D2719142500D83903 /* AchievementChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementChecker.swift; sourceTree = "<group>"; };
 		75B4D17A261015B800DF4932 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		75F97BE02746F71E0066D631 /* WatchInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WatchInformationViewController.swift; path = GroupViewControllers/WatchInformationViewController.swift; sourceTree = "<group>"; };
+		75F97BE22746F7A40066D631 /* CreateWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreateWorkoutViewController.swift; path = GroupViewControllers/CreateWorkoutViewController.swift; sourceTree = "<group>"; };
+		75F97BE42746F81C0066D631 /* ExerciseHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExerciseHomeViewController.swift; path = GroupViewControllers/ExerciseHomeViewController.swift; sourceTree = "<group>"; };
+		75F97BE62746FFBD0066D631 /* WorkoutListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutListViewController.swift; sourceTree = "<group>"; };
 		8820FCDCE68D4B70BB59BF39 /* Pods-BuiltDiff.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuiltDiff.debug.xcconfig"; path = "Target Support Files/Pods-BuiltDiff/Pods-BuiltDiff.debug.xcconfig"; sourceTree = "<group>"; };
 		B781BAF97D0DB336155A0C1A /* Pods_BuiltDiff_WatchKit_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BuiltDiff_WatchKit_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAA0453AD9842FE6BB3DAC65 /* Pods-BuiltDiff WatchKit App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuiltDiff WatchKit App.release.xcconfig"; path = "Target Support Files/Pods-BuiltDiff WatchKit App/Pods-BuiltDiff WatchKit App.release.xcconfig"; sourceTree = "<group>"; };
 		D0BDB212FABC51C57F70E3BA /* Pods-BuiltDiffTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuiltDiffTests.debug.xcconfig"; path = "Target Support Files/Pods-BuiltDiffTests/Pods-BuiltDiffTests.debug.xcconfig"; sourceTree = "<group>"; };
 		EB205FB0260D3A4500C65260 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		EB3FC1E927499E510049842D /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
+		EB3FC1EB27499E670049842D /* WorkoutTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTask.swift; sourceTree = "<group>"; };
 		EB5D5A952710B71700027E00 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		EB5D5A9D27120DF500027E00 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		EBBE90A32604E8E900D8D4D2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -277,7 +292,10 @@
 			children = (
 				73C82948271B5111000091B9 /* GroupViewControllers */,
 				EBDE95CF260292F800B9E544 /* ViewController.swift */,
+				75F97BE42746F81C0066D631 /* ExerciseHomeViewController.swift */,
 				75B4D17A261015B800DF4932 /* ProfileViewController.swift */,
+				75F97BE22746F7A40066D631 /* CreateWorkoutViewController.swift */,
+				75F97BE02746F71E0066D631 /* WatchInformationViewController.swift */,
 				EB205FB0260D3A4500C65260 /* RegisterViewController.swift */,
 				73118F3B27091745005FE169 /* LoginViewController.swift */,
 				73118F3D27091778005FE169 /* HomeViewController.swift */,
@@ -286,6 +304,7 @@
 				75AAB95D2719142500D83903 /* AchievementChecker.swift */,
 				73F906992712260C004E200F /* CustomCollectionViewCell.swift */,
 				75050FE6271AB84B00B79C41 /* AchievementViewController.swift */,
+				75F97BE62746FFBD0066D631 /* WorkoutListViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -295,6 +314,8 @@
 			children = (
 				EB5D5A952710B71700027E00 /* Profile.swift */,
 				EB5D5A9D27120DF500027E00 /* Group.swift */,
+				EB3FC1E927499E510049842D /* Workout.swift */,
+				EB3FC1EB27499E670049842D /* WorkoutTask.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -719,20 +740,29 @@
 				73118F4027091784005FE169 /* GroupViewController.swift in Sources */,
 				73118F3C27091745005FE169 /* LoginViewController.swift in Sources */,
 				75050FE7271AB84B00B79C41 /* AchievementViewController.swift in Sources */,
+				EB3FC1EA27499E510049842D /* Workout.swift in Sources */,
 				EBDE95D0260292F800B9E544 /* ViewController.swift in Sources */,
+				EB3FC1EC27499E670049842D /* WorkoutTask.swift in Sources */,
+				75BB15B72735991F00FCF5D9 /* (null) in Sources */,
+				75F97BE32746F7A40066D631 /* CreateWorkoutViewController.swift in Sources */,
 				EB5D5A9E27120DF500027E00 /* Group.swift in Sources */,
+				75F97BDF2746EC260066D631 /* (null) in Sources */,
 				730C264B2718CD6700B4152E /* AchievementsCollectionViewCell.swift in Sources */,
 				EBDE95CC260292F800B9E544 /* AppDelegate.swift in Sources */,
 				73118F3E27091778005FE169 /* HomeViewController.swift in Sources */,
 				EBDE95CE260292F800B9E544 /* SceneDelegate.swift in Sources */,
+				75F97BE12746F71E0066D631 /* WatchInformationViewController.swift in Sources */,
 				730C26472718C45200B4152E /* CreateGroupViewController.swift in Sources */,
 				735F471B271A33F300309D08 /* JoinGroupCollectionViewCell.swift in Sources */,
 				73118F4227091790005FE169 /* ExerciseViewController.swift in Sources */,
 				7355B8942743002900501F72 /* GroupDetailsCollectionViewCell.swift in Sources */,
 				730E0609273AF8AA00C95E00 /* ListGroupsCollectionViewCell.swift in Sources */,
+				75F97BE72746FFBD0066D631 /* WorkoutListViewController.swift in Sources */,
+				75F97BE52746F81C0066D631 /* ExerciseHomeViewController.swift in Sources */,
 				EB205FB1260D3A4500C65260 /* RegisterViewController.swift in Sources */,
 				EB5D5A962710B71700027E00 /* Profile.swift in Sources */,
 				75B4D17B261015B800DF4932 /* ProfileViewController.swift in Sources */,
+				75BB15B3273583E900FCF5D9 /* (null) in Sources */,
 				73F61169273EE80C0007E6FE /* GroupDetailsViewController.swift in Sources */,
 				73C8294A271B515F000091B9 /* ListGroupsViewController.swift in Sources */,
 				EBC3240F26FFDC9E00DA426A /* FirebaseAccessLayer.swift in Sources */,
