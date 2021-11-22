@@ -26,7 +26,7 @@ class Profile {
 
     static func GetProfile() async throws -> Profile{
         var futureProfile: Profile
-        let profileData = try await FirebaseAccessLayer.UpdateUserLocal(uid: FirebaseAccessLayer.GetCurrentUserId())
+        let profileData = try await FirebaseAccessLayer.GetUser(uid: FirebaseAccessLayer.GetCurrentUserId())
         futureProfile = Profile(username: profileData.username, groupList: profileData.assignedGroups, ownedGroup: profileData.ownedGroup)
         return futureProfile
     }

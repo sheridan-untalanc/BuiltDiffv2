@@ -14,18 +14,21 @@ class Workout {
     init(name: String, workoutTasks: [WorkoutTask], saveToDatabase: Bool){
         Name = name
         WorkoutTasks = workoutTasks
-        if saveToDatabase {
-            FirebaseAccessLayer.PushWorkout(workout: self)
-        }
+
     }
     
-    static func LoadUserWorkout(workoutId: String) async throws -> (Workout){
-        return try await Workout(name: FirebaseAccessLayer.GetWorkout(workoutId: workoutId), workoutTasks: WorkoutTask.LoadUserWorkoutTasks(workoutId: workoutId), saveToDatabase: false)
+    init(name: String, workoutTasks: [WorkoutTask]){
+        Name = name
+        WorkoutTasks = workoutTasks
     }
     
-    static func LoadGroupWorkout(workoutId: String, groupId: String) async throws -> (Workout){
-        return try await Workout(name: FirebaseAccessLayer.GetWorkout(workoutId: workoutId), workoutTasks: WorkoutTask.LoadGroupWorkoutTasks(workoutId: workoutId, groupId: groupId), saveToDatabase: false)
-    }
+//    static func LoadUserWorkout(workoutId: String) async throws -> (Workout){
+//        return try await Workout(name: FirebaseAccessLayer.GetUserWorkout(workoutId: workoutId), workoutTasks: WorkoutTask.LoadUserWorkoutTasks(workoutId: workoutId))
+//    }
+//
+//    static func LoadGroupWorkout(workoutId: String, groupId: String) async throws -> (Workout){
+//        return try await Workout(name: FirebaseAccessLayer.GetGroupWorkout(workoutId: workoutId, groupId: group), workoutTasks: WorkoutTask.LoadGroupWorkoutTasks(workoutId: workoutId, groupId: groupId))
+//    }
     
     static func LoadAllUsersWorkouts() async throws -> ([Workout]){
         var futureWorkouts: [Workout] = []
@@ -43,9 +46,7 @@ class Workout {
         var futureWorkouts: [Workout] = []
         let listOfWorkouts = try await FirebaseAccessLayer.GetAllGroupWorkouts(groupId: groupId)
         for workout in listOfWorkouts{
-            try await futureWorkouts.append(
-                Workout(name: workout.workoutName, workoutTasks: WorkoutTask.LoadGroupWorkoutTasks(workoutId: workout.workoutId, groupId: groupId), saveToDatabase: false)
-            )
+            try await futureWorkouts.append(workout)
         }
         
         return futureWorkouts
