@@ -151,7 +151,7 @@ class FirebaseAccessLayer{
         for workoutTask in workoutTaskDetails{
             let workoutData = workoutTask.data()
             workoutTasksFutures.append(WorkoutTask(
-                name: workoutData["name"] as! String,
+                name: workoutData["taskName"] as! String,
                 reps: workoutData["reps"] as! Int,
                 sets: workoutData["sets"] as! Int,
                 description: workoutData["description"] as! String
