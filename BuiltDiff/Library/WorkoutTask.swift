@@ -20,11 +20,11 @@ class WorkoutTask {
         Description = description
     }
     
-    static func LoadUserTasks(workoutId: String) async throws -> ([WorkoutTask]){
+    static func LoadUserWorkoutTasks(workoutId: String) async throws -> ([WorkoutTask]){
         return try await FirebaseAccessLayer.GetUsersWorkoutTasks(workoutId: workoutId)
     }
     
-    static func LoadGroupTasks(workoutId: String) async throws -> ([WorkoutTask]){
-        return try await FirebaseAccessLayer.GetGroupsWorkoutTasks(workoutId: workoutId)
+    static func LoadGroupWorkoutTasks(workoutId: String, groupId: String) async throws -> ([WorkoutTask]){
+        return try await FirebaseAccessLayer.GetGroupsWorkoutTasks(workoutId: workoutId, groupId: groupId)
     }
 }

@@ -20,11 +20,11 @@ class Workout {
     }
     
     static func LoadUserWorkout(workoutId: String) async throws -> (Workout){
-        return try await Workout(name: FirebaseAccessLayer.GetWorkout(workoutId: workoutId), workoutTasks: WorkoutTask.LoadUserTasks(workoutId: workoutId), saveToDatabase: false)
+        return try await Workout(name: FirebaseAccessLayer.GetWorkout(workoutId: workoutId), workoutTasks: WorkoutTask.LoadUserWorkoutTasks(workoutId: workoutId), saveToDatabase: false)
     }
     
-    static func LoadGroupWorkout(workoutId: String) async throws -> (Workout){
-        return try await Workout(name: FirebaseAccessLayer.GetWorkout(workoutId: workoutId), workoutTasks: WorkoutTask.LoadGroupTasks(workoutId: workoutId), saveToDatabase: false)
+    static func LoadGroupWorkout(workoutId: String, groupId: String) async throws -> (Workout){
+        return try await Workout(name: FirebaseAccessLayer.GetWorkout(workoutId: workoutId), workoutTasks: WorkoutTask.LoadGroupWorkoutTasks(workoutId: workoutId, groupId: groupId), saveToDatabase: false)
     }
     
     static func LoadAllUsersWorkouts() async throws -> ([Workout]){
@@ -32,19 +32,19 @@ class Workout {
         let listOfWorkouts = try await FirebaseAccessLayer.GetAllUserWorkouts()
         for workout in listOfWorkouts{
             try await futureWorkouts.append(
-                Workout(name: workout.workoutName, workoutTasks: WorkoutTask.LoadUserTasks(workoutId: workout.workoutId), saveToDatabase: false)
+                Workout(name: workout.workoutName, workoutTasks: WorkoutTask.LoadUserWorkoutTasks(workoutId: workout.workoutId), saveToDatabase: false)
             )
         }
         
         return futureWorkouts
     }
     
-    static func LoadAllGroupsWorkouts() async throws -> ([Workout]){
+    static func LoadAllGroupsWorkouts(groupId: String) async throws -> ([Workout]){
         var futureWorkouts: [Workout] = []
-        let listOfWorkouts = try await FirebaseAccessLayer.GetAllGroupWorkouts()
+        let listOfWorkouts = try await FirebaseAccessLayer.GetAllGroupWorkouts(groupId: groupId)
         for workout in listOfWorkouts{
             try await futureWorkouts.append(
-                Workout(name: workout.workoutName, workoutTasks: WorkoutTask.LoadGroupTasks(workoutId: workout.workoutId), saveToDatabase: false)
+                Workout(name: workout.workoutName, workoutTasks: WorkoutTask.LoadGroupWorkoutTasks(workoutId: workout.workoutId, groupId: groupId), saveToDatabase: false)
             )
         }
         
