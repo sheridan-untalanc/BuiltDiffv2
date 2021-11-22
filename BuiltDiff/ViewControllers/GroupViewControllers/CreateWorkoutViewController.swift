@@ -12,7 +12,10 @@ class CreateWorkoutViewController: UIViewController {
     @IBOutlet var DescText: UITextField!
     @IBOutlet var SetText: UITextField!
     @IBOutlet var RepText: UITextField!
-    var taskArray = [[]]
+    @IBOutlet var WorkoutName: UITextField!
+    var taskDisplay = [[]]
+    var taskArray: [WorkoutTask] = []
+
     
     @IBOutlet var tableView: UITableView!
     
@@ -25,11 +28,13 @@ class CreateWorkoutViewController: UIViewController {
     }
     
     @IBAction func unwindToExerciseHome(_ sender: Any) {
+        Workout(name: WorkoutName.text!, workoutTasks:  taskArray, saveToDatabase: true)
         performSegue(withIdentifier: "unwindToExerciseHome", sender: self)
     }
 
     @IBAction func CreateTask(_ sender: Any) {
-        taskArray.append([TitleText.text,DescText.text,SetText.text,RepText.text])
+        taskArray.append(WorkoutTask(name: TitleText.text!, reps: Int(RepText.text!)!, sets: Int(SetText.text!)!, description: DescText.text!))
+        taskDisplay.append([TitleText.text,DescText.text,SetText.text,RepText.text])
         TitleText.text = ""
         DescText.text = ""
         SetText.text = ""
@@ -46,15 +51,15 @@ extension CreateWorkoutViewController: UITableViewDelegate{
 
 extension CreateWorkoutViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return taskArray.count-1
+        return taskDisplay.count-1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath)
-        if taskArray.count > 1 {
-            let name = taskArray[indexPath.row+1][0] as! String
-            let sets = taskArray[indexPath.row+1][2] as! Int
-            let reps = taskArray[indexPath.row+1][3] as! Int
+        if taskDisplay.count > 1 {
+            let name = taskDisplay[indexPath.row+1][0] as! String
+            let sets = taskDisplay[indexPath.row+1][2] as! String
+            let reps = taskDisplay[indexPath.row+1][3] as! String
             cell.textLabel?.text = "\(name)  Sets: \(sets)  Reps: \(reps)"
         }
         return cell

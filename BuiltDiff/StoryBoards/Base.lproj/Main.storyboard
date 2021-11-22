@@ -384,6 +384,7 @@
                         <outlet property="RepText" destination="KXX-6O-sY4" id="Yqm-hP-DQv"/>
                         <outlet property="SetText" destination="g2I-KX-N2U" id="Fp8-Mu-mo5"/>
                         <outlet property="TitleText" destination="cdW-Ce-0wJ" id="deM-Nt-7c2"/>
+                        <outlet property="WorkoutName" destination="ls4-Ui-Opb" id="vNS-KS-KO1"/>
                         <outlet property="tableView" destination="08F-Qz-D9a" id="SCA-Ul-W1d"/>
                         <segue destination="z4t-x8-DSj" kind="unwind" identifier="unwindToExerciseHome" unwindAction="unwindToExerciseHome:" id="VS9-iZ-Yip"/>
                     </connections>
@@ -1412,10 +1413,10 @@
             </objects>
             <point key="canvasLocation" x="5055" y="1516"/>
         </scene>
-        <!--View Controller-->
+        <!--Workout List View Controller-->
         <scene sceneID="Rkg-4T-drm">
             <objects>
-                <viewController id="sEw-2F-LMM" sceneMemberID="viewController">
+                <viewController id="sEw-2F-LMM" customClass="WorkoutListViewController" customModule="BuiltDiff" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="I41-xP-Mbs">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

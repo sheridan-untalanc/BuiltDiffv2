@@ -61,7 +61,7 @@ class CreateGroupViewController: UIViewController {
         }
         else{
             if groupBuilder?.OwnedGroup == nil {
-                let newGroup = Group(groupName: groupName.text!, groupOwner: FirebaseAccessLayer.GetCurrentUserId(), saveToDatabase: true, groupDescription: groupDescription.text!)
+                let newGroup = Group(groupName: groupName.text!, groupOwner: FirebaseAccessLayer.GetCurrentUserId(),groupDescription: groupDescription.text!, saveToDatabase: true)
                 FirebaseAccessLayer.UploadGroupImage(imageData: groupProfileImage.image!.jpegData(compressionQuality: 0.7)!)
                 let alert = UIAlertController(title: "Success!", message: "Group created successfully", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: finishAlert(alert:)))
