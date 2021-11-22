@@ -167,6 +167,18 @@ class FirebaseAccessLayer{
         return workoutDetails["workoutName"] as! String
     }
     
+    static func GetAllWorkouts() async throws -> ([(workoutId: String, workoutName: String)]){
+        var workoutFutures: [(workoutId: String, workoutName: String)] = []
+        let workoutSnapshot = try await db.collection("users").document(GetCurrentUserId()).collection("workouts").getDocuments()
+        let workoutDetails = workoutSnapshot.documents
+        for workout in workoutDetails{
+            let workoutData = workout.data()
+            workoutFutures.append((workoutId: workout.documentID, workoutName: workoutData["workoutName"] as! String))
+        }
+        
+        return workoutFutures
+    }
+    
     static func PushWorkoutTasks(workoutId: String, workoutTasks: [WorkoutTask]){
         let workoutTasksRef = db.collection("users").document(GetCurrentUserId()).collection("workouts").document(workoutId).collection("tasks")
         
