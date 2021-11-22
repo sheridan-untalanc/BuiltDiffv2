@@ -19,16 +19,32 @@ class Workout {
         }
     }
     
-    static func LoadWorkout(workoutId: String) async throws -> (Workout){
-        return try await Workout(name: FirebaseAccessLayer.GetWorkout(workoutId: workoutId), workoutTasks: WorkoutTask.LoadTasks(workoutId: workoutId), saveToDatabase: false)
+    static func LoadUserWorkout(workoutId: String) async throws -> (Workout){
+        return try await Workout(name: FirebaseAccessLayer.GetWorkout(workoutId: workoutId), workoutTasks: WorkoutTask.LoadUserTasks(workoutId: workoutId), saveToDatabase: false)
     }
     
-    static func LoadAllWorkouts() async throws -> ([Workout]){
+    static func LoadGroupWorkout(workoutId: String) async throws -> (Workout){
+        return try await Workout(name: FirebaseAccessLayer.GetWorkout(workoutId: workoutId), workoutTasks: WorkoutTask.LoadGroupTasks(workoutId: workoutId), saveToDatabase: false)
+    }
+    
+    static func LoadAllUsersWorkouts() async throws -> ([Workout]){
         var futureWorkouts: [Workout] = []
-        let listOfWorkouts = try await FirebaseAccessLayer.GetAllWorkouts()
+        let listOfWorkouts = try await FirebaseAccessLayer.GetAllUserWorkouts()
         for workout in listOfWorkouts{
             try await futureWorkouts.append(
-                Workout(name: workout.workoutName, workoutTasks: WorkoutTask.LoadTasks(workoutId: workout.workoutId), saveToDatabase: false)
+                Workout(name: workout.workoutName, workoutTasks: WorkoutTask.LoadUserTasks(workoutId: workout.workoutId), saveToDatabase: false)
+            )
+        }
+        
+        return futureWorkouts
+    }
+    
+    static func LoadAllGroupsWorkouts() async throws -> ([Workout]){
+        var futureWorkouts: [Workout] = []
+        let listOfWorkouts = try await FirebaseAccessLayer.GetAllGroupWorkouts()
+        for workout in listOfWorkouts{
+            try await futureWorkouts.append(
+                Workout(name: workout.workoutName, workoutTasks: WorkoutTask.LoadGroupTasks(workoutId: workout.workoutId), saveToDatabase: false)
             )
         }
         
