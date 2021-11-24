@@ -40,11 +40,7 @@ class JoinGroupViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         Task.init{
-            let values = groupBuilder!.GroupList.values
-            var groupIdList: [String] = []
-            for value in values{
-                groupIdList.append(value)
-            }
+            let groupIdList = groupBuilder!.GroupList
             groups = try await Group.LoadAll(groupIds: groupIdList)
             collectionView.dataSource = self
             collectionView.delegate = self
