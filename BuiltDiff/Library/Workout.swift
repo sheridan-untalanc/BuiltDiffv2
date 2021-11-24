@@ -11,10 +11,22 @@ class Workout {
     var Name: String
     var WorkoutTasks: [WorkoutTask]
     
+    //Create workout under user
     init(name: String, workoutTasks: [WorkoutTask], saveToDatabase: Bool){
         Name = name
         WorkoutTasks = workoutTasks
-
+        if saveToDatabase{
+            //FirebaseAccessLayer.PushUserWorkout(workout: )
+        }
+    }
+    
+    //Create workout under group
+    init(groupId: String, name: String, workoutTasks: [WorkoutTask], saveToDatabase: Bool){
+        Name = name
+        WorkoutTasks = workoutTasks
+        if saveToDatabase{
+            FirebaseAccessLayer.PushGroupWorkout(workout: self, groupId: groupId)
+        }
     }
     
     init(name: String, workoutTasks: [WorkoutTask]){

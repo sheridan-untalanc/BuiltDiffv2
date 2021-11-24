@@ -13,6 +13,7 @@ class Group {
     var GroupOwner : String = ""
     var GroupDescription : String = ""
     var Workouts : [Workout] = []
+    var Exercises : [Exercise] =  []
 
     init(groupName: String, groupOwner: String, groupDescription: String, saveToDatabase: Bool) {
         GroupName = groupName
@@ -23,6 +24,7 @@ class Group {
         }
     }
     
+    //Creating Local Group
     init(groupName: String, groupOwner: String, groupDescription: String, workouts: [Workout]) {
         GroupName = groupName
         GroupOwner = groupOwner

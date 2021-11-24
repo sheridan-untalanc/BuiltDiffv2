@@ -102,7 +102,7 @@ class FirebaseAccessLayer{
             }
     }
     
-    static func GetUser(uid: String) async throws -> (username: String, assignedGroups: [String: String], ownedGroup: String?){
+    static func GetUser() async throws -> (Profile){
         let userRef = db.collection("users").document(GetCurrentUserId())
         let assignedGroupsRef = userRef.collection("assignedGroups")
         
@@ -111,12 +111,12 @@ class FirebaseAccessLayer{
         let username = userDetails["username"] as! String
         let ownedGroup = userDetails["ownedGroup"] as? String
         let assignedGroupsSnapshot = try await assignedGroupsRef.getDocuments()
-        var assignedGroups : [String: String] = [:]
+        var assignedGroups : [String] = []
         for document in assignedGroupsSnapshot.documents{
-            assignedGroups[document.documentID] = document["groupId"] as? String
+            assignedGroups.append(document["groupId"] as! String)
         }
         
-        return (username, assignedGroups, ownedGroup)
+        return Profile(username: username, groupList: assignedGroups, ownedGroup: ownedGroup)
     }
     
     //
@@ -203,6 +203,22 @@ class FirebaseAccessLayer{
     static func PushGroupWorkout(workout: Workout, groupId: String){
         let workoutRef = db.collection("groups").document(groupId).collection("workouts").addDocument(data: ["workoutName": workout.Name])
         FirebaseAccessLayer.PushGroupWorkoutTasks(workoutId: workoutRef.documentID, groupId: groupId, workoutTasks: workout.WorkoutTasks)
+    }
+    
+    static func PushAllGroupWorkouts(groupId: String, workouts: [Workout]){
+        let workoutsRef = db.collection("groups").document(groupId).collection("workouts")
+        
+        for workout in workouts{
+            workoutsRef.addDocument(data: [
+                "workoutName": workout.Name
+            ]){ error in
+                if let error = error {
+                    print("Error create Workout : \(error)")
+                } else {
+                    print("Workout sucessfully created!")
+                }
+            }
+        }
     }
     
     //

@@ -10,7 +10,7 @@ import Foundation
 class Profile {
     var UserName : String = "Unknown"
     //var ProfileImage : Data
-    var GroupList : [String: String] = [:]
+    var GroupList : [String] = []
     
     var OwnedGroup : String?
     
@@ -18,17 +18,14 @@ class Profile {
         UserName = userName
     }
     
-    init(username: String, groupList: [String: String], ownedGroup: String?){
+    init(username: String, groupList: [String], ownedGroup: String?){
             UserName = username
             GroupList = groupList
             OwnedGroup = ownedGroup
     }
 
     static func GetProfile() async throws -> Profile{
-        var futureProfile: Profile
-        let profileData = try await FirebaseAccessLayer.GetUser(uid: FirebaseAccessLayer.GetCurrentUserId())
-        futureProfile = Profile(username: profileData.username, groupList: profileData.assignedGroups, ownedGroup: profileData.ownedGroup)
-        return futureProfile
+        return try await FirebaseAccessLayer.GetUser()
     }
     
 }
