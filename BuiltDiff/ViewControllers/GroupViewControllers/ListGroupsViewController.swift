@@ -38,6 +38,11 @@ class ListGroupsViewController: UIViewController {
             groupsCollectionView.collectionViewLayout = UICollectionViewFlowLayout()
             groupsCollectionView.reloadData()
             groupBackButton.layer.cornerRadius = 20
+//            FirebaseAccessLayer.GetGroupImage(ownerUid: group!.GroupOwner, completion: { image in
+//                DispatchQueue.main.async{
+//                    self.groupImage.image = image
+//                }
+//            })
         }
     }
 

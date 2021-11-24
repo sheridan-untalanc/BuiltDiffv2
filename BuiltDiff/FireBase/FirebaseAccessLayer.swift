@@ -246,7 +246,7 @@ class FirebaseAccessLayer{
     
     static func GetGroupsWorkoutTasks(workoutId: String, groupId: String) async throws -> ([WorkoutTask]){
         var workoutTasksFutures: [WorkoutTask] = []
-        let workoutTaskRef = db.collection("groups").document(GetCurrentUserId()).collection("workouts").document(workoutId).collection("tasks")
+        let workoutTaskRef = db.collection("groups").document(groupId).collection("workouts").document(workoutId).collection("tasks")
         
         let workoutTaskSnapshot = try await workoutTaskRef.getDocuments()
         let workoutTaskDetails = workoutTaskSnapshot.documents

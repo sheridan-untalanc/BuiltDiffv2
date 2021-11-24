@@ -12,6 +12,7 @@ class ListGroupsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var groupName: UILabel!
     @IBOutlet weak var groupDescription: UILabel!
     @IBOutlet weak var groupDate: UILabel!
+    @IBOutlet weak var groupPicture: UIImageView!
     
 //    func configure(name: String, members: String, date: String){
 //        groupName.text = name
@@ -22,5 +23,6 @@ class ListGroupsCollectionViewCell: UICollectionViewCell {
     func configure(name: String, description: String){
         groupName.text = name
         groupDescription.text = description
+//        groupPicture.image = picture
     }
 }
