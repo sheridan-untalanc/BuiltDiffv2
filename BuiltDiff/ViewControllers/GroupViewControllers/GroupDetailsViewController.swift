@@ -13,12 +13,20 @@ class GroupDetailsViewController: UIViewController {
     @IBOutlet weak var groupDescriptionLabel: UILabel!
     @IBOutlet weak var groupBackButton: UIButton!
     @IBOutlet weak var groupExerciseCollectionView: UICollectionView!
+    @IBOutlet weak var leaderboardImage: UIImageView!
     
     var group: Group? = nil
+    var groupWorkouts: [Workout] = []
+    
+//    var myGroupWorkouts = group?.Workouts
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(GroupDetailsViewController.imageTapped(gesture:)))
+        leaderboardImage.addGestureRecognizer(tapGesture)
+        leaderboardImage.isUserInteractionEnabled = true
         groupTitle.text = group?.GroupName
         groupDescriptionLabel.text = group?.GroupDescription
         groupImage.layer.cornerRadius = 75
@@ -39,32 +47,47 @@ class GroupDetailsViewController: UIViewController {
     @IBAction func unwindToMyGroups(_ sender: Any) {
         performSegue(withIdentifier: "unwindToMyGroups", sender: self)
         }
+    
+    @objc func imageTapped(gesture: UIGestureRecognizer) {
+            // if the tapped view is a UIImageView then set it to imageview
+            if (gesture.view as? UIImageView) != nil {
+                print("Image Tapped")
+                //Here you can initiate your new ViewController
+                performSegue(withIdentifier: "leaderboardSegue", sender: self)
+            }
+        }
 
 }
 
 extension GroupDetailsViewController: UICollectionViewDataSource{
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return group!.Workouts.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
+//        let exerciseDone =
+//        let exerciseCreate =
         var testArray = [0,1,0,1,0]
+
         if testArray[indexPath.row] == 0{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GroupDetailsCollectionViewCell", for: indexPath) as! GroupDetailsCollectionViewCell
             cell.layer.cornerRadius = 10
+            cell.configure(workoutName: (group?.Workouts[indexPath.row].Name)!, numOfTasks: "\(group?.Workouts[indexPath.row].WorkoutTasks.count ?? 0)")
             return cell
         }else{
             let cell2 = collectionView.dequeueReusableCell(withReuseIdentifier: "CreateExerciseCollectionViewCell", for: indexPath) as! CreateExerciseCollectionViewCell
             cell2.layer.cornerRadius = 10
             return cell2
         }
-        
-//        cell.configure(name: groups[indexPath.row].GroupName, description: groups[indexPath.row].GroupDescription)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("works")
+        let vc = storyboard?.instantiateViewController(withIdentifier: "workoutDetailScene") as? WorkoutDetailViewController
+        vc?.workout = group?.Workouts[indexPath.row]
+        self.navigationController?.present(vc!, animated: true)
+        
     }
 }
 

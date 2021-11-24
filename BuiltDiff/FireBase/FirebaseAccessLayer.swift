@@ -45,6 +45,8 @@ class FirebaseAccessLayer{
         }
     }
     
+    // IMAGES
+    
     static func UploadGroupImage(imageData: Data){
         // Create a reference to the file you want to upload
         let storageRef = Storage.storage().reference()
@@ -83,6 +85,10 @@ class FirebaseAccessLayer{
         }
     }
     
+    //
+    
+    // USERS
+    
     static func UpdateUserRemote(username: String) {
         db.collection("users").document(GetCurrentUserId()).setData([
             "username" : username
@@ -94,13 +100,34 @@ class FirebaseAccessLayer{
                 }
                 
             }
+    }
+    
+    static func GetUser() async throws -> (Profile){
+        let userRef = db.collection("users").document(GetCurrentUserId())
+        let assignedGroupsRef = userRef.collection("assignedGroups")
+        
+        let userSnapshot = try await userRef.getDocument()
+        let userDetails = userSnapshot.data()!
+        let username = userDetails["username"] as! String
+        let ownedGroup = userDetails["ownedGroup"] as? String
+        let assignedGroupsSnapshot = try await assignedGroupsRef.getDocuments()
+        var assignedGroups : [String] = []
+        for document in assignedGroupsSnapshot.documents{
+            assignedGroups.append(document["groupId"] as! String)
         }
         
-    static func CreateGroupRemote(groupName: String, groupOwner: String, groupDescription: String){
+        return Profile(username: username, groupList: assignedGroups, ownedGroup: ownedGroup)
+    }
+    
+    //
+    
+    // GROUPS
+        
+    static func CreateGroupRemote(group: Group){
         let groupRef = db.collection("groups").addDocument(data: [
-            "groupName" : groupName,
-            "groupOwner" :  groupOwner,
-            "groupDescription" :  groupDescription
+            "groupName" : group.GroupName,
+            "groupOwner" :  group.GroupOwner,
+            "groupDescription" :  group.GroupDescription
         ]) { error in
             if let error = error {
                 print("Error create Group: \(error)")
@@ -114,7 +141,7 @@ class FirebaseAccessLayer{
         userRef.setData(["ownedGroup" : groupRef.documentID], merge: true)
     }
 
-    static func UpdateGroupLocal(groupId: String) async throws -> (groupName: String, groupOwner: String, groupDescription: String){
+    static func GetGroup(groupId: String) async throws -> (Group){
         let groupRef = db.collection("groups").document(groupId)
             
         let snapshot = try await groupRef.getDocument()
@@ -122,27 +149,83 @@ class FirebaseAccessLayer{
         let groupName = groupDetails["groupName"] as! String
         let groupOwner = groupDetails["groupOwner"] as! String
         let groupDescription = groupDetails["groupDescription"] as! String
-        return (groupName, groupOwner, groupDescription)
+        
+        return try await Group(
+            groupName: groupName,
+            groupOwner: groupOwner,
+            groupDescription: groupDescription,
+            workouts: GetAllGroupWorkouts(groupId: groupId)
+        )
     }
     
-    static func UpdateUserLocal(uid: String) async throws -> (username: String, assignedGroups: [String: String], ownedGroup: String?){
-        let userRef = db.collection("users").document(GetCurrentUserId())
-        let assignedGroupsRef = userRef.collection("assignedGroups")
-        
-        let userSnapshot = try await userRef.getDocument()
-        let userDetails = userSnapshot.data()!
-        let username = userDetails["username"] as! String
-        let ownedGroup = userDetails["ownedGroup"] as? String
-        let assignedGroupsSnapshot = try await assignedGroupsRef.getDocuments()
-        var assignedGroups : [String: String] = [:]
-        for document in assignedGroupsSnapshot.documents{
-            assignedGroups[document.documentID] = document["groupId"] as? String
+    //
+    
+    // WORKOUTS
+    
+    static func GetUserWorkout(workoutId: String) async throws -> (String){
+        let workoutRef = db.collection("users").document(GetCurrentUserId()).collection("workouts").document(workoutId)
+        let workoutDetails = try await workoutRef.getDocument().data()!
+        return workoutDetails["workoutName"] as! String
+    }
+    
+    static func GetAllUserWorkouts() async throws -> ([(workoutId: String, workoutName: String)]){
+        var workoutFutures: [(workoutId: String, workoutName: String)] = []
+        let workoutSnapshot = try await db.collection("users").document(GetCurrentUserId()).collection("workouts").getDocuments()
+        let workoutDetails = workoutSnapshot.documents
+        for workout in workoutDetails{
+            let workoutData = workout.data()
+            workoutFutures.append((workoutId: workout.documentID, workoutName: workoutData["workoutName"] as! String))
         }
         
-        return (username, assignedGroups, ownedGroup)
+        return workoutFutures
     }
     
-    static func GetWorkoutTasks(workoutId: String) async throws -> ([WorkoutTask]){
+    static func GetAllGroupWorkouts(groupId: String) async throws -> ([Workout]){
+        var workoutFutures: [Workout] = []
+        let workoutSnapshot = try await db.collection("groups").document(groupId).collection("workouts").getDocuments()
+        let workoutDetails = workoutSnapshot.documents
+        for workout in workoutDetails{
+            let workoutData = workout.data()
+            try await workoutFutures.append(Workout(
+                name: workoutData["workoutName"] as! String,
+                workoutTasks: GetGroupsWorkoutTasks(workoutId: workout.documentID, groupId: groupId)
+            ))
+        }
+        
+        return workoutFutures
+    }
+    
+    static func PushUserWorkout(workout: Workout){
+        let workoutRef = db.collection("users").document(GetCurrentUserId()).collection("workouts").addDocument(data: ["workoutName": workout.Name])
+        FirebaseAccessLayer.PushUserWorkoutTasks(workoutId: workoutRef.documentID, workoutTasks: workout.WorkoutTasks)
+    }
+    
+    static func PushGroupWorkout(workout: Workout, groupId: String){
+        let workoutRef = db.collection("groups").document(groupId).collection("workouts").addDocument(data: ["workoutName": workout.Name])
+        FirebaseAccessLayer.PushGroupWorkoutTasks(workoutId: workoutRef.documentID, groupId: groupId, workoutTasks: workout.WorkoutTasks)
+    }
+    
+    static func PushAllGroupWorkouts(groupId: String, workouts: [Workout]){
+        let workoutsRef = db.collection("groups").document(groupId).collection("workouts")
+        
+        for workout in workouts{
+            workoutsRef.addDocument(data: [
+                "workoutName": workout.Name
+            ]){ error in
+                if let error = error {
+                    print("Error create Workout : \(error)")
+                } else {
+                    print("Workout sucessfully created!")
+                }
+            }
+        }
+    }
+    
+    //
+    
+    // WORKOUT TASKS
+    
+    static func GetUsersWorkoutTasks(workoutId: String) async throws -> ([WorkoutTask]){
         var workoutTasksFutures: [WorkoutTask] = []
         let workoutTaskRef = db.collection("users").document(GetCurrentUserId()).collection("workouts").document(workoutId).collection("tasks")
         
@@ -161,25 +244,26 @@ class FirebaseAccessLayer{
         return workoutTasksFutures
     }
     
-    static func GetWorkout(workoutId: String) async throws -> (String){
-        let workoutRef = db.collection("users").document(GetCurrentUserId()).collection("workouts").document(workoutId)
-        let workoutDetails = try await workoutRef.getDocument().data()!
-        return workoutDetails["workoutName"] as! String
-    }
-    
-    static func GetAllWorkouts() async throws -> ([(workoutId: String, workoutName: String)]){
-        var workoutFutures: [(workoutId: String, workoutName: String)] = []
-        let workoutSnapshot = try await db.collection("users").document(GetCurrentUserId()).collection("workouts").getDocuments()
-        let workoutDetails = workoutSnapshot.documents
-        for workout in workoutDetails{
-            let workoutData = workout.data()
-            workoutFutures.append((workoutId: workout.documentID, workoutName: workoutData["workoutName"] as! String))
+    static func GetGroupsWorkoutTasks(workoutId: String, groupId: String) async throws -> ([WorkoutTask]){
+        var workoutTasksFutures: [WorkoutTask] = []
+        let workoutTaskRef = db.collection("groups").document(groupId).collection("workouts").document(workoutId).collection("tasks")
+        
+        let workoutTaskSnapshot = try await workoutTaskRef.getDocuments()
+        let workoutTaskDetails = workoutTaskSnapshot.documents
+        for workoutTask in workoutTaskDetails{
+            let workoutData = workoutTask.data()
+            workoutTasksFutures.append(WorkoutTask(
+                name: workoutData["taskName"] as! String,
+                reps: workoutData["reps"] as! Int,
+                sets: workoutData["sets"] as! Int,
+                description: workoutData["description"] as! String
+            ))
         }
         
-        return workoutFutures
+        return workoutTasksFutures
     }
     
-    static func PushWorkoutTasks(workoutId: String, workoutTasks: [WorkoutTask]){
+    static func PushUserWorkoutTasks(workoutId: String, workoutTasks: [WorkoutTask]){
         let workoutTasksRef = db.collection("users").document(GetCurrentUserId()).collection("workouts").document(workoutId).collection("tasks")
         
         for workoutTask in workoutTasks{
@@ -197,9 +281,24 @@ class FirebaseAccessLayer{
             }
         }
     }
-    
-    static func PushWorkout(workout: Workout){
-        let workoutRef = db.collection("users").document(GetCurrentUserId()).collection("workouts").addDocument(data: ["workoutName": workout.Name])
-        FirebaseAccessLayer.PushWorkoutTasks(workoutId: workoutRef.documentID, workoutTasks: workout.WorkoutTasks)
+                    
+    static func PushGroupWorkoutTasks(workoutId: String, groupId: String ,workoutTasks: [WorkoutTask]){
+        let workoutTasksRef = db.collection("groups").document(groupId).collection("workouts").document(workoutId).collection("tasks")
+        
+        for workoutTask in workoutTasks{
+            workoutTasksRef.addDocument(data: [
+                "taskName": workoutTask.Name,
+                "reps": workoutTask.Reps,
+                "sets": workoutTask.Sets,
+                "description": workoutTask.Description
+            ]){ error in
+                if let error = error {
+                    print("Error create Workout Task: \(error)")
+                } else {
+                    print("Workout Task sucessfully created!")
+                }
+            }
+        }
     }
+
 }
