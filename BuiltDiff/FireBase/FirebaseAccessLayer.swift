@@ -300,5 +300,28 @@ class FirebaseAccessLayer{
             }
         }
     }
+    
+    //
+        
+    // EXERCISES
+    
+    static func PushExercise(groupId: String, exercise: Exercise){
+        let exerciseRef = db.collection("groups").document(groupId).collection("exercises").addDocument(data: [
+            "originalUser": exercise.OriginalUser,
+            "date": exercise.Date,
+            "type": exercise.ExerciseType,
+            "distance": exercise.Distance,
+            "duration": exercise.Duration,
+            "calories": exercise.Calories,
+            "imageName": exercise.ImageName
+        ]){ error in
+            if let error = error {
+                print("Error pushing execrise: \(error)")
+            } else {
+                print("Exercise sucessfully pushed to \(groupId)!")
+            }
+        }
+    }
+    
 
 }
