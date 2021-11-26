@@ -7,6 +7,8 @@
 
 import UIKit
 
+var groupListBuilder: Profile?
+
 class InspectExerciseViewController: UIViewController {
 
     @IBOutlet var dateLabel: UILabel!
@@ -15,7 +17,9 @@ class InspectExerciseViewController: UIViewController {
     @IBOutlet var caloriesLabel: UILabel!
     @IBOutlet var distanceLabel: UILabel!
     @IBOutlet var typeImage: UIImageView!
-    var selectedWorkout = ExerciseViewController()
+    @IBAction func shareButton(_ sender: Any) {
+        performSegue(withIdentifier: "viewGroups", sender: self)
+    }
     
     override func viewDidLoad() {
         dateLabel.text = "Date Performed: \(workouts[workoutSelection][3])"
@@ -28,19 +32,17 @@ class InspectExerciseViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        Task.init{
+            groupListBuilder = try await Profile.GetProfile()
+        }
+    }
+    
     @IBAction func unwindToExercisehistory(_ sender: Any) {
         performSegue(withIdentifier: "unwindToExerciseHistory", sender: self)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func unwind( _ seg: UIStoryboardSegue) {
     }
-    */
 
 }
