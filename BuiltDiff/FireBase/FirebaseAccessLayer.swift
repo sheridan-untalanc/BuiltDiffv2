@@ -154,7 +154,8 @@ class FirebaseAccessLayer{
             groupName: groupName,
             groupOwner: groupOwner,
             groupDescription: groupDescription,
-            workouts: GetAllGroupWorkouts(groupId: groupId)
+            workouts: GetAllGroupWorkouts(groupId: groupId),
+            exercises: GetExercises(groupId: groupId)
         )
     }
     
@@ -321,6 +322,28 @@ class FirebaseAccessLayer{
                 print("Exercise sucessfully pushed to \(groupId)!")
             }
         }
+    }
+    
+    static func GetExercises(groupId: String) async throws -> ([Exercise]){
+        var exerciseFutures: [Exercise] = []
+        let exerciseRef = db.collection("groups").document(groupId).collection("exercises")
+        
+        let exerciseSnapshot = try await exerciseRef.getDocuments()
+        let exerciseDetails = exerciseSnapshot.documents
+        for exercise in exerciseDetails{
+            let exerciseData = exercise.data()
+            exerciseFutures.append(Exercise(
+                originalUser: exerciseData["originalUser"] as! String,
+                date: exerciseData["date"] as! String,
+                exerciseType: exerciseData["type"] as! String,
+                distance: exerciseData["distance"] as! String,
+                duration: exerciseData["duration"] as! String,
+                calories: exerciseData["calories"] as! String,
+                imageName: exerciseData["imageName"] as! String
+            ))
+        }
+        
+        return exerciseFutures
     }
     
 

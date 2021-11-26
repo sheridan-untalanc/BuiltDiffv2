@@ -25,7 +25,7 @@ class Group {
     }
     
     //Creating Local Group
-    init(groupName: String, groupOwner: String, groupDescription: String, workouts: [Workout]) {
+    init(groupName: String, groupOwner: String, groupDescription: String, workouts: [Workout], exercises: [Exercise]) {
         GroupName = groupName
         GroupOwner = groupOwner
         GroupDescription = groupDescription
