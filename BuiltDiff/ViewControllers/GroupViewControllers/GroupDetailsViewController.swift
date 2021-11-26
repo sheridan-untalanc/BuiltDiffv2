@@ -13,7 +13,9 @@ class GroupDetailsViewController: UIViewController {
     @IBOutlet weak var groupDescriptionLabel: UILabel!
     @IBOutlet weak var groupBackButton: UIButton!
     @IBOutlet weak var groupExerciseCollectionView: UICollectionView!
+    @IBOutlet weak var sharedWorkoutsCollectionView: UICollectionView!
     @IBOutlet weak var leaderboardImage: UIImageView!
+    @IBOutlet weak var typeOfCollectionView: UISegmentedControl!
     
     var group: Group? = nil
     var groupWorkouts: [Workout] = []
@@ -32,8 +34,12 @@ class GroupDetailsViewController: UIViewController {
         groupImage.layer.cornerRadius = 75
         groupImage.layer.masksToBounds = true
         groupBackButton.layer.cornerRadius = 20
+        
+        sharedWorkoutsCollectionView.delegate = self
+        sharedWorkoutsCollectionView.dataSource = self
         groupExerciseCollectionView.delegate = self
         groupExerciseCollectionView.dataSource = self
+        sharedWorkoutsCollectionView.isHidden = true
         groupExerciseCollectionView.collectionViewLayout = UICollectionViewFlowLayout()
         Task.init{
             FirebaseAccessLayer.GetGroupImage(ownerUid: group!.GroupOwner, completion: { image in
@@ -56,38 +62,54 @@ class GroupDetailsViewController: UIViewController {
                 performSegue(withIdentifier: "leaderboardSegue", sender: self)
             }
         }
+    
+    @IBAction func segmentChanged(_ sender: Any) {
+        switch typeOfCollectionView.selectedSegmentIndex {
+            case 0:
+            groupExerciseCollectionView.isHidden = false
+            sharedWorkoutsCollectionView.isHidden = true
+            case 1:
+            groupExerciseCollectionView.isHidden = true
+            sharedWorkoutsCollectionView.isHidden = false
+            default:
+                break;
+            }
+    }
+    
 
 }
 
 extension GroupDetailsViewController: UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return group!.Workouts.count
+        if collectionView == self.groupExerciseCollectionView{
+            return group!.Workouts.count
+        }
+        return 5
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-//        let exerciseDone =
-//        let exerciseCreate =
-        var testArray = [0,1,0,1,0]
-
-        if testArray[indexPath.row] == 0{
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GroupDetailsCollectionViewCell", for: indexPath) as! GroupDetailsCollectionViewCell
-            cell.layer.cornerRadius = 10
-            cell.configure(workoutName: (group?.Workouts[indexPath.row].Name)!, numOfTasks: "\(group?.Workouts[indexPath.row].WorkoutTasks.count ?? 0)")
-            return cell
-        }else{
-            let cell2 = collectionView.dequeueReusableCell(withReuseIdentifier: "CreateExerciseCollectionViewCell", for: indexPath) as! CreateExerciseCollectionViewCell
-            cell2.layer.cornerRadius = 10
-            return cell2
-        }
+        if collectionView == self.groupExerciseCollectionView {
+            let cell = groupExerciseCollectionView.dequeueReusableCell(withReuseIdentifier: "GroupDetailsCollectionViewCell", for: indexPath) as! GroupDetailsCollectionViewCell
+                    cell.layer.cornerRadius = 10
+                    cell.configure(workoutName: (group?.Workouts[indexPath.row].Name)!, numOfTasks: "\(group?.Workouts[indexPath.row].WorkoutTasks.count ?? 0)")
+                    return cell
+            }
+            else {
+                let cell2 = sharedWorkoutsCollectionView.dequeueReusableCell(withReuseIdentifier: "CreateExerciseCollectionViewCell", for: indexPath) as! CreateExerciseCollectionViewCell
+                cell2.layer.cornerRadius = 10
+//                cell2.configure(workoutName: workouts[indexPath.row][0], caloriesBurnt: workouts[indexPath.row][2], exerciseDuration: workouts[indexPath.row][1])
+                return cell2
+            }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = storyboard?.instantiateViewController(withIdentifier: "workoutDetailScene") as? WorkoutDetailViewController
-        vc?.workout = group?.Workouts[indexPath.row]
-        self.navigationController?.present(vc!, animated: true)
-        
+        if collectionView == self.groupExerciseCollectionView{
+            let vc = storyboard?.instantiateViewController(withIdentifier: "workoutDetailScene") as? WorkoutDetailViewController
+            vc?.workout = group?.Workouts[indexPath.row]
+            self.navigationController?.present(vc!, animated: true)
+        }
     }
 }
 
