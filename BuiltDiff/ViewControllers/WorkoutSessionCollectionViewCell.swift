@@ -8,12 +8,12 @@
 import UIKit
 
 class WorkoutSessionCollectionViewCell: UICollectionViewCell {
+    @IBOutlet weak var workoutNameLabel: UILabel!
+    @IBOutlet weak var numOfTasksLabel: UILabel!
     
-    @IBOutlet var workoutName: UILabel!
-    @IBOutlet var workoutTaskCount: UILabel!
     
-    func configure(name: String, numberOfTasks: String){
-            workoutName.text = name
-            workoutTaskCount.text = numberOfTasks
-        }
+//    func configure(name: String, numberOfTasks: String){
+//            workoutName.text = name
+//            workoutTaskCount.text = numberOfTasks
+//        }
 }
