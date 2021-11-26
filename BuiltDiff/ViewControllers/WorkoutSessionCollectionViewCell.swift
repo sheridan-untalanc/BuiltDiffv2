@@ -12,8 +12,8 @@ class WorkoutSessionCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var numOfTasksLabel: UILabel!
     
     
-//    func configure(name: String, numberOfTasks: String){
-//            workoutName.text = name
-//            workoutTaskCount.text = numberOfTasks
-//        }
+    func configure(name: String, numberOfTasks: String){
+        workoutNameLabel.text = name
+        numOfTasksLabel.text = numberOfTasks
+        }
 }
