@@ -35,6 +35,12 @@ class FirebaseAccessLayer{
         }
     }
     
+    static func GetUsername(userId: String) async throws -> (String){
+        let docRef = db.collection("users").document(userId)
+        let docData = try await docRef.getDocument().data()!
+        return docData["username"] as! String
+    }
+    
     static func IsLoggedIn() -> Bool{
         let currentUser = Auth.auth().currentUser
         if(currentUser != nil){
