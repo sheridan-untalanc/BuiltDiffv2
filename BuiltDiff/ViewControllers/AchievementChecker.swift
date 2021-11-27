@@ -120,7 +120,15 @@ class AchievementChecker: NSObject {
                     dateFormatter.dateFormat = "dd/MM/YY"
                     let formattedDate = dateFormatter.string(from: date)
                         
-                    let workout = [exerciseType, "\(h)h \(m)m \(s)s", "\(String(calories.rounded(.awayFromZero))) Cal", formattedDate, imageType]
+                    var distance = 0.0
+                    
+                    if samples[i].totalDistance == nil {
+                        distance = 0.0
+                    } else {
+                        distance = Double((samples[i].totalDistance!.doubleValue(for: HKUnit.meter()))/1000)
+                    }
+                    
+                    let workout = [exerciseType, "\(h)h \(m)m \(s)s", "\(String(calories.rounded(.awayFromZero))) Cal", formattedDate, imageType, "\(distance.rounded(.awayFromZero)) Km"]
                     completed.append(workout)
                 }
                 completion(completed)

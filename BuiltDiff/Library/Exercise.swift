@@ -8,17 +8,21 @@
 import Foundation
 
 class Exercise{
+    var OriginalUser : String
     var Date : String
     var ExerciseType: String
     var Distance: String
     var Duration : String
+    var Calories : String
     var ImageName : String
-
-    init(date : String, exerciseType: String, distance: String, duration : String, imageName : String){
+    
+    init(originalUser:String, date:String, exerciseType:String, distance:String, duration:String, calories:String, imageName:String){
+        OriginalUser = originalUser
         Date = date
         ExerciseType = exerciseType
         Distance = distance
         Duration = duration
+        Calories = calories
         ImageName = imageName
     }
 }

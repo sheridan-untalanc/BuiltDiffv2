@@ -16,7 +16,7 @@ class Workout {
         Name = name
         WorkoutTasks = workoutTasks
         if saveToDatabase{
-            //FirebaseAccessLayer.PushUserWorkout(workout: )
+            FirebaseAccessLayer.PushUserWorkout(workout: self)
         }
     }
     
