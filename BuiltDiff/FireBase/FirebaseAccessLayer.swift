@@ -154,7 +154,8 @@ class FirebaseAccessLayer{
             groupName: groupName,
             groupOwner: groupOwner,
             groupDescription: groupDescription,
-            workouts: GetAllGroupWorkouts(groupId: groupId)
+            workouts: GetAllGroupWorkouts(groupId: groupId),
+            exercises: GetExercises(groupId: groupId)
         )
     }
     
@@ -195,6 +196,22 @@ class FirebaseAccessLayer{
         return workoutFutures
     }
     
+    static func GetAllUserCompletedWorkouts() async throws -> ([(workoutId: String, workoutName: String, dateCompleted: String)]){
+        var workoutFutures: [(workoutId: String, workoutName: String, dateCompleted: String)] = []
+        let workoutSnapshot = try await db.collection("users").document(GetCurrentUserId()).collection("completedWorkouts").getDocuments()
+        let workoutDetails = workoutSnapshot.documents
+        for workout in workoutDetails{
+            let workoutData = workout.data()
+            workoutFutures.append((
+                workoutId: workout.documentID,
+                workoutName: workoutData["workoutName"] as! String,
+                dateCompleted: workoutData["dateCompleted"] as! String
+            ))
+        }
+        
+        return workoutFutures
+    }
+    
     static func PushUserWorkout(workout: Workout){
         let workoutRef = db.collection("users").document(GetCurrentUserId()).collection("workouts").addDocument(data: ["workoutName": workout.Name])
         FirebaseAccessLayer.PushUserWorkoutTasks(workoutId: workoutRef.documentID, workoutTasks: workout.WorkoutTasks)
@@ -219,6 +236,15 @@ class FirebaseAccessLayer{
                 }
             }
         }
+    }
+    
+    static func PushCompletedWorkout(workout: Workout){
+        let date = Date()
+        let workoutRef = db.collection("users").document(GetCurrentUserId()).collection("completedWorkouts").addDocument(data: [
+            "workoutName": workout.Name,
+            "dateCompleted": date.formatted()
+        ])
+        FirebaseAccessLayer.PushUserCompletedWorkoutTasks(workoutId: workoutRef.documentID, workoutTasks: workout.WorkoutTasks)
     }
     
     //
@@ -300,5 +326,69 @@ class FirebaseAccessLayer{
             }
         }
     }
+    
+    static func PushUserCompletedWorkoutTasks(workoutId: String, workoutTasks: [WorkoutTask]){
+        let workoutTasksRef = db.collection("users").document(GetCurrentUserId()).collection("completedWorkouts").document(workoutId).collection("tasks")
+        
+        for workoutTask in workoutTasks{
+            workoutTasksRef.addDocument(data: [
+                "taskName": workoutTask.Name,
+                "reps": workoutTask.Reps,
+                "sets": workoutTask.Sets,
+                "description": workoutTask.Description
+            ]){ error in
+                if let error = error {
+                    print("Error create Workout Task: \(error)")
+                } else {
+                    print("Workout Task sucessfully created!")
+                }
+            }
+        }
+    }
+    
+    //
+        
+    // EXERCISES
+    
+    static func PushExercise(groupId: String, exercise: Exercise){
+        let exerciseRef = db.collection("groups").document(groupId).collection("exercises").addDocument(data: [
+            "originalUser": exercise.OriginalUser,
+            "date": exercise.Date,
+            "type": exercise.ExerciseType,
+            "distance": exercise.Distance,
+            "duration": exercise.Duration,
+            "calories": exercise.Calories,
+            "imageName": exercise.ImageName
+        ]){ error in
+            if let error = error {
+                print("Error pushing execrise: \(error)")
+            } else {
+                print("Exercise sucessfully pushed to \(groupId)!")
+            }
+        }
+    }
+    
+    static func GetExercises(groupId: String) async throws -> ([Exercise]){
+        var exerciseFutures: [Exercise] = []
+        let exerciseRef = db.collection("groups").document(groupId).collection("exercises")
+        
+        let exerciseSnapshot = try await exerciseRef.getDocuments()
+        let exerciseDetails = exerciseSnapshot.documents
+        for exercise in exerciseDetails{
+            let exerciseData = exercise.data()
+            exerciseFutures.append(Exercise(
+                originalUser: exerciseData["originalUser"] as! String,
+                date: exerciseData["date"] as! String,
+                exerciseType: exerciseData["type"] as! String,
+                distance: exerciseData["distance"] as! String,
+                duration: exerciseData["duration"] as! String,
+                calories: exerciseData["calories"] as! String,
+                imageName: exerciseData["imageName"] as! String
+            ))
+        }
+        
+        return exerciseFutures
+    }
+    
 
 }
