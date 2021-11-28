@@ -13,13 +13,17 @@ class LeaderboardTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        trophyImage.image = UIImage(named: "achievements-icon")
+//        trophyImage.image = UIImage(named: "achievements-icon")
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func configure(picture: UIImage){
+        trophyImage.image = picture
     }
 
 }

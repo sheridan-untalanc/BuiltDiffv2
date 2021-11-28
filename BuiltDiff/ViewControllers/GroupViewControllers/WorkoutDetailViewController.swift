@@ -12,8 +12,8 @@ class WorkoutDetailViewController: UIViewController {
     @IBOutlet weak var workoutNameLabel: UILabel!
     @IBOutlet weak var taskTableView: UITableView!
     @IBOutlet weak var numOfTasksLabel: UILabel!
-    
-//    var groupDetailsViewController = GroupDetailsViewController()
+    @IBOutlet weak var addWorkoutButton: UIButton!
+    //    var groupDetailsViewController = GroupDetailsViewController()
     var workout : Workout?
     
     
@@ -24,6 +24,18 @@ class WorkoutDetailViewController: UIViewController {
         numOfTasksLabel.text = "# of Tasks: \(workout?.WorkoutTasks.count ?? 0)"
         taskTableView.dataSource = self
         taskTableView.delegate = self
+    }
+    
+    @IBAction func saveWorkout(_ sender: Any) {
+        let alert = UIAlertController(title: "Save Workout", message: "Save this workout to access later?", preferredStyle: .alert)
+
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+            FirebaseAccessLayer.PushUserWorkout(workout: self.workout!)
+        }))
+        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+
+        self.present(alert, animated: true)
+    
     }
 
 }

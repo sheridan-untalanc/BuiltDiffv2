@@ -30,6 +30,7 @@ class Group {
         GroupOwner = groupOwner
         GroupDescription = groupDescription
         Workouts = workouts
+        Exercises = exercises
     }
     
     static func LoadAll(groupIds: [String]) async throws -> ([Group]){

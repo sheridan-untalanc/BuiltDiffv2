@@ -39,7 +39,7 @@ class GroupDetailsViewController: UIViewController {
         sharedWorkoutsCollectionView.dataSource = self
         groupExerciseCollectionView.delegate = self
         groupExerciseCollectionView.dataSource = self
-        sharedWorkoutsCollectionView.isHidden = true
+        groupExerciseCollectionView.isHidden = true
         groupExerciseCollectionView.collectionViewLayout = UICollectionViewFlowLayout()
         Task.init{
             FirebaseAccessLayer.GetGroupImage(ownerUid: group!.GroupOwner, completion: { image in
@@ -54,6 +54,10 @@ class GroupDetailsViewController: UIViewController {
         performSegue(withIdentifier: "unwindToMyGroups", sender: self)
         }
     
+    @IBAction func unwind( _ seg: UIStoryboardSegue) {
+        
+        }
+    
     @objc func imageTapped(gesture: UIGestureRecognizer) {
             // if the tapped view is a UIImageView then set it to imageview
             if (gesture.view as? UIImageView) != nil {
@@ -66,11 +70,11 @@ class GroupDetailsViewController: UIViewController {
     @IBAction func segmentChanged(_ sender: Any) {
         switch typeOfCollectionView.selectedSegmentIndex {
             case 0:
-            groupExerciseCollectionView.isHidden = false
-            sharedWorkoutsCollectionView.isHidden = true
-            case 1:
             groupExerciseCollectionView.isHidden = true
             sharedWorkoutsCollectionView.isHidden = false
+            case 1:
+            groupExerciseCollectionView.isHidden = false
+            sharedWorkoutsCollectionView.isHidden = true
             default:
                 break;
             }
@@ -85,7 +89,7 @@ extension GroupDetailsViewController: UICollectionViewDataSource{
         if collectionView == self.groupExerciseCollectionView{
             return group!.Workouts.count
         }
-        return 5
+        return group!.Exercises.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -99,7 +103,7 @@ extension GroupDetailsViewController: UICollectionViewDataSource{
             else {
                 let cell2 = sharedWorkoutsCollectionView.dequeueReusableCell(withReuseIdentifier: "CreateExerciseCollectionViewCell", for: indexPath) as! CreateExerciseCollectionViewCell
                 cell2.layer.cornerRadius = 10
-//                cell2.configure(workoutName: workouts[indexPath.row][0], caloriesBurnt: workouts[indexPath.row][2], exerciseDuration: workouts[indexPath.row][1])
+                cell2.configure(workoutName: (group?.Exercises[indexPath.row].ExerciseType)!, caloriesBurnt: (group?.Exercises[indexPath.row].Calories)!, exerciseDuration: (group?.Exercises[indexPath.row].Duration)!)
                 return cell2
             }
     }
@@ -108,6 +112,11 @@ extension GroupDetailsViewController: UICollectionViewDataSource{
         if collectionView == self.groupExerciseCollectionView{
             let vc = storyboard?.instantiateViewController(withIdentifier: "workoutDetailScene") as? WorkoutDetailViewController
             vc?.workout = group?.Workouts[indexPath.row]
+            self.navigationController?.present(vc!, animated: true)
+        }
+        else{
+            let vc = storyboard?.instantiateViewController(withIdentifier: "exerciseDetailScene") as? ExerciseDetailViewController
+            vc?.exercise = group?.Exercises[indexPath.row]
             self.navigationController?.present(vc!, animated: true)
         }
     }
