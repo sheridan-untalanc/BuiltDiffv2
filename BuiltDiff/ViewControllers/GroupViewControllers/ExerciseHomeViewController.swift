@@ -6,6 +6,8 @@
 //
 import UIKit
 
+var groupListBuilder: Profile?
+
 class ExerciseHomeViewController: UIViewController {
 
     @IBOutlet var FitnessImage: UIImageView!
@@ -22,6 +24,12 @@ class ExerciseHomeViewController: UIViewController {
         CreateWorkout.layer.cornerRadius = 10
         ActivityHistory.layer.cornerRadius = 10
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        Task.init{
+            groupListBuilder = try await Profile.GetProfile()
+        }
     }
     
     @IBAction func unwindToExerciseHome( _ seg: UIStoryboardSegue){

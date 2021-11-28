@@ -28,6 +28,12 @@
 		75008413274D9EA300A998A4 /* InspectExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75008412274D9EA300A998A4 /* InspectExerciseViewController.swift */; };
 		75050FE7271AB84B00B79C41 /* AchievementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75050FE6271AB84B00B79C41 /* AchievementViewController.swift */; };
 		751D2353275056F900E2A7C4 /* CreatedWorkoutsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751D2352275056F900E2A7C4 /* CreatedWorkoutsListViewController.swift */; };
+		75693EBD2752DDE900140D48 /* InspectWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75693EBC2752DDE900140D48 /* InspectWorkoutViewController.swift */; };
+		75693EC22752EE5700140D48 /* InspectWorkoutCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75693EC12752EE5700140D48 /* InspectWorkoutCollectionViewCell.swift */; };
+		75693EC42752FEDF00140D48 /* GroupListPopupWorkoutsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75693EC32752FEDF00140D48 /* GroupListPopupWorkoutsCollectionViewCell.swift */; };
+		75693EC62752FF0B00140D48 /* GroupListPopupWorkoutsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75693EC52752FF0B00140D48 /* GroupListPopupWorkoutsViewController.swift */; };
+		75693ECA27531F7A00140D48 /* CompleteWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75693EC927531F7A00140D48 /* CompleteWorkoutViewController.swift */; };
+		75693ECC2753205E00140D48 /* CompleteWorkoutCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75693ECB2753205E00140D48 /* CompleteWorkoutCollectionViewCell.swift */; };
 		756E71442714A93800A4C3BE /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 756E71432714A93800A4C3BE /* HealthKit.framework */; };
 		756E71472714C95C00A4C3BE /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 756E71462714C95C00A4C3BE /* HealthKit.framework */; };
 		7584A2DF274ED62C0035F998 /* GroupListPopupExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7584A2DE274ED62C0035F998 /* GroupListPopupExerciseViewController.swift */; };
@@ -151,6 +157,12 @@
 		75008412274D9EA300A998A4 /* InspectExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspectExerciseViewController.swift; sourceTree = "<group>"; };
 		75050FE6271AB84B00B79C41 /* AchievementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementViewController.swift; sourceTree = "<group>"; };
 		751D2352275056F900E2A7C4 /* CreatedWorkoutsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatedWorkoutsListViewController.swift; sourceTree = "<group>"; };
+		75693EBC2752DDE900140D48 /* InspectWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspectWorkoutViewController.swift; sourceTree = "<group>"; };
+		75693EC12752EE5700140D48 /* InspectWorkoutCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspectWorkoutCollectionViewCell.swift; sourceTree = "<group>"; };
+		75693EC32752FEDF00140D48 /* GroupListPopupWorkoutsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListPopupWorkoutsCollectionViewCell.swift; sourceTree = "<group>"; };
+		75693EC52752FF0B00140D48 /* GroupListPopupWorkoutsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListPopupWorkoutsViewController.swift; sourceTree = "<group>"; };
+		75693EC927531F7A00140D48 /* CompleteWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteWorkoutViewController.swift; sourceTree = "<group>"; };
+		75693ECB2753205E00140D48 /* CompleteWorkoutCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteWorkoutCollectionViewCell.swift; sourceTree = "<group>"; };
 		756E71422714A93800A4C3BE /* BuiltDiff WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "BuiltDiff WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		756E71432714A93800A4C3BE /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS8.0.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
 		756E71452714C95C00A4C3BE /* BuiltDiff.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BuiltDiff.entitlements; sourceTree = "<group>"; };
@@ -325,6 +337,12 @@
 				7584A2E1274ED9820035F998 /* GroupListPopupCollectionViewCell.swift */,
 				7584A2E3274F2F6E0035F998 /* WorkoutSessionCollectionViewCell.swift */,
 				751D2352275056F900E2A7C4 /* CreatedWorkoutsListViewController.swift */,
+				75693EBC2752DDE900140D48 /* InspectWorkoutViewController.swift */,
+				75693EC12752EE5700140D48 /* InspectWorkoutCollectionViewCell.swift */,
+				75693EC52752FF0B00140D48 /* GroupListPopupWorkoutsViewController.swift */,
+				75693EC32752FEDF00140D48 /* GroupListPopupWorkoutsCollectionViewCell.swift */,
+				75693EC927531F7A00140D48 /* CompleteWorkoutViewController.swift */,
+				75693ECB2753205E00140D48 /* CompleteWorkoutCollectionViewCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -758,9 +776,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75693EBD2752DDE900140D48 /* InspectWorkoutViewController.swift in Sources */,
 				73118F4027091784005FE169 /* GroupViewController.swift in Sources */,
 				73118F3C27091745005FE169 /* LoginViewController.swift in Sources */,
 				75050FE7271AB84B00B79C41 /* AchievementViewController.swift in Sources */,
+				75693EC42752FEDF00140D48 /* GroupListPopupWorkoutsCollectionViewCell.swift in Sources */,
 				751D2353275056F900E2A7C4 /* CreatedWorkoutsListViewController.swift in Sources */,
 				EB3FC1EE274DCB630049842D /* Exercise.swift in Sources */,
 				EB3FC1EA27499E510049842D /* Workout.swift in Sources */,
@@ -771,6 +791,7 @@
 				EB5D5A9E27120DF500027E00 /* Group.swift in Sources */,
 				7584A2E4274F2F6E0035F998 /* WorkoutSessionCollectionViewCell.swift in Sources */,
 				75008413274D9EA300A998A4 /* InspectExerciseViewController.swift in Sources */,
+				75693ECC2753205E00140D48 /* CompleteWorkoutCollectionViewCell.swift in Sources */,
 				75F97BDF2746EC260066D631 /* (null) in Sources */,
 				730C264B2718CD6700B4152E /* AchievementsCollectionViewCell.swift in Sources */,
 				EBDE95CC260292F800B9E544 /* AppDelegate.swift in Sources */,
@@ -783,7 +804,9 @@
 				7355B8942743002900501F72 /* GroupDetailsCollectionViewCell.swift in Sources */,
 				730E0609273AF8AA00C95E00 /* ListGroupsCollectionViewCell.swift in Sources */,
 				7584A2DF274ED62C0035F998 /* GroupListPopupExerciseViewController.swift in Sources */,
+				75693EC62752FF0B00140D48 /* GroupListPopupWorkoutsViewController.swift in Sources */,
 				75F97BE72746FFBD0066D631 /* WorkoutListViewController.swift in Sources */,
+				75693EC22752EE5700140D48 /* InspectWorkoutCollectionViewCell.swift in Sources */,
 				73EB85F2274DBBA800015AF2 /* WorkoutDetailViewController.swift in Sources */,
 				75F97BE52746F81C0066D631 /* ExerciseHomeViewController.swift in Sources */,
 				EB205FB1260D3A4500C65260 /* RegisterViewController.swift in Sources */,
@@ -795,6 +818,7 @@
 				EBC3240F26FFDC9E00DA426A /* FirebaseAccessLayer.swift in Sources */,
 				7584A2E2274ED9820035F998 /* GroupListPopupCollectionViewCell.swift in Sources */,
 				7355B8962743183100501F72 /* CreateExerciseCollectionViewCell.swift in Sources */,
+				75693ECA27531F7A00140D48 /* CompleteWorkoutViewController.swift in Sources */,
 				730C2641271632D600B4152E /* JoinGroupViewController.swift in Sources */,
 				75AAB95E2719142500D83903 /* AchievementChecker.swift in Sources */,
 				73F9069A2712260C004E200F /* CustomCollectionViewCell.swift in Sources */,
