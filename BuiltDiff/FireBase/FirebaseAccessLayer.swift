@@ -152,11 +152,13 @@ class FirebaseAccessLayer{
             
         let snapshot = try await groupRef.getDocument()
         let groupDetails = snapshot.data()!
+        let groupId = groupRef.documentID
         let groupName = groupDetails["groupName"] as! String
         let groupOwner = groupDetails["groupOwner"] as! String
         let groupDescription = groupDetails["groupDescription"] as! String
         
         return try await Group(
+            groupId: groupId,
             groupName: groupName,
             groupOwner: groupOwner,
             groupDescription: groupDescription,
