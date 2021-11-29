@@ -255,15 +255,21 @@ class FirebaseAccessLayer{
         FirebaseAccessLayer.PushUserCompletedWorkoutTasks(workoutId: workoutRef.documentID, workoutTasks: workout.WorkoutTasks)
     }
     
-    static func JoinGroup(groupId: String) async throws -> Bool{
-        let docRef = db.collection("users").document(GetCurrentUserId()).collection("assignedGroups")
-        let documents = try await docRef.whereField("groupId", isEqualTo: groupId).getDocuments().documents
-        if documents.first!.exists{
-            return false
+    static func JoinGroup(groupId: String) async throws -> Int{
+        let userRef = db.collection("users").document(GetCurrentUserId()).collection("assignedGroups")
+        let usersGroups = try await userRef.whereField("groupId", isEqualTo: groupId).getDocuments().documents
+        if usersGroups.first!.exists{
+            return -1
         }
         else{
-            docRef.addDocument(data: ["groupId": groupId])
-            return true
+            let groupRef = try await db.collection("groups").document(groupId).getDocument()
+            if groupRef.exists{
+                userRef.addDocument(data: ["groupId": groupId])
+                return 0
+            }
+            else{
+                return -2
+            }
         }
     }
     
