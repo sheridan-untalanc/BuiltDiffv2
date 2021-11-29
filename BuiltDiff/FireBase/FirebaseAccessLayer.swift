@@ -258,7 +258,7 @@ class FirebaseAccessLayer{
     static func JoinGroup(groupId: String) async throws -> Bool{
         let docRef = db.collection("users").document(GetCurrentUserId()).collection("assignedGroups")
         let documents = try await docRef.whereField("groupId", isEqualTo: groupId).getDocuments().documents
-        if documents[0].exists{
+        if documents.first!.exists{
             return false
         }
         else{
