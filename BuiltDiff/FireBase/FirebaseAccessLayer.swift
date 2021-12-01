@@ -375,7 +375,7 @@ class FirebaseAccessLayer{
     // EXERCISES
     
     static func PushExercise(groupId: String, exercise: Exercise){
-        let exerciseRef = db.collection("groups").document(groupId).collection("exercises").addDocument(data: [
+        db.collection("groups").document(groupId).collection("exercises").addDocument(data: [
             "originalUser": exercise.OriginalUser,
             "date": exercise.Date,
             "type": exercise.ExerciseType,
@@ -429,6 +429,24 @@ class FirebaseAccessLayer{
             metric: challengeDetails["startDate"] as! String,
             points: challengeDetails["startDate"] as! Int
         )
+    }
+    
+    
+    static func PushChallenge(groupId: String, challenge: Challenge) {
+        db.collection("groups").document(groupId).setData(["challenge": [
+            "startDate": challenge.StartDate,
+            "endDate": challenge.EndDate,
+            "exerciseType": challenge.ExerciseType,
+            "goal": challenge.Goal,
+            "metric": challenge.Metric,
+            "points": challenge.Points
+        ]], merge: true){ error in
+            if let error = error {
+                print("Error pushing challenge: \(error)")
+            } else {
+                print("Challenge sucessfully pushed to \(groupId)!")
+            }
+        }
     }
 
 }
