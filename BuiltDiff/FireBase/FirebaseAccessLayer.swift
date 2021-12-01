@@ -31,7 +31,6 @@ class FirebaseAccessLayer{
             } else {
                 completion("Document does not exist")
             }
-        
         }
     }
     
@@ -254,11 +253,10 @@ class FirebaseAccessLayer{
         ])
         FirebaseAccessLayer.PushUserCompletedWorkoutTasks(workoutId: workoutRef.documentID, workoutTasks: workout.WorkoutTasks)
     }
-    
     static func JoinGroup(groupId: String) async throws -> Int{
         let userRef = db.collection("users").document(GetCurrentUserId()).collection("assignedGroups")
         let usersGroups = try await userRef.whereField("groupId", isEqualTo: groupId).getDocuments().documents
-        if usersGroups.first!.exists{
+        if ((usersGroups.first?.exists) != nil){
             return -1
         }
         else{
