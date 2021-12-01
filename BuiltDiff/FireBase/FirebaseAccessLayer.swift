@@ -416,5 +416,21 @@ class FirebaseAccessLayer{
         return exerciseFutures
     }
     
+    //
+        
+    // CHALLENGES
+    
+    static func GetChallenge(groupId: String) async throws -> (Challenge){
+        let groupRef = db.collection("groups").document(groupId)
+        let challengeDetails = try await groupRef.getDocument().data()!
+        return Challenge(
+            startDate: challengeDetails["startDate"] as! String,
+            endDate: challengeDetails["endDate"] as! String,
+            exerciseType: challengeDetails["startDate"] as! String,
+            goal: challengeDetails["startDate"] as! String,
+            metric: challengeDetails["startDate"] as! String,
+            points: challengeDetails["startDate"] as! Int
+        )
+    }
 
 }
