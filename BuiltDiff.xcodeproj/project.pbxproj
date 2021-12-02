@@ -31,6 +31,8 @@
 		75008413274D9EA300A998A4 /* InspectExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75008412274D9EA300A998A4 /* InspectExerciseViewController.swift */; };
 		75050FE7271AB84B00B79C41 /* AchievementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75050FE6271AB84B00B79C41 /* AchievementViewController.swift */; };
 		751D2353275056F900E2A7C4 /* CreatedWorkoutsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751D2352275056F900E2A7C4 /* CreatedWorkoutsListViewController.swift */; };
+		751E285C275874F00002C006 /* CompletedWorkoutCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751E285B275874F00002C006 /* CompletedWorkoutCollectionViewCell.swift */; };
+		751E285E27587C5B0002C006 /* WorkoutHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751E285D27587C5B0002C006 /* WorkoutHistoryViewController.swift */; };
 		75693EBD2752DDE900140D48 /* InspectWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75693EBC2752DDE900140D48 /* InspectWorkoutViewController.swift */; };
 		75693EC22752EE5700140D48 /* InspectWorkoutCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75693EC12752EE5700140D48 /* InspectWorkoutCollectionViewCell.swift */; };
 		75693EC42752FEDF00140D48 /* GroupListPopupWorkoutsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75693EC32752FEDF00140D48 /* GroupListPopupWorkoutsCollectionViewCell.swift */; };
@@ -163,6 +165,8 @@
 		75008412274D9EA300A998A4 /* InspectExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspectExerciseViewController.swift; sourceTree = "<group>"; };
 		75050FE6271AB84B00B79C41 /* AchievementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementViewController.swift; sourceTree = "<group>"; };
 		751D2352275056F900E2A7C4 /* CreatedWorkoutsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatedWorkoutsListViewController.swift; sourceTree = "<group>"; };
+		751E285B275874F00002C006 /* CompletedWorkoutCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedWorkoutCollectionViewCell.swift; sourceTree = "<group>"; };
+		751E285D27587C5B0002C006 /* WorkoutHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutHistoryViewController.swift; sourceTree = "<group>"; };
 		75693EBC2752DDE900140D48 /* InspectWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspectWorkoutViewController.swift; sourceTree = "<group>"; };
 		75693EC12752EE5700140D48 /* InspectWorkoutCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspectWorkoutCollectionViewCell.swift; sourceTree = "<group>"; };
 		75693EC32752FEDF00140D48 /* GroupListPopupWorkoutsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListPopupWorkoutsCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -352,6 +356,8 @@
 				75693EC32752FEDF00140D48 /* GroupListPopupWorkoutsCollectionViewCell.swift */,
 				75693EC927531F7A00140D48 /* CompleteWorkoutViewController.swift */,
 				75693ECB2753205E00140D48 /* CompleteWorkoutCollectionViewCell.swift */,
+				751E285B275874F00002C006 /* CompletedWorkoutCollectionViewCell.swift */,
+				751E285D27587C5B0002C006 /* WorkoutHistoryViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -815,6 +821,7 @@
 				730E0609273AF8AA00C95E00 /* ListGroupsCollectionViewCell.swift in Sources */,
 				7584A2DF274ED62C0035F998 /* GroupListPopupExerciseViewController.swift in Sources */,
 				75693EC62752FF0B00140D48 /* GroupListPopupWorkoutsViewController.swift in Sources */,
+				751E285E27587C5B0002C006 /* WorkoutHistoryViewController.swift in Sources */,
 				75F97BE72746FFBD0066D631 /* WorkoutListViewController.swift in Sources */,
 				75693EC22752EE5700140D48 /* InspectWorkoutCollectionViewCell.swift in Sources */,
 				73168403275069CB00EE33D8 /* LeaderboardViewController.swift in Sources */,
@@ -833,6 +840,7 @@
 				75693ECA27531F7A00140D48 /* CompleteWorkoutViewController.swift in Sources */,
 				730C2641271632D600B4152E /* JoinGroupViewController.swift in Sources */,
 				75AAB95E2719142500D83903 /* AchievementChecker.swift in Sources */,
+				751E285C275874F00002C006 /* CompletedWorkoutCollectionViewCell.swift in Sources */,
 				73F9069A2712260C004E200F /* CustomCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
