@@ -16,9 +16,21 @@ class GroupDetailsViewController: UIViewController {
     @IBOutlet weak var sharedWorkoutsCollectionView: UICollectionView!
     @IBOutlet weak var leaderboardImage: UIImageView!
     @IBOutlet weak var typeOfCollectionView: UISegmentedControl!
+    @IBOutlet weak var copyIdLabel: UIButton!
+    @IBOutlet weak var challengesView: UIView!
+    @IBOutlet weak var groupEditButton: UIButton!
+    @IBOutlet weak var challengeTitleLabel: UILabel!
+    @IBOutlet weak var challengeDeadlineLabel: UILabel!
+    @IBOutlet weak var challengeMetricLabel: UILabel!
+    @IBOutlet weak var challengeGoalLabel: UILabel!
+    @IBOutlet weak var challengePointsLabel: UILabel!
+    @IBOutlet weak var challengeProgressBar: UIProgressView!
     
     var group: Group? = nil
+    var challenge: Challenge? = nil
     var groupWorkouts: [Workout] = []
+    var content: String!
+    
     
 //    var myGroupWorkouts = group?.Workouts
     
@@ -29,18 +41,41 @@ class GroupDetailsViewController: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(GroupDetailsViewController.imageTapped(gesture:)))
         leaderboardImage.addGestureRecognizer(tapGesture)
         leaderboardImage.isUserInteractionEnabled = true
+        challengesView.layer.cornerRadius = 10
+        challengesView.layer.shadowColor = UIColor.black.cgColor
+        challengesView.layer.shadowOpacity = 1
+        challengesView.layer.shadowOffset = CGSize(width: 0, height: 1)
+        challengesView.layer.shadowRadius = 1
+        
+        groupEditButton.isHidden = true
+        if group?.GroupOwner == FirebaseAccessLayer.GetCurrentUserId(){
+            groupEditButton.isHidden = false
+        }
+        
         groupTitle.text = group?.GroupName
         groupDescriptionLabel.text = group?.GroupDescription
-        groupImage.layer.cornerRadius = 75
+        groupImage.layer.cornerRadius = 50
         groupImage.layer.masksToBounds = true
         groupBackButton.layer.cornerRadius = 20
         
         sharedWorkoutsCollectionView.delegate = self
         sharedWorkoutsCollectionView.dataSource = self
+        
         groupExerciseCollectionView.delegate = self
         groupExerciseCollectionView.dataSource = self
         groupExerciseCollectionView.isHidden = true
         groupExerciseCollectionView.collectionViewLayout = UICollectionViewFlowLayout()
+        Task.init{
+            challenge = try await FirebaseAccessLayer.GetChallenge(groupId: group!.GroupId)
+            DispatchQueue.main.async {
+                self.challengeTitleLabel.text = self.challenge?.ExerciseType
+                self.challengeMetricLabel.text = self.challenge?.Metric
+                self.challengeDeadlineLabel.text = self.challenge?.EndDate
+                self.challengeGoalLabel.text = self.challenge?.Goal
+                self.challengePointsLabel.text = "+\(self.challenge?.Points ?? 0) Points"
+            }
+        }
+        
         Task.init{
             FirebaseAccessLayer.GetGroupImage(ownerUid: group!.GroupOwner, completion: { image in
                 DispatchQueue.main.async{
@@ -53,6 +88,24 @@ class GroupDetailsViewController: UIViewController {
     @IBAction func unwindToMyGroups(_ sender: Any) {
         performSegue(withIdentifier: "unwindToMyGroups", sender: self)
         }
+    
+    @IBAction func createGroupChallenge(_ sender: Any) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "createChallengeScene") as? CreateGroupChallengeViewController
+        vc?.group = group
+        self.navigationController?.present(vc!, animated: true)
+//        performSegue(withIdentifier: "createChallengeSegue", sender: self)
+    }
+    
+    
+    @IBAction func copyGroupId(_ sender: Any) {
+        UIPasteboard.general.string = group?.GroupId
+        content = UIPasteboard.general.string
+        print(content!)
+        let alert = UIAlertController(title: "Copy Id", message: "Group Id copied successfully! Share with friends to let them join!", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     
     @IBAction func unwind( _ seg: UIStoryboardSegue) {
         
