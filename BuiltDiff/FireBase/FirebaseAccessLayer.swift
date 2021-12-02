@@ -31,7 +31,6 @@ class FirebaseAccessLayer{
             } else {
                 completion("Document does not exist")
             }
-        
         }
     }
     
@@ -152,11 +151,13 @@ class FirebaseAccessLayer{
             
         let snapshot = try await groupRef.getDocument()
         let groupDetails = snapshot.data()!
+        let groupId = groupRef.documentID
         let groupName = groupDetails["groupName"] as! String
         let groupOwner = groupDetails["groupOwner"] as! String
         let groupDescription = groupDetails["groupDescription"] as! String
         
         return try await Group(
+            groupId: groupId,
             groupName: groupName,
             groupOwner: groupOwner,
             groupDescription: groupDescription,
@@ -251,6 +252,23 @@ class FirebaseAccessLayer{
             "dateCompleted": date.formatted()
         ])
         FirebaseAccessLayer.PushUserCompletedWorkoutTasks(workoutId: workoutRef.documentID, workoutTasks: workout.WorkoutTasks)
+    }
+    static func JoinGroup(groupId: String) async throws -> Int{
+        let userRef = db.collection("users").document(GetCurrentUserId()).collection("assignedGroups")
+        let usersGroups = try await userRef.whereField("groupId", isEqualTo: groupId).getDocuments().documents
+        if ((usersGroups.first?.exists) != nil){
+            return -1
+        }
+        else{
+            let groupRef = try await db.collection("groups").document(groupId).getDocument()
+            if groupRef.exists{
+                userRef.addDocument(data: ["groupId": groupId])
+                return 0
+            }
+            else{
+                return -2
+            }
+        }
     }
     
     //
@@ -357,7 +375,7 @@ class FirebaseAccessLayer{
     // EXERCISES
     
     static func PushExercise(groupId: String, exercise: Exercise){
-        let exerciseRef = db.collection("groups").document(groupId).collection("exercises").addDocument(data: [
+        db.collection("groups").document(groupId).collection("exercises").addDocument(data: [
             "originalUser": exercise.OriginalUser,
             "date": exercise.Date,
             "type": exercise.ExerciseType,
@@ -396,5 +414,40 @@ class FirebaseAccessLayer{
         return exerciseFutures
     }
     
+    //
+        
+    // CHALLENGES
+    
+    static func GetChallenge(groupId: String) async throws -> (Challenge){
+        let groupRef = db.collection("groups").document(groupId)
+        let challengeData = try await groupRef.getDocument().data()!
+        let challengeDetails = challengeData["challenge"] as! [String : Any]
+        return Challenge(
+            startDate: challengeDetails["startDate"] as! String,
+            endDate: challengeDetails["endDate"] as! String,
+            exerciseType: challengeDetails["exerciseType"] as! String,
+            goal: challengeDetails["goal"] as! String,
+            metric: challengeDetails["metric"] as! String,
+            points: challengeDetails["points"] as! Int
+        )
+    }
+    
+    
+    static func PushChallenge(groupId: String, challenge: Challenge) {
+        db.collection("groups").document(groupId).setData(["challenge": [
+            "startDate": challenge.StartDate,
+            "endDate": challenge.EndDate,
+            "exerciseType": challenge.ExerciseType,
+            "goal": challenge.Goal,
+            "metric": challenge.Metric,
+            "points": challenge.Points
+        ]], merge: true){ error in
+            if let error = error {
+                print("Error pushing challenge: \(error)")
+            } else {
+                print("Challenge sucessfully pushed to \(groupId)!")
+            }
+        }
+    }
 
 }

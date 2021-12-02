@@ -25,6 +25,7 @@
 		7355B8962743183100501F72 /* CreateExerciseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7355B8952743183100501F72 /* CreateExerciseCollectionViewCell.swift */; };
 		735F471B271A33F300309D08 /* JoinGroupCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735F471A271A33F300309D08 /* JoinGroupCollectionViewCell.swift */; };
 		73C8294A271B515F000091B9 /* ListGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C82949271B515F000091B9 /* ListGroupsViewController.swift */; };
+		73E1669D2758162B006A085D /* CreateGroupChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E1669C2758162B006A085D /* CreateGroupChallengeViewController.swift */; };
 		73EB85F2274DBBA800015AF2 /* WorkoutDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EB85F1274DBBA800015AF2 /* WorkoutDetailViewController.swift */; };
 		73F61169273EE80C0007E6FE /* GroupDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F61168273EE80C0007E6FE /* GroupDetailsViewController.swift */; };
 		73F9069A2712260C004E200F /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F906992712260C004E200F /* CustomCollectionViewCell.swift */; };
@@ -60,6 +61,7 @@
 		EB3FC1EE274DCB630049842D /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3FC1ED274DCB630049842D /* Exercise.swift */; };
 		EB5D5A962710B71700027E00 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5D5A952710B71700027E00 /* Profile.swift */; };
 		EB5D5A9E27120DF500027E00 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5D5A9D27120DF500027E00 /* Group.swift */; };
+		EB889B8F2756F94B005029D3 /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB889B8E2756F94B005029D3 /* Challenge.swift */; };
 		EBBE90A42604E8EA00D8D4D2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EBBE90A32604E8E900D8D4D2 /* GoogleService-Info.plist */; };
 		EBC3240F26FFDC9E00DA426A /* FirebaseAccessLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC3240E26FFDC9E00DA426A /* FirebaseAccessLayer.swift */; };
 		EBDE95CC260292F800B9E544 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDE95CB260292F800B9E544 /* AppDelegate.swift */; };
@@ -159,6 +161,7 @@
 		7355B8952743183100501F72 /* CreateExerciseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateExerciseCollectionViewCell.swift; sourceTree = "<group>"; };
 		735F471A271A33F300309D08 /* JoinGroupCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinGroupCollectionViewCell.swift; sourceTree = "<group>"; };
 		73C82949271B515F000091B9 /* ListGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListGroupsViewController.swift; sourceTree = "<group>"; };
+		73E1669C2758162B006A085D /* CreateGroupChallengeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupChallengeViewController.swift; sourceTree = "<group>"; };
 		73EB85F1274DBBA800015AF2 /* WorkoutDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailViewController.swift; sourceTree = "<group>"; };
 		73F61168273EE80C0007E6FE /* GroupDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailsViewController.swift; sourceTree = "<group>"; };
 		73F906992712260C004E200F /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -196,6 +199,7 @@
 		EB3FC1ED274DCB630049842D /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		EB5D5A952710B71700027E00 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		EB5D5A9D27120DF500027E00 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		EB889B8E2756F94B005029D3 /* Challenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
 		EBBE90A32604E8E900D8D4D2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EBC3240E26FFDC9E00DA426A /* FirebaseAccessLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAccessLayer.swift; sourceTree = "<group>"; };
 		EBDE95C8260292F800B9E544 /* BuiltDiff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BuiltDiff.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -302,6 +306,7 @@
 				731684062752DCCE00EE33D8 /* ExerciseDetailViewController.swift */,
 				73168402275069CB00EE33D8 /* LeaderboardViewController.swift */,
 				73168404275071A000EE33D8 /* LeaderboardTableViewCell.swift */,
+				73E1669C2758162B006A085D /* CreateGroupChallengeViewController.swift */,
 			);
 			path = GroupViewControllers;
 			sourceTree = "<group>";
@@ -370,6 +375,7 @@
 				EB3FC1E927499E510049842D /* Workout.swift */,
 				EB3FC1EB27499E670049842D /* WorkoutTask.swift */,
 				EB3FC1ED274DCB630049842D /* Exercise.swift */,
+				EB889B8E2756F94B005029D3 /* Challenge.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -827,6 +833,7 @@
 				73168403275069CB00EE33D8 /* LeaderboardViewController.swift in Sources */,
 				73EB85F2274DBBA800015AF2 /* WorkoutDetailViewController.swift in Sources */,
 				731684072752DCCE00EE33D8 /* ExerciseDetailViewController.swift in Sources */,
+				73E1669D2758162B006A085D /* CreateGroupChallengeViewController.swift in Sources */,
 				75F97BE52746F81C0066D631 /* ExerciseHomeViewController.swift in Sources */,
 				EB205FB1260D3A4500C65260 /* RegisterViewController.swift in Sources */,
 				EB5D5A962710B71700027E00 /* Profile.swift in Sources */,
@@ -834,6 +841,7 @@
 				75BB15B3273583E900FCF5D9 /* (null) in Sources */,
 				73F61169273EE80C0007E6FE /* GroupDetailsViewController.swift in Sources */,
 				73C8294A271B515F000091B9 /* ListGroupsViewController.swift in Sources */,
+				EB889B8F2756F94B005029D3 /* Challenge.swift in Sources */,
 				EBC3240F26FFDC9E00DA426A /* FirebaseAccessLayer.swift in Sources */,
 				7584A2E2274ED9820035F998 /* GroupListPopupCollectionViewCell.swift in Sources */,
 				7355B8962743183100501F72 /* CreateExerciseCollectionViewCell.swift in Sources */,
