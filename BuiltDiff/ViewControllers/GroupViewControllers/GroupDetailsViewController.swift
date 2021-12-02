@@ -19,10 +19,18 @@ class GroupDetailsViewController: UIViewController {
     @IBOutlet weak var copyIdLabel: UIButton!
     @IBOutlet weak var challengesView: UIView!
     @IBOutlet weak var groupEditButton: UIButton!
+    @IBOutlet weak var challengeTitleLabel: UILabel!
+    @IBOutlet weak var challengeDeadlineLabel: UILabel!
+    @IBOutlet weak var challengeMetricLabel: UILabel!
+    @IBOutlet weak var challengeGoalLabel: UILabel!
+    @IBOutlet weak var challengePointsLabel: UILabel!
+    @IBOutlet weak var challengeProgressBar: UIProgressView!
     
     var group: Group? = nil
+    var challenge: Challenge? = nil
     var groupWorkouts: [Workout] = []
     var content: String!
+    
     
 //    var myGroupWorkouts = group?.Workouts
     
@@ -58,6 +66,17 @@ class GroupDetailsViewController: UIViewController {
         groupExerciseCollectionView.isHidden = true
         groupExerciseCollectionView.collectionViewLayout = UICollectionViewFlowLayout()
         Task.init{
+            challenge = try await FirebaseAccessLayer.GetChallenge(groupId: group!.GroupId)
+            DispatchQueue.main.async {
+                self.challengeTitleLabel.text = self.challenge?.ExerciseType
+                self.challengeMetricLabel.text = self.challenge?.Metric
+                self.challengeDeadlineLabel.text = self.challenge?.EndDate
+                self.challengeGoalLabel.text = self.challenge?.Goal
+//                self.challengePointsLabel.text = String(self.challenge?.Points)
+            }
+        }
+        
+        Task.init{
             FirebaseAccessLayer.GetGroupImage(ownerUid: group!.GroupOwner, completion: { image in
                 DispatchQueue.main.async{
                     self.groupImage.image = image
@@ -71,7 +90,10 @@ class GroupDetailsViewController: UIViewController {
         }
     
     @IBAction func createGroupChallenge(_ sender: Any) {
-        performSegue(withIdentifier: "createChallengeSegue", sender: self)
+        let vc = storyboard?.instantiateViewController(withIdentifier: "createChallengeScene") as? CreateGroupChallengeViewController
+        vc?.group = group
+        self.navigationController?.present(vc!, animated: true)
+//        performSegue(withIdentifier: "createChallengeSegue", sender: self)
     }
     
     
