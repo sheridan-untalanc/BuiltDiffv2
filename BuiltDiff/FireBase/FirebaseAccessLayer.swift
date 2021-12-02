@@ -151,7 +151,6 @@ class FirebaseAccessLayer{
             
         let snapshot = try await groupRef.getDocument()
         let groupDetails = snapshot.data()!
-        let groupId = groupRef.documentID
         let groupName = groupDetails["groupName"] as! String
         let groupOwner = groupDetails["groupOwner"] as! String
         let groupDescription = groupDetails["groupDescription"] as! String
@@ -420,18 +419,30 @@ class FirebaseAccessLayer{
     
     static func GetChallenge(groupId: String) async throws -> (Challenge){
         let groupRef = db.collection("groups").document(groupId)
-        let challengeData = try await groupRef.getDocument().data()!
-        let challengeDetails = challengeData["challenge"] as! [String : Any]
-        return Challenge(
-            startDate: challengeDetails["startDate"] as! String,
-            endDate: challengeDetails["endDate"] as! String,
-            exerciseType: challengeDetails["exerciseType"] as! String,
-            goal: challengeDetails["goal"] as! String,
-            metric: challengeDetails["metric"] as! String,
-            points: challengeDetails["points"] as! Int
-        )
+        let challengeDoc = try await groupRef.getDocument()
+        if (challengeDoc.exists){
+            let challengeData = challengeDoc.data()!
+            let challengeDetails = challengeData["challenge"] as! [String : Any]
+            return Challenge(
+                startDate: challengeDetails["startDate"] as! String,
+                endDate: challengeDetails["endDate"] as! String,
+                exerciseType: challengeDetails["exerciseType"] as! String,
+                goal: challengeDetails["goal"] as! String,
+                metric: challengeDetails["metric"] as! String,
+                points: challengeDetails["points"] as! Int
+            )
+        }
+        else{
+            return Challenge(
+                startDate: "N/A",
+                endDate: "N/A",
+                exerciseType: "N/A",
+                goal: "N/A",
+                metric: "N/A",
+                points: 0
+            )
+        }
     }
-    
     
     static func PushChallenge(groupId: String, challenge: Challenge) {
         db.collection("groups").document(groupId).setData(["challenge": [
