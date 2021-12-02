@@ -72,7 +72,7 @@ class GroupDetailsViewController: UIViewController {
                 self.challengeMetricLabel.text = self.challenge?.Metric
                 self.challengeDeadlineLabel.text = self.challenge?.EndDate
                 self.challengeGoalLabel.text = self.challenge?.Goal
-//                self.challengePointsLabel.text = String(self.challenge?.Points)
+                self.challengePointsLabel.text = "+\(self.challenge?.Points ?? 0) Points"
             }
         }
         
