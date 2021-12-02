@@ -50,7 +50,7 @@
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="CONFIRM PASSWORD" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F0J-ie-m5C">
                                 <rect key="frame" x="35" y="593" width="320" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" textContentType="password"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Already have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j7u-89-TOH">
                                 <rect key="frame" x="61" y="740" width="166" height="17"/>
@@ -137,7 +137,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FBE-53-Wzq">
-                                <rect key="frame" x="16" y="155" width="358" height="555"/>
+                                <rect key="frame" x="16" y="155" width="358" height="564"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gJM-et-ex0">
@@ -227,6 +227,9 @@
                                     <segment title="Exercise History"/>
                                     <segment title="Workout History"/>
                                 </segments>
+                                <connections>
+                                    <action selector="historySelector:" destination="Yg6-cH-pT3" eventType="valueChanged" id="d6j-TE-BEw"/>
+                                </connections>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sAu-hD-Ht3">
                                 <rect key="frame" x="138" y="739" width="114" height="39"/>
@@ -237,6 +240,51 @@
                                     <segue destination="U6P-2c-FrA" kind="unwind" unwindAction="unwindToExerciseHome:" id="fUR-e9-Yg9"/>
                                 </connections>
                             </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GcS-Sw-cy2">
+                                <rect key="frame" x="16" y="155" width="358" height="564"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.94906002283096313" green="0.68786627054214478" blue="0.10340843349695206" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="urn-hM-J6h">
+                                    <size key="itemSize" width="349" height="114"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WorkoutHistoryCollectionViewCell" id="Sh9-Zb-SV7" customClass="WorkoutHistoryCollectionViewCell" customModule="BuiltDiff" customModuleProvider="target">
+                                        <rect key="frame" x="4.666666666666667" y="0.0" width="349" height="114"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="LNP-k3-GRW">
+                                            <rect key="frame" x="0.0" y="0.0" width="349" height="114"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Workout Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l14-iF-J4c">
+                                                    <rect key="frame" x="108" y="15" width="230" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                    <color key="textColor" systemColor="systemBlueColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date Performed: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hud-7x-gZD">
+                                                    <rect key="frame" x="108.00000000000007" y="45" width="230" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="weightLifting" translatesAutoresizingMaskIntoConstraints="NO" id="zRi-v6-CID">
+                                                    <rect key="frame" x="15" y="15" width="85" height="85"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                        </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="workoutDate" destination="Hud-7x-gZD" id="0Sc-fq-6Zn"/>
+                                            <outlet property="workoutTitle" destination="l14-iF-J4c" id="S0p-dm-9M9"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0Vw-Ai-btN"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -245,13 +293,14 @@
                     <navigationItem key="navigationItem" id="MLV-zC-kvn"/>
                     <connections>
                         <outlet property="collectionView" destination="FBE-53-Wzq" id="bao-D9-leK"/>
+                        <outlet property="typeOfCollectionView" destination="C3D-lA-OIe" id="gEf-n1-VRn"/>
                         <segue destination="Cdx-KG-HFr" kind="show" identifier="inspectExercise" id="ohU-Ra-spM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xAg-ra-m7O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="U6P-2c-FrA" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2082" y="2261"/>
+            <point key="canvasLocation" x="2081.5384615384614" y="2260.6635071090045"/>
         </scene>
         <!--Inspect Exercise View Controller-->
         <scene sceneID="DDa-8C-1QK">
@@ -388,7 +437,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uIW-ym-OY3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="MUc-J4-pIk" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2081.5384615384614" y="2931.7535545023698"/>
+            <point key="canvasLocation" x="2082" y="2969"/>
         </scene>
         <!--Create Workout View Controller-->
         <scene sceneID="oc5-1g-m0t">
@@ -2750,6 +2799,7 @@
         <image name="star" catalog="system" width="128" height="116"/>
         <image name="stopwatch" catalog="system" width="121" height="128"/>
         <image name="weighing-scale" width="512" height="512"/>
+        <image name="weightLifting" width="200" height="200"/>
         <image name="workoutHistory" width="318" height="159"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

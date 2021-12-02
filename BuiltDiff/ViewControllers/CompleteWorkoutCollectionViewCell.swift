@@ -19,6 +19,6 @@ class CompleteWorkoutCollectionViewCell: UICollectionViewCell {
         taskDescription.text = description
         taskSets.text = sets
         taskReps.text = reps
-        }
+    }
     
 }
