@@ -15,6 +15,7 @@ class Group {
     var GroupDescription : String = ""
     var Workouts : [Workout] = []
     var Exercises : [Exercise] =  []
+    var JoinedUsers: [String: Int] = [:]
 
     init(groupName: String, groupOwner: String, groupDescription: String, saveToDatabase: Bool) {
         GroupName = groupName
@@ -26,13 +27,14 @@ class Group {
     }
     
     //Creating Local Group
-    init(groupId: String, groupName: String, groupOwner: String, groupDescription: String, workouts: [Workout], exercises: [Exercise]) {
+    init(groupId: String, groupName: String, groupOwner: String, groupDescription: String, workouts: [Workout], exercises: [Exercise], joinedUsers: [String: Int]) {
         GroupId = groupId
         GroupName = groupName
         GroupOwner = groupOwner
         GroupDescription = groupDescription
         Workouts = workouts
         Exercises = exercises
+        JoinedUsers = joinedUsers
     }
     
     static func LoadAll(groupIds: [String]) async throws -> ([Group]){
