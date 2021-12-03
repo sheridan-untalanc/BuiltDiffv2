@@ -1878,13 +1878,13 @@
         <!--Leaderboard View Controller-->
         <scene sceneID="YLf-nF-Ce2">
             <objects>
-                <viewController id="Kf5-Le-XTU" customClass="LeaderboardViewController" customModule="BuiltDiff" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="leaderboardScreen" id="Kf5-Le-XTU" customClass="LeaderboardViewController" customModule="BuiltDiff" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TOp-YV-Bem">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="dxp-RG-EzM">
-                                <rect key="frame" x="0.0" y="110" width="390" height="680"/>
+                                <rect key="frame" x="0.0" y="164" width="390" height="626"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
@@ -1899,10 +1899,25 @@
                                                     <rect key="frame" x="333" y="0.0" width="37" height="44"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cJx-f1-Fof">
+                                                    <rect key="frame" x="20" y="11" width="197" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Points:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gfc-di-igQ">
+                                                    <rect key="frame" x="240" y="13" width="85" height="18"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="trophyImage" destination="dQa-Jv-jtu" id="hYz-Fu-Iqt"/>
+                                            <outlet property="userName" destination="cJx-f1-Fof" id="t72-kl-3fS"/>
+                                            <outlet property="userPoints" destination="Gfc-di-igQ" id="vdk-MQ-qyh"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1927,6 +1942,20 @@
                                     <segue destination="ItI-h3-8BK" kind="unwind" identifier="unwindToGroupDetails" unwindAction="unwind:" id="ec1-0V-LN2"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="User" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5mg-ec-qml">
+                                <rect key="frame" x="20" y="132" width="46" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
+                                <color key="textColor" systemColor="systemBlueColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="naS-oW-tRR">
+                                <rect key="frame" x="240" y="132" width="62" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
+                                <color key="textColor" systemColor="systemBlueColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="JLp-dC-88q"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -2995,8 +3024,8 @@
         <image name="plus.circle" catalog="system" width="128" height="121"/>
         <image name="ruler.fill" catalog="system" width="128" height="57"/>
         <image name="runningIcon" width="1200" height="1200"/>
-        <image name="star" catalog="system" width="128" height="116"/>
         <image name="star" width="128" height="128"/>
+        <image name="star" catalog="system" width="128" height="116"/>
         <image name="stopwatch" catalog="system" width="121" height="128"/>
         <image name="weighing-scale" width="512" height="512"/>
         <image name="weightLifting" width="200" height="200"/>

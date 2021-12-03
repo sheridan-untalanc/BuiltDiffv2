@@ -140,7 +140,8 @@ class GroupDetailsViewController: UIViewController {
             // if the tapped view is a UIImageView then set it to imageview
             if (gesture.view as? UIImageView) != nil {
                 print("Image Tapped")
-                //Here you can initiate your new ViewController
+                let vc = storyboard?.instantiateViewController(withIdentifier: "leaderboardScreen") as? LeaderboardViewController
+                vc?.groupIdNumber = group!.GroupId
                 performSegue(withIdentifier: "leaderboardSegue", sender: self)
             }
         }

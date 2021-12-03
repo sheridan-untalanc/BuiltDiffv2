@@ -9,6 +9,8 @@ import UIKit
 
 class LeaderboardTableViewCell: UITableViewCell {
     @IBOutlet weak var trophyImage: UIImageView!
+    @IBOutlet var userName: UILabel!
+    @IBOutlet var userPoints: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,8 +24,10 @@ class LeaderboardTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configure(picture: UIImage){
+    func configure(picture: UIImage, name: String, points: String){
         trophyImage.image = picture
+        userName.text = name
+        userPoints.text = points
     }
 
 }
