@@ -22,10 +22,12 @@ class GroupDetailsViewController: UIViewController {
     @IBOutlet weak var challengeTitleLabel: UILabel!
     @IBOutlet weak var challengeDeadlineLabel: UILabel!
     @IBOutlet weak var challengeMetricLabel: UILabel!
-    @IBOutlet weak var challengeGoalLabel: UILabel!
     @IBOutlet weak var challengePointsLabel: UILabel!
     @IBOutlet weak var challengeProgressBar: UIProgressView!
+    @IBOutlet var challengeOverlapView: UIView!
+    @IBOutlet var challengeOverlapLabel: UILabel!
     
+    let metricFetcher = AchievementChecker()
     var group: Group? = nil
     var challenge: Challenge? = nil
     var groupWorkouts: [Workout] = []
@@ -68,11 +70,32 @@ class GroupDetailsViewController: UIViewController {
         Task.init{
             challenge = try await FirebaseAccessLayer.GetChallenge(groupId: group!.GroupId)
             DispatchQueue.main.async {
+                if self.challenge?.ExerciseType != "N/A"{
+                    self.challengeOverlapView.isHidden = true
+                    self.challengeOverlapLabel.isHidden = true
+                }
                 self.challengeTitleLabel.text = self.challenge?.ExerciseType
-                self.challengeMetricLabel.text = self.challenge?.Metric
+                if self.challenge?.Metric == "Calories"{
+                    self.challengeMetricLabel.text = "Burn \(self.challenge?.Goal ?? "5") Calories"
+                } else if self.challenge?.Metric == "Duration (min)"{
+                    self.challengeMetricLabel.text = "Complete \(self.challenge?.Goal  ?? "5") minutes"
+                } else{
+                    self.challengeMetricLabel.text = "Travel \(self.challenge?.Goal ?? "5") km"
+                }
                 self.challengeDeadlineLabel.text = self.challenge?.EndDate
-                self.challengeGoalLabel.text = self.challenge?.Goal
                 self.challengePointsLabel.text = "+\(self.challenge?.Points ?? 0) Points"
+                if self.challenge?.ExerciseType != "N/A"{
+                    self.metricFetcher.getValueForMetric(challengePassed: self.challenge!){ (completion) in
+                        let totalMetric = completion
+                        if totalMetric > Double(self.challenge!.Goal)!{
+                            self.challengeProgressBar.setProgress(1, animated: true)
+                            //Put code here
+                        } else {
+                            self.challengeProgressBar.setProgress(Float((totalMetric/Double(self.challenge!.Goal)!)*100), animated: true)
+                        }
+                        
+                    }
+                }
             }
         }
         

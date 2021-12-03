@@ -32,16 +32,6 @@ class CreateGroupChallengeViewController: UIViewController {
     
     
     @IBAction func segmentChanged(_ sender: Any) {
-//        switch metricSegmentedControl.selectedSegmentIndex {
-//            case 0:
-//
-//            case 1:
-//
-//            case 2:
-//
-//            default:
-//                break;
-//            }
     }
     
     @IBAction func createChallenge(_ sender: Any) {
@@ -54,7 +44,10 @@ class CreateGroupChallengeViewController: UIViewController {
         }
         else{
             let points : Int =  Int(pointsLabel.text!)!
-            FirebaseAccessLayer.PushChallenge(groupId: group!.GroupId, challenge: Challenge(startDate: "Today", endDate: "Tomorrow", exerciseType: typeOfExerciseLabel.text!, goal: goalLabel.text!, metric: metricSegmentedControl.titleForSegment(at: metricSegmentedControl.selectedSegmentIndex)! , points: points))
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd hh:mm:ss"
+            FirebaseAccessLayer.PushChallenge(groupId: group!.GroupId, challenge: Challenge(startDate: dateFormatter.string(from: Date.now), endDate: dateFormatter.string(from: deadlineDatePicker.date), exerciseType: typeOfExerciseLabel.text!, goal: goalLabel.text!, metric: metricSegmentedControl.titleForSegment(at: metricSegmentedControl.selectedSegmentIndex)! , points: points))
+            print(Date.now.formatted(), deadlineDatePicker.date.formatted())
             self.dismiss(animated: true, completion: nil)
         }
     }
