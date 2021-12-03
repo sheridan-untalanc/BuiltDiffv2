@@ -168,6 +168,9 @@ class AchievementChecker: NSObject {
                     case 52:
                         exerciseType = "Walking"
                         imageType = "walkingIcon"
+                    case 37:
+                        exerciseType = "Running"
+                        imageType = "runningIcon"
                     default:
                         exerciseType = "Generic Workout"
                         imageType = "runningIcon"

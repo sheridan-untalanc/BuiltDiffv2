@@ -89,7 +89,9 @@ class GroupDetailsViewController: UIViewController {
                         let totalMetric = completion
                         if totalMetric > Double(self.challenge!.Goal)!{
                             self.challengeProgressBar.setProgress(1, animated: true)
-                            //Put code here
+                            Task.init{
+                                try await FirebaseAccessLayer.PushPoints(groupId: self.group!.GroupId, points: self.challenge!.Points)
+                            }
                         } else {
                             self.challengeProgressBar.setProgress(Float((totalMetric/Double(self.challenge!.Goal)!)*100), animated: true)
                         }

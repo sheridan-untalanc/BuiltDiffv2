@@ -581,6 +581,7 @@
                                 <connections>
                                     <action selector="cancelCreation:" destination="Xho-ug-kaT" eventType="touchUpInside" id="nEh-Ay-V47"/>
                                     <action selector="unwindToExerciseHome:" destination="Xho-ug-kaT" eventType="touchUpInside" id="i7E-fE-l2H"/>
+                                    <segue destination="z4t-x8-DSj" kind="unwind" identifier="unwindToExerciseHome" unwindAction="unwind:" id="FKt-c1-tDG"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -2994,8 +2995,8 @@
         <image name="plus.circle" catalog="system" width="128" height="121"/>
         <image name="ruler.fill" catalog="system" width="128" height="57"/>
         <image name="runningIcon" width="1200" height="1200"/>
-        <image name="star" width="128" height="128"/>
         <image name="star" catalog="system" width="128" height="116"/>
+        <image name="star" width="128" height="128"/>
         <image name="stopwatch" catalog="system" width="121" height="128"/>
         <image name="weighing-scale" width="512" height="512"/>
         <image name="weightLifting" width="200" height="200"/>

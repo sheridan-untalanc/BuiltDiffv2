@@ -20,6 +20,7 @@ class CreateGroupChallengeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround() 
 
     }
     
