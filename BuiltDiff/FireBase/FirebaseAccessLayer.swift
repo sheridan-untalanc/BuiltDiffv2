@@ -174,6 +174,16 @@ class FirebaseAccessLayer{
         )
     }
     
+    static func GetUsersFromGroup(groupId: String) async throws -> [String: [String: Int]]{
+        var usersFutures: [String: [String: Int]] = [:]
+        let usersData = try await db.collection("groups").document(groupId).collection("joinedUsers").getDocuments().documents
+        for userData in usersData{
+            let user = userData.data()
+            usersFutures[userData.documentID] = ["points": user["points"] as! Int]
+        }
+        return usersFutures
+    }
+    
     //
     
     // WORKOUTS
