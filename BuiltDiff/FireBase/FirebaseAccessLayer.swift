@@ -140,7 +140,8 @@ class FirebaseAccessLayer{
                 print("Group sucessfully created!")
             }
         }
-            
+        
+        db.collection("groups").document(groupRef.documentID).collection("joinedUsers").document(GetCurrentUserId()).setData(["points": 0])
         let userRef = db.collection("users").document(GetCurrentUserId())
         userRef.collection("assignedGroups").addDocument(data: ["groupId": groupRef.documentID])
         userRef.setData(["ownedGroup" : groupRef.documentID], merge: true)
