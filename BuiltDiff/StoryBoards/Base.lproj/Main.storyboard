@@ -15,11 +15,11 @@
             <objects>
                 <viewController id="3HP-bf-Ukf" customClass="RegisterViewController" customModule="BuiltDiff" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VWd-85-7lC">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uba-zb-NsC">
-                                <rect key="frame" x="35" y="280" width="266" height="42"/>
+                                <rect key="frame" x="35" y="236" width="266" height="42"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="35"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -54,18 +54,18 @@
                                 <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Already have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j7u-89-TOH">
-                                <rect key="frame" x="61" y="794" width="166" height="17"/>
+                                <rect key="frame" x="61" y="740" width="166" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RoI-4G-Uln">
-                                <rect key="frame" x="219" y="787" width="107" height="30"/>
+                                <rect key="frame" x="219" y="733" width="107" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="107" id="MZo-XX-PNd"/>
                                 </constraints>
                                 <state key="normal" title="Sign In">
-                                    <color key="titleColor" systemColor="systemOrangeColor"/>
+                                    <color key="titleColor" systemColor="systemBlueColor"/>
                                 </state>
                                 <connections>
                                     <segue destination="YVb-Jf-hft" kind="push" id="Nwk-KE-cnk"/>
@@ -79,7 +79,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="SIGN UP">
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="15"/>
-                                    <color key="baseBackgroundColor" systemColor="systemOrangeColor"/>
+                                    <color key="baseBackgroundColor" systemColor="systemBlueColor"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="onRegister:" destination="3HP-bf-Ukf" eventType="touchUpInside" id="gNd-19-ay3"/>
@@ -134,7 +134,7 @@
             <objects>
                 <viewController id="Yg6-cH-pT3" customClass="ExerciseViewController" customModule="BuiltDiff" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="r6z-ad-btC">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FBE-53-Wzq">
@@ -252,7 +252,7 @@
             <objects>
                 <viewController id="Cdx-KG-HFr" customClass="InspectExerciseViewController" customModule="BuiltDiff" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KHP-gP-IqQ">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" text="Your Exercise Summary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FWd-VX-tWs">
@@ -389,7 +389,7 @@
             <objects>
                 <viewController id="PUt-JM-sbq" customClass="WorkoutHistoryViewController" customModule="BuiltDiff" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3jJ-oB-oZq">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Cj0-GB-3dc">
@@ -474,7 +474,7 @@
             <objects>
                 <viewController id="Xho-ug-kaT" customClass="CreateWorkoutViewController" customModule="BuiltDiff" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vkc-RD-toN">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7cD-Bi-4xb">
@@ -612,7 +612,7 @@
             <objects>
                 <viewController id="T3C-wd-hXx" customClass="WatchInformationViewController" customModule="BuiltDiff" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6tr-av-yWp">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" text="How to Perform An Exercise" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gmD-s7-n5W">
@@ -734,7 +734,7 @@
             <objects>
                 <viewController id="Dy2-XJ-0XI" customClass="CreatedWorkoutsListViewController" customModule="BuiltDiff" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="luH-7B-ji8">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Yh-Gr-hew">
@@ -827,7 +827,7 @@
             <objects>
                 <viewController id="a3h-28-ob3" customClass="HomeViewController" customModule="BuiltDiff" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mvn-Lf-Ln5">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Welcome back, " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aZT-B5-zxe">
@@ -837,7 +837,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Looks like a good day to have a workout!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rhb-fR-SpK">
-                                <rect key="frame" x="20" y="97" width="293" height="20"/>
+                                <rect key="frame" x="20" y="53" width="293" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -924,7 +924,7 @@
             <objects>
                 <viewController id="6xV-qk-Oht" customClass="GroupViewController" customModule="BuiltDiff" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vvI-gj-piL">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Groups" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UIM-20-6bd">
@@ -1023,23 +1023,23 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A18-rf-pRT">
-                                        <rect key="frame" x="214" y="418" width="74" height="32"/>
+                                        <rect key="frame" x="213" y="71" width="74" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Join">
                                             <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="15"/>
-                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <color key="baseBackgroundColor" systemColor="systemOrangeColor"/>
+                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="baseBackgroundColor" systemColor="systemBlueColor"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="joinButtonTapped:" destination="FpP-og-aLB" eventType="touchUpInside" id="bKn-ce-Z81"/>
                                         </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="123456" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bhb-6j-bOT">
-                                        <rect key="frame" x="12" y="416" width="187" height="34"/>
+                                        <rect key="frame" x="11" y="69" width="187" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <view alpha="0.20000000298023224" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O7T-RB-QA4">
                                         <rect key="frame" x="12" y="59" width="278" height="2"/>
@@ -1047,23 +1047,23 @@
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Joining a Group will allow you to compete alongside your friends through achievements." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1t1-OF-TFU">
-                                        <rect key="frame" x="13" y="69" width="265" height="71"/>
+                                        <rect key="frame" x="17" y="111" width="265" height="71"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="achievements-icon" translatesAutoresizingMaskIntoConstraints="NO" id="rpm-Qy-8ue">
-                                        <rect key="frame" x="104" y="148" width="83" height="83"/>
+                                        <rect key="frame" x="108" y="190" width="83" height="83"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bikingIcon" translatesAutoresizingMaskIntoConstraints="NO" id="UKM-YW-czg">
-                                        <rect key="frame" x="113" y="317" width="74" height="73"/>
+                                        <rect key="frame" x="117" y="359" width="74" height="73"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You can also share exercises that you have previously completed using Apple Watch fitness tracking." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cym-kC-pLv">
-                                        <rect key="frame" x="12" y="239" width="266" height="70"/>
+                                        <rect key="frame" x="16" y="281" width="266" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1091,7 +1091,7 @@
             <objects>
                 <viewController id="QyL-2Y-d3g" customClass="CreateGroupViewController" customModule="BuiltDiff" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="chN-ZR-bX6">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Create Group" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d8b-ax-OYx">
@@ -1120,7 +1120,7 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Create Group" cornerStyle="large" titleAlignment="center">
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="15"/>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <color key="baseBackgroundColor" systemColor="systemOrangeColor"/>
+                                    <color key="baseBackgroundColor" systemColor="systemBlueColor"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="createGroupTapped:" destination="QyL-2Y-d3g" eventType="touchUpInside" id="ap6-8O-Nj2"/>
@@ -1169,11 +1169,11 @@
             <objects>
                 <viewController id="Zaa-e5-dJC" customClass="ListGroupsViewController" customModule="BuiltDiff" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ges-Te-Smb">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="BWq-sB-IAL">
-                                <rect key="frame" x="0.0" y="91" width="390" height="699"/>
+                                <rect key="frame" x="0.0" y="91" width="390" height="629"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tau-sN-fFW">
@@ -1191,7 +1191,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10 members" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R0o-de-1RJ">
-                                                    <rect key="frame" x="20" y="46" width="200" height="18"/>
+                                                    <rect key="frame" x="20" y="46" width="302" height="18"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
                                                     <nil key="textColor"/>
@@ -1213,7 +1213,7 @@
                                                 </label>
                                             </subviews>
                                         </collectionViewCellContentView>
-                                        <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                        <color key="backgroundColor" systemColor="systemGray5Color"/>
                                         <size key="customSize" width="350" height="110"/>
                                         <connections>
                                             <outlet property="groupDate" destination="I38-P6-nY6" id="ttc-kV-qOQ"/>
@@ -1223,18 +1223,6 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="18X-WD-0XC">
-                                <rect key="frame" x="342" y="51" width="32" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" image="arrowshape.turn.up.backward.fill" catalog="system">
-                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <color key="baseBackgroundColor" systemColor="systemOrangeColor"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="unwindToGroupHome:" destination="Zaa-e5-dJC" eventType="touchUpInside" id="RdO-ft-dBX"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="My Groups" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S5V-mk-pLz">
                                 <rect key="frame" x="25" y="51" width="131" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1242,6 +1230,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="18X-WD-0XC">
+                                <rect key="frame" x="138" y="739" width="114" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Done">
+                                    <color key="baseBackgroundColor" systemColor="systemBlueColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="unwindToGroupHome:" destination="Zaa-e5-dJC" eventType="touchUpInside" id="RdO-ft-dBX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="stg-DD-dPE"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1292,7 +1291,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="runningIcon" translatesAutoresizingMaskIntoConstraints="NO" id="sEi-o3-jJo">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="weightLifting" translatesAutoresizingMaskIntoConstraints="NO" id="sEi-o3-jJo">
                                         <rect key="frame" x="231" y="8" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
@@ -1466,66 +1465,66 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" text="Create A Group Challenge" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cJh-AS-C7H">
-                                <rect key="frame" x="20" y="34" width="314" height="30"/>
+                                <rect key="frame" x="20" y="76" width="314" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" text="Define the challenge requirements and post it so the group can see!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vQT-d8-cwf">
-                                <rect key="frame" x="20" y="72" width="354" height="40"/>
+                                <rect key="frame" x="20" y="114" width="354" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Running" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BYb-mz-Im9">
-                                <rect key="frame" x="25" y="163" width="340" height="34"/>
+                                <rect key="frame" x="25" y="205" width="340" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <view alpha="0.20000000298023224" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wvP-mf-Zz9">
-                                <rect key="frame" x="25" y="120" width="340" height="2"/>
+                                <rect key="frame" x="25" y="162" width="340" height="2"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="10" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SZe-qD-nF9">
-                                <rect key="frame" x="25" y="439" width="340" height="34"/>
+                                <rect key="frame" x="25" y="481" width="340" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Type of Exercise" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gk0-I8-xRI">
-                                <rect key="frame" x="25" y="130" width="126" height="25"/>
+                                <rect key="frame" x="25" y="172" width="126" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Goal" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0wU-46-kM8">
-                                <rect key="frame" x="25" y="406" width="126" height="25"/>
+                                <rect key="frame" x="25" y="448" width="126" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Deadline" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="USq-kA-roS">
-                                <rect key="frame" x="25" y="215" width="126" height="25"/>
+                                <rect key="frame" x="25" y="257" width="126" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Metric" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kjy-zV-Yo4">
-                                <rect key="frame" x="25" y="316" width="126" height="25"/>
+                                <rect key="frame" x="25" y="358" width="126" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="lTb-e6-axl">
-                                <rect key="frame" x="25" y="349" width="340" height="32"/>
+                                <rect key="frame" x="25" y="391" width="340" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Calories"/>
@@ -1537,26 +1536,26 @@
                                 </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Points Awarded" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bmz-7F-hl2">
-                                <rect key="frame" x="25" y="498" width="126" height="25"/>
+                                <rect key="frame" x="25" y="540" width="126" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="+100" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OK6-15-oPE">
-                                <rect key="frame" x="25" y="523" width="340" height="34"/>
+                                <rect key="frame" x="25" y="565" width="340" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bsh-gz-wgc">
-                                <rect key="frame" x="119" y="623" width="152" height="50"/>
+                                <rect key="frame" x="119" y="665" width="152" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Create Challenge" cornerStyle="large" titleAlignment="center">
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="15"/>
-                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <color key="baseBackgroundColor" systemColor="systemOrangeColor"/>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseBackgroundColor" systemColor="systemBlueColor"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="createChallenge:" destination="FG0-1M-4Pt" eventType="touchUpInside" id="h18-20-wt3"/>
@@ -1565,7 +1564,7 @@
                                 </connections>
                             </button>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="aMb-Pz-1jF">
-                                <rect key="frame" x="0.0" y="248" width="135" height="48"/>
+                                <rect key="frame" x="0.0" y="290" width="135" height="48"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </datePicker>
                         </subviews>
@@ -1582,9 +1581,11 @@
                         <outlet property="metricSegmentedControl" destination="lTb-e6-axl" id="Weo-Xb-gXr"/>
                         <outlet property="pointsLabel" destination="OK6-15-oPE" id="eSi-Li-Tdo"/>
                         <outlet property="typeOfExerciseLabel" destination="BYb-mz-Im9" id="2i7-jR-75g"/>
+                        <segue destination="jOF-pT-5eu" kind="unwind" identifier="unwindToGroupDetails" unwindAction="unwind:" id="t4u-Nl-KAT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jLB-84-bRt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="jOF-pT-5eu" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="96.92307692307692" y="2968.7203791469192"/>
         </scene>
@@ -1593,7 +1594,7 @@
             <objects>
                 <viewController storyboardIdentifier="groupDetails" id="YKh-eP-vLq" customClass="GroupDetailsViewController" customModule="BuiltDiff" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6di-DH-jcW">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A2c-H4-NrX">
@@ -1612,9 +1613,9 @@
                                 <rect key="frame" x="16" y="52" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" image="arrowshape.turn.up.backward.fill" catalog="system">
-                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <color key="baseBackgroundColor" systemColor="systemOrangeColor"/>
+                                <buttonConfiguration key="configuration" style="filled" image="arrow.left" catalog="system">
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseBackgroundColor" systemColor="systemBlueColor"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="unwindToMyGroups:" destination="YKh-eP-vLq" eventType="touchUpInside" id="NHh-wR-Q14"/>
@@ -1698,7 +1699,7 @@
                                                 </label>
                                             </subviews>
                                         </collectionViewCellContentView>
-                                        <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                        <color key="backgroundColor" systemColor="systemGray5Color"/>
                                         <size key="customSize" width="350" height="110"/>
                                         <connections>
                                             <outlet property="caloriesBurntLabel" destination="wKB-ME-ePf" id="7zd-Jm-9wb"/>
@@ -1742,7 +1743,7 @@
                                                 </label>
                                             </subviews>
                                         </collectionViewCellContentView>
-                                        <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                        <color key="backgroundColor" systemColor="systemGray5Color"/>
                                         <size key="customSize" width="390" height="110"/>
                                         <connections>
                                             <outlet property="numberOfTasksLabel" destination="vxK-s3-pg6" id="SiK-7t-dpu"/>
@@ -1765,7 +1766,7 @@
                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="auc-ah-eTW">
                                         <rect key="frame" x="8" y="53" width="341" height="4"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="tintColor" systemColor="systemOrangeColor"/>
+                                        <color key="tintColor" red="0.23709934949874878" green="0.57624751329421997" blue="0.92156511545181274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </progressView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Metric" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9RB-dr-Axg">
                                         <rect key="frame" x="8" y="26" width="177" height="25"/>
@@ -1880,11 +1881,11 @@
             <objects>
                 <viewController storyboardIdentifier="leaderboardScreen" id="Kf5-Le-XTU" customClass="LeaderboardViewController" customModule="BuiltDiff" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TOp-YV-Bem">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="dxp-RG-EzM">
-                                <rect key="frame" x="0.0" y="164" width="390" height="626"/>
+                                <rect key="frame" x="0.0" y="164" width="390" height="630"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
@@ -1933,9 +1934,9 @@
                                 <rect key="frame" x="331" y="58" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" image="arrowshape.turn.up.backward.fill" catalog="system">
-                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <color key="baseBackgroundColor" systemColor="systemOrangeColor"/>
+                                <buttonConfiguration key="configuration" style="filled" image="arrow.left" catalog="system">
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseBackgroundColor" systemColor="systemBlueColor"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="unwindToMyGroups:" destination="YKh-eP-vLq" eventType="touchUpInside" id="kHh-IY-b3j"/>
@@ -2178,7 +2179,7 @@
             <objects>
                 <viewController id="YVb-Jf-hft" customClass="LoginViewController" customModule="BuiltDiff" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="C7J-76-e3d">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please sign in to continue." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kor-OM-Rag">
@@ -2201,21 +2202,21 @@
                                 <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ECc-x5-FSd">
-                                <rect key="frame" x="237" y="786.66666666666663" width="86" height="30"/>
-                                <color key="tintColor" systemColor="systemOrangeColor"/>
+                                <rect key="frame" x="237" y="732.66666666666663" width="86" height="30"/>
+                                <color key="tintColor" systemColor="systemBlueColor"/>
                                 <state key="normal" title="Sign Up"/>
                                 <connections>
                                     <segue destination="3HP-bf-Ukf" kind="push" id="uxs-hW-jKd"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Don't have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="739-f6-bBH">
-                                <rect key="frame" x="77" y="793" width="152" height="17"/>
+                                <rect key="frame" x="77" y="739" width="152" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Crz-zM-uDX">
-                                <rect key="frame" x="35" y="280" width="94" height="42"/>
+                                <rect key="frame" x="35" y="236" width="94" height="42"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="35"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -2228,7 +2229,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="LOGIN">
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="15"/>
-                                    <color key="baseBackgroundColor" systemColor="systemOrangeColor"/>
+                                    <color key="baseBackgroundColor" systemColor="systemBlueColor"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="loginTapped:" destination="YVb-Jf-hft" eventType="touchUpInside" id="I4g-Iu-Ivr"/>
@@ -2275,7 +2276,7 @@
             <objects>
                 <viewController id="6Ia-ea-cdF" customClass="ProfileViewController" customModule="BuiltDiff" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GtZ-AB-Pfo">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GIl-ap-S1U">
@@ -2434,7 +2435,7 @@
             <objects>
                 <viewController id="Qqz-uJ-PPN" customClass="InspectWorkoutViewController" customModule="BuiltDiff" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JSc-pV-lbM">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fIx-j9-ZYP">
@@ -2568,7 +2569,7 @@
             <objects>
                 <viewController id="iXR-ql-Y3E" customClass="CompleteWorkoutViewController" customModule="BuiltDiff" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kFc-5j-7im">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" text="Update the tasks that you have completed as you progress through the workout" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vQJ-df-pYq">
@@ -2699,7 +2700,7 @@
             <objects>
                 <viewController id="0Ci-T2-wec" customClass="AchievementViewController" customModule="BuiltDiff" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WKE-8T-Rgs">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8n6-Bd-nKK">
@@ -2831,7 +2832,7 @@
             <objects>
                 <viewController id="ZA4-Ab-DLb" customClass="ExerciseHomeViewController" customModule="BuiltDiff" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Lo-qx-1xY">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view alpha="0.20000000298023224" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9SG-ks-eFp">
@@ -2991,7 +2992,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="lox-oc-qxw"/>
+        <segue reference="Nwk-KE-cnk"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="ExerciseCompleted" width="368" height="448"/>
@@ -2999,7 +3000,7 @@
         <image name="ExerciseSelection" width="368" height="448"/>
         <image name="IMG_0601" width="500" height="670"/>
         <image name="achievements-icon" width="2048" height="2048"/>
-        <image name="arrowshape.turn.up.backward.fill" catalog="system" width="128" height="106"/>
+        <image name="arrow.left" catalog="system" width="128" height="98"/>
         <image name="bikingIcon" width="200" height="200"/>
         <image name="body_fat_percentage_fitness_diet_icon_149052" width="512" height="512"/>
         <image name="bolt.fill" catalog="system" width="101" height="128"/>
@@ -3023,7 +3024,6 @@
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="plus.circle" catalog="system" width="128" height="121"/>
         <image name="ruler.fill" catalog="system" width="128" height="57"/>
-        <image name="runningIcon" width="1200" height="1200"/>
         <image name="star" width="128" height="128"/>
         <image name="star" catalog="system" width="128" height="116"/>
         <image name="stopwatch" catalog="system" width="121" height="128"/>
@@ -3038,6 +3038,9 @@
         </systemColor>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

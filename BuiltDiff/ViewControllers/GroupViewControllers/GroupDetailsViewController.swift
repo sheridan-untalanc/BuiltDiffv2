@@ -114,7 +114,12 @@ class GroupDetailsViewController: UIViewController {
         performSegue(withIdentifier: "unwindToMyGroups", sender: self)
         }
     
+    @IBAction func unwind( _ seg: UIStoryboardSegue) {
+    }
+    
     @IBAction func createGroupChallenge(_ sender: Any) {
+        self.challengeOverlapView.isHidden = true
+        self.challengeOverlapLabel.isHidden = true
         let vc = storyboard?.instantiateViewController(withIdentifier: "createChallengeScene") as? CreateGroupChallengeViewController
         vc?.group = group
         self.navigationController?.present(vc!, animated: true)
@@ -131,18 +136,13 @@ class GroupDetailsViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    
-    @IBAction func unwind( _ seg: UIStoryboardSegue) {
-        
-        }
-    
     @objc func imageTapped(gesture: UIGestureRecognizer) {
             // if the tapped view is a UIImageView then set it to imageview
             if (gesture.view as? UIImageView) != nil {
-                print("Image Tapped")
                 let vc = storyboard?.instantiateViewController(withIdentifier: "leaderboardScreen") as? LeaderboardViewController
-                vc?.groupIdNumber = group!.GroupId
-                performSegue(withIdentifier: "leaderboardSegue", sender: self)
+                vc?.groupIdNumber = group!
+                self.navigationController?.present(vc!, animated: true)
+//                performSegue(withIdentifier: "leaderboardSegue", sender: self)
             }
         }
     

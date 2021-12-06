@@ -12,16 +12,21 @@ class LeaderboardViewController: UIViewController{
     @IBOutlet weak var leaderboardTableView: UITableView!
     
     var username: String = ""
-    var listOfUsers: [String: [String:Int]] = [:]
-    var groupIdNumber = ""
+    var listOfUsers: [(userId: String, points: Int)] = []
+    var groupIdNumber: Group? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
         Task.init{
             leaderboardTableView.dataSource = self
             leaderboardTableView.delegate = self
-            listOfUsers = try await FirebaseAccessLayer.GetUsersFromGroup(groupId: groupIdNumber)
-            listOfUsers.sorted
+            listOfUsers = try await FirebaseAccessLayer.GetUsersFromGroup(groupId: groupIdNumber!.GroupId)
+            for i in 0...listOfUsers.count-1{
+                let userId = listOfUsers[i].userId
+                listOfUsers[i].userId = try await FirebaseAccessLayer.GetUsername(userId: userId)
+            }
+            listOfUsers = listOfUsers.sorted(by: {$0.points > $1.points })
+            leaderboardTableView.reloadData()
         }
     }
 }
@@ -41,16 +46,16 @@ extension LeaderboardViewController: UITableViewDataSource{
         let cell = leaderboardTableView.dequeueReusableCell(withIdentifier: "leaderboardCell", for: indexPath) as! LeaderboardTableViewCell
         cell.textLabel?.text = username
         if indexPath.row == 0 {
-            cell.configure(picture: UIImage(named: "goldMedal")!)
+            cell.configure(picture: UIImage(named: "goldMedal")!, name: listOfUsers[indexPath.row].userId, points: listOfUsers[indexPath.row].points)
         }
         else if indexPath.row == 1 {
-            cell.configure(picture: UIImage(named: "silverMedal")!)
+            cell.configure(picture: UIImage(named: "silverMedal")!, name: listOfUsers[indexPath.row].userId, points: listOfUsers[indexPath.row].points)
         }
         else if indexPath.row == 2 {
-            cell.configure(picture: UIImage(named: "bronzeMedal")!)
+            cell.configure(picture: UIImage(named: "bronzeMedal")!, name: listOfUsers[indexPath.row].userId, points: listOfUsers[indexPath.row].points)
         }
         else{
-            cell.configure(picture: <#T##UIImage#>, name: <#T##String#>, points: listOfUsers[indexPath.row].)
+            cell.configure(picture: UIImage(), name: listOfUsers[indexPath.row].userId, points: listOfUsers[indexPath.row].points )
         }
         return cell
     }

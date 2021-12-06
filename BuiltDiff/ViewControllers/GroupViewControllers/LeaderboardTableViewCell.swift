@@ -24,10 +24,10 @@ class LeaderboardTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configure(picture: UIImage, name: String, points: String){
+    func configure(picture: UIImage, name: String, points: Int){
         trophyImage.image = picture
         userName.text = name
-        userPoints.text = points
+        userPoints.text = ("\(points)")
     }
 
 }

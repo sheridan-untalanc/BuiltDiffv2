@@ -139,7 +139,7 @@ class AchievementChecker: NSObject {
         var completed = [[String]]()
         
         let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate,
-                                                ascending: true)
+                                                ascending: false)
         
         let query = HKSampleQuery(
           sampleType: .workoutType(),
