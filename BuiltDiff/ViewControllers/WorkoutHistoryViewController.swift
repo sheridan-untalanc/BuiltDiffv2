@@ -9,7 +9,7 @@ import UIKit
 
 class WorkoutHistoryViewController: UIViewController {
 
-    @IBOutlet var workoutCollectionView: UICollectionView!
+    @IBOutlet weak var workoutTableView: UITableView!
     var myWorkouts: [(workoutId: String, workoutName: String, dateCompleted: String)] = []
     
     override func viewDidLoad() {
@@ -17,10 +17,8 @@ class WorkoutHistoryViewController: UIViewController {
         
         Task.init{
             myWorkouts = try await FirebaseAccessLayer.GetAllUserCompletedWorkouts()
-            workoutCollectionView.dataSource = self
-            workoutCollectionView.delegate = self
-            workoutCollectionView.collectionViewLayout = UICollectionViewLayout()
-            workoutCollectionView.reloadData()
+            workoutTableView.dataSource = self
+            workoutTableView.delegate = self
         }
 
     }
@@ -31,26 +29,21 @@ class WorkoutHistoryViewController: UIViewController {
 }
 
 
-extension WorkoutHistoryViewController: UICollectionViewDataSource{
+extension WorkoutHistoryViewController: UITableViewDataSource, UITableViewDelegate{
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return myWorkouts.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CompletedWorkoutCollectionViewCell", for: indexPath) as! CompletedWorkoutCollectionViewCell
-            cell.configure(name: myWorkouts[indexPath.row].workoutName, date: myWorkouts[indexPath.row].dateCompleted)
-            return cell
-
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 5
     }
-}
-
-extension WorkoutHistoryViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 349, height: 115)
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "WorkoutHistoryTableViewCell") as! WorkoutHistoryTableViewCell
+        cell.configure(name: "test", date: "test", image: UIImage(named: "bikingIcon")!)
+        return cell
     }
+    
 }
