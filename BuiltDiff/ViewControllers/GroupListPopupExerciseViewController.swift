@@ -12,7 +12,6 @@ class GroupListPopupExerciseViewController: UIViewController {
     @IBOutlet weak var groupsCollectionView: UICollectionView!
     @IBOutlet var groupView: UIView!
     
-    
     var groups: [Group] = []
     
     override func viewDidLoad() {

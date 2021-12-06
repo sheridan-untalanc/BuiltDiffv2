@@ -7,7 +7,6 @@
 
 import UIKit
 
-var groupListBuilder: Profile?
 
 class InspectExerciseViewController: UIViewController {
 
@@ -30,12 +29,6 @@ class InspectExerciseViewController: UIViewController {
         typeImage.image = UIImage(named: workouts[workoutSelection][4])!
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        Task.init{
-            groupListBuilder = try await Profile.GetProfile()
-        }
     }
     
     @IBAction func unwindToExercisehistory(_ sender: Any) {

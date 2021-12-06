@@ -31,7 +31,10 @@ class CreateWorkoutViewController: UIViewController {
         Workout(name: WorkoutName.text!, workoutTasks:  taskArray, saveToDatabase: true)
         performSegue(withIdentifier: "unwindToExerciseHome", sender: self)
     }
-
+    @IBAction func cancelCreation(_ sender: Any) {
+        performSegue(withIdentifier: "unwindToExerciseHome", sender: self)
+    }
+    
     @IBAction func CreateTask(_ sender: Any) {
         taskArray.append(WorkoutTask(name: TitleText.text!, reps: Int(RepText.text!)!, sets: Int(SetText.text!)!, description: DescText.text!))
         taskDisplay.append([TitleText.text,DescText.text,SetText.text,RepText.text])

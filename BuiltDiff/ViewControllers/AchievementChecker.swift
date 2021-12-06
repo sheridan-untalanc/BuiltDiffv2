@@ -47,6 +47,69 @@ class AchievementChecker: NSObject {
         
     }
     
+    func getValueForMetric(challengePassed: Challenge, completion: @escaping (Double) -> Void){
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd hh:mm:ss"
+        let dateFormattedStart: Date = dateFormatter.date(from: challengePassed.StartDate)!
+        let dateFormattedEnd: Date = dateFormatter.date(from: challengePassed.EndDate)!
+        var completedMetric:Double = 0.0
+        var workoutPredicate = HKQuery.predicateForWorkouts(with: .cycling)
+        
+        if challengePassed.ExerciseType == "Running"{
+            workoutPredicate = HKQuery.predicateForWorkouts(with: .running)
+        } else if challengePassed.ExerciseType == "Walking"{
+            workoutPredicate = HKQuery.predicateForWorkouts(with: .walking)
+        } else if challengePassed.ExerciseType == "Swimming"{
+            workoutPredicate = HKQuery.predicateForWorkouts(with: .swimming)
+            
+        }
+            
+        let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate,
+                                              ascending: true)
+        
+        let query = HKSampleQuery(
+          sampleType: .workoutType(),
+          predicate: workoutPredicate,
+          limit: 50,
+          sortDescriptors: [sortDescriptor]) { (query, samples, error) in
+              DispatchQueue.main.async {
+              guard
+                let samples = samples as? [HKWorkout],
+                error == nil
+                else {
+                  return
+              }
+                  for i in 0..<samples.count{
+                      let date = samples[i].startDate
+                      print("monka\(date)")
+                      let dateFormatter = DateFormatter()
+                      dateFormatter.dateFormat = "yyyy-MM-dd hh:mm:ss"
+                      let formattedDate = dateFormatter.string(from: date)
+                      let fixedDate: Date = dateFormatter.date(from: formattedDate)!
+                      if (fixedDate > dateFormattedStart && fixedDate < dateFormattedEnd){
+                          print("Made it in")
+                          if challengePassed.Metric == "Calories"{
+                              completedMetric += Double(samples[i].totalEnergyBurned!.doubleValue(for: HKUnit.largeCalorie()))
+                          } else if challengePassed.Metric == "Distance (Km)"{
+                              if samples[i].totalDistance == nil {
+                                  completedMetric += 0.0
+                              } else {
+                                  completedMetric += Double((samples[i].totalDistance!.doubleValue(for: HKUnit.meter()))/1000)
+                              }
+                          } else if challengePassed.Metric == "Duration (min)"{
+                              completedMetric += Double(samples[i].duration/60)
+                          }
+                      }
+                  }
+                  completion(completedMetric)
+            }
+          }
+        HKHealthStore().execute(query)
+        
+    
+    }
+    
     func ExercisesCompleted(completion: @escaping (Int) -> Void){
             var completed = 0
             let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate,
@@ -76,7 +139,7 @@ class AchievementChecker: NSObject {
         var completed = [[String]]()
         
         let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate,
-                                                ascending: true)
+                                                ascending: false)
         
         let query = HKSampleQuery(
           sampleType: .workoutType(),
@@ -105,6 +168,9 @@ class AchievementChecker: NSObject {
                     case 52:
                         exerciseType = "Walking"
                         imageType = "walkingIcon"
+                    case 37:
+                        exerciseType = "Running"
+                        imageType = "runningIcon"
                     default:
                         exerciseType = "Generic Workout"
                         imageType = "runningIcon"
@@ -136,31 +202,6 @@ class AchievementChecker: NSObject {
             }
         HKHealthStore().execute(query)
     }
-    
-//    func ExercisesCompleted() async throws -> Int{
-//            var completed = 0
-//            let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate,
-//                                                  ascending: true)
-//
-//            let query = HKSampleQuery(
-//              sampleType: .workoutType(),
-//              predicate: nil,
-//              limit: 50,
-//              sortDescriptors: [sortDescriptor]) { (query, samples, error) in
-//                  DispatchQueue.main.async {
-//                  guard
-//                    let samples = samples as? [HKWorkout],
-//                    error == nil
-//                    else {
-//                      return
-//                  }
-//                completed = samples.count
-//                }
-//              }
-//        HKHealthStore().execute(query.)
-//        return completed
-//
-//    }
 
     
     func TotalDuration(completion: @escaping (Double) -> Void){
@@ -194,6 +235,7 @@ class AchievementChecker: NSObject {
         HKHealthStore().execute(query)
         
     }
+    
     func TotalCalories(completion: @escaping (Double) -> Void){
         
         var totalCalories = 0.0
@@ -255,5 +297,5 @@ class AchievementChecker: NSObject {
     
 }
 
-    
+
 

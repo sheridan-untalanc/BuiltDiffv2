@@ -22,18 +22,16 @@ class GroupDetailsViewController: UIViewController {
     @IBOutlet weak var challengeTitleLabel: UILabel!
     @IBOutlet weak var challengeDeadlineLabel: UILabel!
     @IBOutlet weak var challengeMetricLabel: UILabel!
-    @IBOutlet weak var challengeGoalLabel: UILabel!
     @IBOutlet weak var challengePointsLabel: UILabel!
     @IBOutlet weak var challengeProgressBar: UIProgressView!
+    @IBOutlet var challengeOverlapView: UIView!
+    @IBOutlet var challengeOverlapLabel: UILabel!
     
+    let metricFetcher = AchievementChecker()
     var group: Group? = nil
     var challenge: Challenge? = nil
     var groupWorkouts: [Workout] = []
     var content: String!
-    
-    
-//    var myGroupWorkouts = group?.Workouts
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,11 +66,34 @@ class GroupDetailsViewController: UIViewController {
         Task.init{
             challenge = try await FirebaseAccessLayer.GetChallenge(groupId: group!.GroupId)
             DispatchQueue.main.async {
+                if self.challenge?.ExerciseType != "N/A"{
+                    self.challengeOverlapView.isHidden = true
+                    self.challengeOverlapLabel.isHidden = true
+                }
                 self.challengeTitleLabel.text = self.challenge?.ExerciseType
-                self.challengeMetricLabel.text = self.challenge?.Metric
+                if self.challenge?.Metric == "Calories"{
+                    self.challengeMetricLabel.text = "Burn \(self.challenge?.Goal ?? "5") Calories"
+                } else if self.challenge?.Metric == "Duration (min)"{
+                    self.challengeMetricLabel.text = "Complete \(self.challenge?.Goal  ?? "5") minutes"
+                } else{
+                    self.challengeMetricLabel.text = "Travel \(self.challenge?.Goal ?? "5") km"
+                }
                 self.challengeDeadlineLabel.text = self.challenge?.EndDate
-                self.challengeGoalLabel.text = self.challenge?.Goal
                 self.challengePointsLabel.text = "+\(self.challenge?.Points ?? 0) Points"
+                if self.challenge?.ExerciseType != "N/A"{
+                    self.metricFetcher.getValueForMetric(challengePassed: self.challenge!){ (completion) in
+                        let totalMetric = completion
+                        if totalMetric > Double(self.challenge!.Goal)!{
+                            self.challengeProgressBar.setProgress(1, animated: true)
+                            Task.init{
+                                try await FirebaseAccessLayer.PushPoints(groupId: self.group!.GroupId, points: self.challenge!.Points)
+                            }
+                        } else {
+                            self.challengeProgressBar.setProgress(Float((totalMetric/Double(self.challenge!.Goal)!)*100), animated: true)
+                        }
+                        
+                    }
+                }
             }
         }
         
@@ -85,15 +106,55 @@ class GroupDetailsViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        Task.init{
+            challenge = try await FirebaseAccessLayer.GetChallenge(groupId: group!.GroupId)
+            DispatchQueue.main.async {
+                if self.challenge?.ExerciseType != "N/A"{
+                    self.challengeOverlapView.isHidden = true
+                    self.challengeOverlapLabel.isHidden = true
+                }
+                self.challengeTitleLabel.text = self.challenge?.ExerciseType
+                if self.challenge?.Metric == "Calories"{
+                    self.challengeMetricLabel.text = "Burn \(self.challenge?.Goal ?? "5") Calories"
+                } else if self.challenge?.Metric == "Duration (min)"{
+                    self.challengeMetricLabel.text = "Complete \(self.challenge?.Goal  ?? "5") minutes"
+                } else{
+                    self.challengeMetricLabel.text = "Travel \(self.challenge?.Goal ?? "5") km"
+                }
+                self.challengeDeadlineLabel.text = self.challenge?.EndDate
+                self.challengePointsLabel.text = "+\(self.challenge?.Points ?? 0) Points"
+                if self.challenge?.ExerciseType != "N/A"{
+                    self.metricFetcher.getValueForMetric(challengePassed: self.challenge!){ (completion) in
+                        let totalMetric = completion
+                        if totalMetric > Double(self.challenge!.Goal)!{
+                            self.challengeProgressBar.setProgress(1, animated: true)
+                            Task.init{
+                                try await FirebaseAccessLayer.PushPoints(groupId: self.group!.GroupId, points: self.challenge!.Points)
+                            }
+                        } else {
+                            self.challengeProgressBar.setProgress(Float((totalMetric/Double(self.challenge!.Goal)!)*100), animated: true)
+                        }
+                        
+                    }
+                }
+            }
+        }
+    }
+    
     @IBAction func unwindToMyGroups(_ sender: Any) {
         performSegue(withIdentifier: "unwindToMyGroups", sender: self)
         }
     
+    @IBAction func unwind( _ seg: UIStoryboardSegue) {
+    }
+    
     @IBAction func createGroupChallenge(_ sender: Any) {
+        self.challengeOverlapView.isHidden = true
+        self.challengeOverlapLabel.isHidden = true
         let vc = storyboard?.instantiateViewController(withIdentifier: "createChallengeScene") as? CreateGroupChallengeViewController
         vc?.group = group
-        self.navigationController?.present(vc!, animated: true)
-//        performSegue(withIdentifier: "createChallengeSegue", sender: self)
+        self.navigationController?.show(vc!, sender: self)
     }
     
     
@@ -106,17 +167,13 @@ class GroupDetailsViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    
-    @IBAction func unwind( _ seg: UIStoryboardSegue) {
-        
-        }
-    
     @objc func imageTapped(gesture: UIGestureRecognizer) {
             // if the tapped view is a UIImageView then set it to imageview
             if (gesture.view as? UIImageView) != nil {
-                print("Image Tapped")
-                //Here you can initiate your new ViewController
-                performSegue(withIdentifier: "leaderboardSegue", sender: self)
+                let vc = storyboard?.instantiateViewController(withIdentifier: "leaderboardScreen") as? LeaderboardViewController
+                vc?.groupIdNumber = group!
+                self.navigationController?.present(vc!, animated: true)
+//                performSegue(withIdentifier: "leaderboardSegue", sender: self)
             }
         }
     

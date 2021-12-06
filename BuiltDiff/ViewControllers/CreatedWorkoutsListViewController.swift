@@ -7,8 +7,14 @@
 
 import UIKit
 
+var selectedWorkout = 0
+
 class CreatedWorkoutsListViewController: UIViewController {
     @IBOutlet weak var workoutSessionCollectionView: UICollectionView!
+    
+    @IBAction func unwind( _ seg: UIStoryboardSegue) {
+    }
+    
     var myWorkouts: [Workout] = []
     
     override func viewDidLoad() {
@@ -26,7 +32,9 @@ class CreatedWorkoutsListViewController: UIViewController {
             workoutSessionCollectionView.reloadData()
         }
     }
-    
+    @IBAction func unwindToExerciseHome(_ sender: Any) {
+        performSegue(withIdentifier: "unwindToExerciseHome", sender: self)
+    }
 }
 
 extension CreatedWorkoutsListViewController: UICollectionViewDataSource{
@@ -44,7 +52,8 @@ extension CreatedWorkoutsListViewController: UICollectionViewDataSource{
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("works")
+        selectedWorkout = indexPath.row
+        performSegue(withIdentifier: "WorkoutDetails", sender: self)
     }
     
     
@@ -52,6 +61,6 @@ extension CreatedWorkoutsListViewController: UICollectionViewDataSource{
 
 extension CreatedWorkoutsListViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 350, height: 75)
+        return CGSize(width: 340, height: 73)
     }
 }
