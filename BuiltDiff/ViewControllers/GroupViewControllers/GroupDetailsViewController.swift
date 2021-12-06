@@ -33,10 +33,6 @@ class GroupDetailsViewController: UIViewController {
     var groupWorkouts: [Workout] = []
     var content: String!
     
-    
-//    var myGroupWorkouts = group?.Workouts
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -110,6 +106,42 @@ class GroupDetailsViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        Task.init{
+            challenge = try await FirebaseAccessLayer.GetChallenge(groupId: group!.GroupId)
+            DispatchQueue.main.async {
+                if self.challenge?.ExerciseType != "N/A"{
+                    self.challengeOverlapView.isHidden = true
+                    self.challengeOverlapLabel.isHidden = true
+                }
+                self.challengeTitleLabel.text = self.challenge?.ExerciseType
+                if self.challenge?.Metric == "Calories"{
+                    self.challengeMetricLabel.text = "Burn \(self.challenge?.Goal ?? "5") Calories"
+                } else if self.challenge?.Metric == "Duration (min)"{
+                    self.challengeMetricLabel.text = "Complete \(self.challenge?.Goal  ?? "5") minutes"
+                } else{
+                    self.challengeMetricLabel.text = "Travel \(self.challenge?.Goal ?? "5") km"
+                }
+                self.challengeDeadlineLabel.text = self.challenge?.EndDate
+                self.challengePointsLabel.text = "+\(self.challenge?.Points ?? 0) Points"
+                if self.challenge?.ExerciseType != "N/A"{
+                    self.metricFetcher.getValueForMetric(challengePassed: self.challenge!){ (completion) in
+                        let totalMetric = completion
+                        if totalMetric > Double(self.challenge!.Goal)!{
+                            self.challengeProgressBar.setProgress(1, animated: true)
+                            Task.init{
+                                try await FirebaseAccessLayer.PushPoints(groupId: self.group!.GroupId, points: self.challenge!.Points)
+                            }
+                        } else {
+                            self.challengeProgressBar.setProgress(Float((totalMetric/Double(self.challenge!.Goal)!)*100), animated: true)
+                        }
+                        
+                    }
+                }
+            }
+        }
+    }
+    
     @IBAction func unwindToMyGroups(_ sender: Any) {
         performSegue(withIdentifier: "unwindToMyGroups", sender: self)
         }
@@ -122,8 +154,7 @@ class GroupDetailsViewController: UIViewController {
         self.challengeOverlapLabel.isHidden = true
         let vc = storyboard?.instantiateViewController(withIdentifier: "createChallengeScene") as? CreateGroupChallengeViewController
         vc?.group = group
-        self.navigationController?.present(vc!, animated: true)
-//        performSegue(withIdentifier: "createChallengeSegue", sender: self)
+        self.navigationController?.show(vc!, sender: self)
     }
     
     

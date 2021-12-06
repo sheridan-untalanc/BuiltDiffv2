@@ -65,7 +65,6 @@ class CreateGroupViewController: UIViewController {
             else{
                 let alert = UIAlertController(title: "Error!", message: "You can only create one group!", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: finishAlert(alert:)))
-                self.present(alert, animated: true, completion: nil)
             }
             return
         }

@@ -1581,7 +1581,7 @@
                         <outlet property="metricSegmentedControl" destination="lTb-e6-axl" id="Weo-Xb-gXr"/>
                         <outlet property="pointsLabel" destination="OK6-15-oPE" id="eSi-Li-Tdo"/>
                         <outlet property="typeOfExerciseLabel" destination="BYb-mz-Im9" id="2i7-jR-75g"/>
-                        <segue destination="jOF-pT-5eu" kind="unwind" identifier="unwindToGroupDetails" unwindAction="unwind:" id="t4u-Nl-KAT"/>
+                        <segue destination="jOF-pT-5eu" kind="unwind" identifier="unwindToGroupDetails" unwindAction="unwind:" id="XvQ-0e-0hT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jLB-84-bRt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
