@@ -32,17 +32,17 @@ class WorkoutHistoryViewController: UIViewController {
 extension WorkoutHistoryViewController: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return myWorkouts.count
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 5
+        return 1
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WorkoutHistoryTableViewCell") as! WorkoutHistoryTableViewCell
-        cell.configure(name: "test", date: "test", image: UIImage(named: "bikingIcon")!)
+        cell.configure(name: myWorkouts[indexPath.row].workoutName, date: myWorkouts[indexPath.row].dateCompleted, image: UIImage(named: "weightLifting")!)
         return cell
     }
     

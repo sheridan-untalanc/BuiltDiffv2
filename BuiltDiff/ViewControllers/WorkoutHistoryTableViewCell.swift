@@ -14,7 +14,7 @@ class WorkoutHistoryTableViewCell: UITableViewCell {
     
     func configure(name: String, date: String, image: UIImage){
         workoutTitle.text = name
-        workoutDate.text = "Performed on: \(date)"
+        workoutDate.text = "Date: \(date)"
         workoutImage.image = image
     }
 }

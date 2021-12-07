@@ -15,7 +15,7 @@ class GroupListPopupCollectionViewCell: UICollectionViewCell {
     func configure(name: String, description: String){
             groupName.text = name
             groupDescription.text = description
-            groupDescription .sizeToFit()
+            groupDescription.sizeToFit()
         }
     
 }
