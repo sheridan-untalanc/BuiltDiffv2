@@ -24,6 +24,7 @@
 		7355B8942743002900501F72 /* GroupDetailsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7355B8932743002900501F72 /* GroupDetailsCollectionViewCell.swift */; };
 		7355B8962743183100501F72 /* CreateExerciseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7355B8952743183100501F72 /* CreateExerciseCollectionViewCell.swift */; };
 		735F471B271A33F300309D08 /* JoinGroupCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735F471A271A33F300309D08 /* JoinGroupCollectionViewCell.swift */; };
+		73892A0A275EA4A800AA481F /* WorkoutHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73892A09275EA4A800AA481F /* WorkoutHistoryTableViewCell.swift */; };
 		73C8294A271B515F000091B9 /* ListGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C82949271B515F000091B9 /* ListGroupsViewController.swift */; };
 		73E1669D2758162B006A085D /* CreateGroupChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E1669C2758162B006A085D /* CreateGroupChallengeViewController.swift */; };
 		73EB85F2274DBBA800015AF2 /* WorkoutDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EB85F1274DBBA800015AF2 /* WorkoutDetailViewController.swift */; };
@@ -160,6 +161,7 @@
 		7355B8932743002900501F72 /* GroupDetailsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailsCollectionViewCell.swift; sourceTree = "<group>"; };
 		7355B8952743183100501F72 /* CreateExerciseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateExerciseCollectionViewCell.swift; sourceTree = "<group>"; };
 		735F471A271A33F300309D08 /* JoinGroupCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinGroupCollectionViewCell.swift; sourceTree = "<group>"; };
+		73892A09275EA4A800AA481F /* WorkoutHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutHistoryTableViewCell.swift; sourceTree = "<group>"; };
 		73C82949271B515F000091B9 /* ListGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListGroupsViewController.swift; sourceTree = "<group>"; };
 		73E1669C2758162B006A085D /* CreateGroupChallengeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupChallengeViewController.swift; sourceTree = "<group>"; };
 		73EB85F1274DBBA800015AF2 /* WorkoutDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailViewController.swift; sourceTree = "<group>"; };
@@ -363,6 +365,7 @@
 				75693ECB2753205E00140D48 /* CompleteWorkoutCollectionViewCell.swift */,
 				751E285B275874F00002C006 /* CompletedWorkoutCollectionViewCell.swift */,
 				751E285D27587C5B0002C006 /* WorkoutHistoryViewController.swift */,
+				73892A09275EA4A800AA481F /* WorkoutHistoryTableViewCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -803,6 +806,7 @@
 				75050FE7271AB84B00B79C41 /* AchievementViewController.swift in Sources */,
 				75693EC42752FEDF00140D48 /* GroupListPopupWorkoutsCollectionViewCell.swift in Sources */,
 				751D2353275056F900E2A7C4 /* CreatedWorkoutsListViewController.swift in Sources */,
+				73892A0A275EA4A800AA481F /* WorkoutHistoryTableViewCell.swift in Sources */,
 				EB3FC1EE274DCB630049842D /* Exercise.swift in Sources */,
 				EB3FC1EA27499E510049842D /* Workout.swift in Sources */,
 				EBDE95D0260292F800B9E544 /* ViewController.swift in Sources */,
