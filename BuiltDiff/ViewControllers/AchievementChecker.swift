@@ -154,7 +154,8 @@ class AchievementChecker: NSObject {
                   return
               }
                 for i in 0..<samples.count{
-                    let calories = Double((samples[i].totalEnergyBurned!.doubleValue(for: HKUnit.largeCalorie())))
+                    var calories = Double((samples[i].totalEnergyBurned!.doubleValue(for: HKUnit.largeCalorie())))
+                    calories = round (100 * calories) / 100
 
                     var exerciseType = ""
                     var imageType = ""
@@ -192,9 +193,10 @@ class AchievementChecker: NSObject {
                         distance = 0.0
                     } else {
                         distance = Double((samples[i].totalDistance!.doubleValue(for: HKUnit.meter()))/1000)
+                        distance = round (100 * distance) / 100
                     }
                     
-                    let workout = [exerciseType, "\(h)h \(m)m \(s)s", "\(String(calories.rounded(.awayFromZero))) Cal", formattedDate, imageType, "\(distance.rounded(.awayFromZero)) Km"]
+                    let workout = [exerciseType, "\(h)h \(m)m \(s)s", "\(String (calories)) Cal", formattedDate, imageType, "\(distance) Km"]
                     completed.append(workout)
                 }
                 completion(completed)
