@@ -295,9 +295,8 @@
 		73C82948271B5111000091B9 /* GroupViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				758784702761BE0A0079F4DB /* JoinGroupViewController */,
 				73118F3F27091784005FE169 /* GroupViewController.swift */,
-				730C2640271632D600B4152E /* JoinGroupViewController.swift */,
-				735F471A271A33F300309D08 /* JoinGroupCollectionViewCell.swift */,
 				730C26462718C45200B4152E /* CreateGroupViewController.swift */,
 				73C82949271B515F000091B9 /* ListGroupsViewController.swift */,
 				730E0608273AF8AA00C95E00 /* ListGroupsCollectionViewCell.swift */,
@@ -311,6 +310,29 @@
 				73E1669C2758162B006A085D /* CreateGroupChallengeViewController.swift */,
 			);
 			path = GroupViewControllers;
+			sourceTree = "<group>";
+		};
+		7587846E2761BDE10079F4DB /* ProfileViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ProfileViewControllers;
+			sourceTree = "<group>";
+		};
+		7587846F2761BDEE0079F4DB /* ExerciseViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ExerciseViewControllers;
+			sourceTree = "<group>";
+		};
+		758784702761BE0A0079F4DB /* JoinGroupViewController */ = {
+			isa = PBXGroup;
+			children = (
+				735F471A271A33F300309D08 /* JoinGroupCollectionViewCell.swift */,
+				730C2640271632D600B4152E /* JoinGroupViewController.swift */,
+			);
+			path = JoinGroupViewController;
 			sourceTree = "<group>";
 		};
 		75B4D14F261014FB00DF4932 /* StoryBoards */ = {
@@ -337,6 +359,8 @@
 		EB205FAA260D398900C65260 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				7587846F2761BDEE0079F4DB /* ExerciseViewControllers */,
+				7587846E2761BDE10079F4DB /* ProfileViewControllers */,
 				73C82948271B5111000091B9 /* GroupViewControllers */,
 				EBDE95CF260292F800B9E544 /* ViewController.swift */,
 				75F97BE42746F81C0066D631 /* ExerciseHomeViewController.swift */,
