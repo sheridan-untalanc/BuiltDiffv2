@@ -34,14 +34,6 @@ class Workout {
         WorkoutTasks = workoutTasks
     }
     
-//    static func LoadUserWorkout(workoutId: String) async throws -> (Workout){
-//        return try await Workout(name: FirebaseAccessLayer.GetUserWorkout(workoutId: workoutId), workoutTasks: WorkoutTask.LoadUserWorkoutTasks(workoutId: workoutId))
-//    }
-//
-//    static func LoadGroupWorkout(workoutId: String, groupId: String) async throws -> (Workout){
-//        return try await Workout(name: FirebaseAccessLayer.GetGroupWorkout(workoutId: workoutId, groupId: group), workoutTasks: WorkoutTask.LoadGroupWorkoutTasks(workoutId: workoutId, groupId: groupId))
-//    }
-    
     static func LoadAllUsersWorkouts() async throws -> ([Workout]){
         var futureWorkouts: [Workout] = []
         let listOfWorkouts = try await FirebaseAccessLayer.GetAllUserWorkouts()
