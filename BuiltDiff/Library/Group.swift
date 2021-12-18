@@ -10,7 +10,6 @@ import Foundation
 class Group {
     var GroupId : String = ""
     var GroupName : String = ""
-    //var GroupImage : Data
     var GroupOwner : String = ""
     var GroupDescription : String = ""
     var Workouts : [Workout] = []
@@ -26,7 +25,6 @@ class Group {
         }
     }
     
-    //Creating Local Group
     init(groupId: String, groupName: String, groupOwner: String, groupDescription: String, workouts: [Workout], exercises: [Exercise], joinedUsers: [String: Int]) {
         GroupId = groupId
         GroupName = groupName

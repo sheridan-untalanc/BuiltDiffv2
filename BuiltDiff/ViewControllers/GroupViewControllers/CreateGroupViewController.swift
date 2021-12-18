@@ -34,13 +34,6 @@ class CreateGroupViewController: UIViewController {
         present(vc, animated: true)
     }
     
-//    func randomCode(digits: Int) -> String{
-//        var number = String()
-//        for _ in 1...digits {
-//            number += "\(Int.random(in: 1...9))"
-//        }
-//        return number
-//    }
     
     func finishAlert(alert: UIAlertAction!)
     {
